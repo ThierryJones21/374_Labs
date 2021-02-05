@@ -85,14 +85,12 @@ always @(A, B ,cntrl) begin
         6   :   C = <<< B; /// left arithtmatic shift
         7   :   C = >>> B; // right arithmetic shift
         8   :   begin           // rotate left
-                    A[0] = B[31];
                     C = << B;
-                    C[0] = A[0];
+                    C[0] = B[31];
                 end  
         9   :   begin   // rotate right
-                    A[0] = B[0];
                     C = >> B;
-                    C[31] = A[0];
+                    C[31] = B[0];
                 end
         10  :   C = booth(A,B);
         11  :   C = A/B;  //TO-DO
