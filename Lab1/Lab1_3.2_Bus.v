@@ -70,4 +70,4 @@ BusMuxIn_R0, BusMuxIn_R1, BusMuxIn_R2, BusMuxIn_R3, BusMuxIn_R4, BusMuxIn_R5, Bu
             default :     BusMuxOut = C_Sign_Extended;
     end
        
-endmodule;
+endmodule
