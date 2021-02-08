@@ -1,16 +1,30 @@
 `include "Modules/mux21_32bit.v"
 `include "Modules/dff_32bit.v"
 
-module MDR (Read, clr, clk, MDRin, [31: 0]BusMuxOut , [31:0] Mdatain, [31:0] MDRout );
-    input Read, clr, clk, MDRin, BusMuxOut, Mdatain;
-    output MDRout;
-    wire MDMuxOut;
+module MDR (input Read, clr, clk, MDRin, input [31: 0]BusMuxOut, Mdatain, output [31:0] MDRout );
+//    input Read, clr, clk, MDRin, BusMuxOut, Mdatain;
+//    output MDRout;
+//    wire MDMuxOut;
 
     // multiplexer logic
-    mux21_32bit (BusMuxOut, Mdatain, Read, MDMuxOut);
+	 //mux21_32_bit myMuxyMux(BusMuxOut, Mdatain, Read, MDMuxOut);
+	  always @(BusMuxOut,Mdatain,read)
+    begin
+    if(read)
+        MDMuxOut=Mdatain;
+    else
+        muxOut=BusMuxOut;
+    end    
+	 
+	 
     // flip flop logic
-    dff_32bit (clk, clr, MDRin, MDMuxOut, MDRout);
-
+    //dff_32_bit myDff (clk, clr, MDRin, MDMuxOut, MDRout);
+		 always@(posedge clk or negedge clr)
+    begin
+            if(clr == 0) MDRout <= 00000000000000000000000000000000; //32 zeros
+            else if(MDRin) MDRout <= MDMuxOut;
+    end	
+	 
     // multiplexer logic
     // for(i = 0; i < 32; i = i+1)
     //     begin
@@ -84,4 +98,4 @@ module MDR (Read, clr, clk, MDRin, [31: 0]BusMuxOut , [31:0] Mdatain, [31:0] MDR
     // dff d30 (clr, clk, MDRin, MDMuxOut[30], MDRout[30]);
     // dff d31 (clr, clk, MDRin, MDMuxOut[31], MDRout[31]);
 
-endmodule;
+endmodule 
