@@ -12,4 +12,4 @@ module mux21( D0, D1, S, Y); // D0, D1 are the inputs, S is the read, Y is the o
 
     end
 
-endmodule
+endmodule 

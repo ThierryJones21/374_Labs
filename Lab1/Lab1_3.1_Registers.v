@@ -1,20 +1,16 @@
 //passsing dataIN and dataOUT
 module dataPathIO(R0_in, R1_in, R2_in, R3_in, R4_in, R5_in, R6_in, R7_in, R8_in, R9_in, 
-R10_in, R11_in, R12_in, R13_in, R14_in, R15_in, PC, clk, clr,R0_out, R1_out, R2_out, R3_out, R4_out, R5_out, R6_out, R7_out, R8_out, R9_out, 
-R10_out, R11_out, R12_out, R13_out, R14_out, R15_out, BusMuxIn_R0, BusMuxIn_R1, BusMuxIn_R2, BusMuxIn_R3, BusMuxIn_R4, BusMuxIn_R5, BusMuxIn_R6,
+R10_in, R11_in, R12_in, R13_in, R14_in, R15_in, clk, clr, BusMuxIn_R0, BusMuxIn_R1, BusMuxIn_R2, BusMuxIn_R3, BusMuxIn_R4, BusMuxIn_R5, BusMuxIn_R6,
 BusMuxIn_R7, BusMuxIn_R8, BusMuxIn_R9, BusMuxIn_R10, BusMuxIn_R11, BusMuxIn_R12, BusMuxIn_R13, BusMuxIn_R14, 
-BusMuxIn_R15, BusMuxOut, IR, HI, LO, Z);
+BusMuxIn_R15, BusMuxOut);
 
 
 input [31:0] R0_in, R1_in, R2_in, R3_in, R4_in, R5_in, R6_in, R7_in, R8_in, R9_in, 
-R10_in, R11_in, R12_in, R13_in, R14_in, R15_in;
-input [31:0] PC;
+R10_in, R11_in, R12_in, R13_in, R14_in, R15_in, BusMuxOut;
 input clk, clr;
-output [31:0] R0_out, R1_out, R2_out, R3_out, R4_out, R5_out, R6_out, R7_out, R8_out, R9_out, 
-R10_out, R11_out, R12_out, R13_out, R14_out, R15_out, IR, HI, LO, Z;
 output reg[31:0] BusMuxIn_R0, BusMuxIn_R1, BusMuxIn_R2, BusMuxIn_R3, BusMuxIn_R4, BusMuxIn_R5, BusMuxIn_R6,
 BusMuxIn_R7, BusMuxIn_R8, BusMuxIn_R9, BusMuxIn_R10, BusMuxIn_R11, BusMuxIn_R12, BusMuxIn_R13, BusMuxIn_R14, 
-BusMuxIn_R15, BusMuxOut;
+BusMuxIn_R15;
 
 //designing the registers
 always@(posedge clk or negedge clr)

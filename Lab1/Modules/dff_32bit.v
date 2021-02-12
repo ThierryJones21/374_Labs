@@ -1,10 +1,10 @@
-module dff (clr, clk, enable, [31:0]D, [31:0]Q);
-    input clr, clk, enable, [31:0]D;
-    output [31:0]Q;
+module dff_32_bit (input clr, clk, enable, input [31:0]D, output reg [31:0]Q);
+//    input clr, clk, enable, [31:0]D;
+//    output [31:0]Q;
 
     always@(posedge clk or negedge clr)
     begin
-            if(clr == 0) Q <= 0000 0000 0000 0000 0000 0000 0000 0000;
+            if(clr == 0) Q <= 00000000000000000000000000000000; //32 zeros
             else if(enable) Q <= D;
     end	
-endmodule;
+endmodule 

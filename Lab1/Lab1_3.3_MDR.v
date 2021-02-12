@@ -1,19 +1,19 @@
 `include "Modules/mux21_32bit.v"
 `include "Modules/dff_32bit.v"
 
-module MDR (input Read, clr, clk, MDRin, input [31: 0]BusMuxOut, Mdatain, output [31:0] MDRout );
-//    input Read, clr, clk, MDRin, BusMuxOut, Mdatain;
-//    output MDRout;
-//    wire MDMuxOut;
+module MDR (input Read, clr, clk, MDRin, input [31: 0]BusMuxOut, Mdatain, output reg [31:0] MDRout);
+
+
+	reg MDMuxOut;
 
     // multiplexer logic
 	 //mux21_32_bit myMuxyMux(BusMuxOut, Mdatain, Read, MDMuxOut);
-	  always @(BusMuxOut,Mdatain,read)
+	  always @(BusMuxOut,Mdatain,Read)
     begin
-    if(read)
+    if(Read)
         MDMuxOut=Mdatain;
     else
-        muxOut=BusMuxOut;
+        MDMuxOut=BusMuxOut;
     end    
 	 
 	 
