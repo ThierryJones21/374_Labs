@@ -98,8 +98,6 @@ always @(Present_state)// do the required job ineach state
             end
         endcase
     end
-<<<<<<< HEAD
-endmodule 
-=======
+
 endmodule
->>>>>>> 58183da6756031ff2205f279bd893014d9496732
+

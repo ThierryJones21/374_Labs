@@ -23,7 +23,7 @@ module datapath(output reg PCout, Zlowout, MDRout, R2out, R4out, input MARin, Zi
 			
 			always @(ALU_Out) begin
 				ALU_HI <= ALU_Out[63:32];
-				ALU_HI <= ALU_Out[31:0];
+				ALU_LO <= ALU_Out[31:0];
 			end
 				
 endmodule 
