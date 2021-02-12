@@ -1,5 +1,5 @@
-`include "Modules/mux21_32bit.v"
-`include "Modules/dff_32bit.v"
+// `include "Modules/mux21_32bit.v"
+// `include "Modules/dff_32bit.v"
 
 module MDR (input Read, clr, clk, MDRin, input [31: 0]BusMuxOut, Mdatain, output reg [31:0] MDRout);
 

@@ -1,16 +1,15 @@
-//`include "Lab1_3.1_Registers.v"
-//`include "Lab1_3.2_Bus.v"
-//`include "Lab1_3.3_MDR.v"
-//`include "Lab1_3.4_ALU.v"
-
-module Datapath(output PCout, Zlowout, MDRout, R2out, R4out, input MARin, Zin, 
-					 PCin, MDRin, IRin, Yin, IncPC, Read, AND, R5in, R2in, R4in, Clock, Mdatain, R0out, R1out);    //WE NEEED A CLEAAAARRRR!!!
+module datapath(output reg PCout, Zlowout, MDRout, R2out, R4out, input MARin, Zin, 
+					 PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL, R5in, R2in, R4in, Clock, Mdatain, R0out, R1out);    //WE NEEED A CLEAAAARRRR!!!
 
 			
 			wire [31:0] Bus_Mux_Out;
+			reg [31:0] IR;
+			
+			reg [31:0] ALU_HI, ALU_LO;
+			reg[63:0] ALU_Out;
 					 
 					 
-			datapathIO dataReg (.R2_in(R2in),.R4_in(R4in), .R5_in(R5in), .clk(Clock),
+			Registers dataReg (.R2_in(R2in),.R4_in(R4in), .R5_in(R5in), .clk(Clock),
 									
 										.BusMuxIn_R0(R0out), .BusMuxIn_R1(R1out), .BusMuxIn_R2(R2out), .BusMuxIn_R4(R4out), .BusMuxOut(Bus_Mux_Out));
 									
@@ -18,9 +17,13 @@ module Datapath(output PCout, Zlowout, MDRout, R2out, R4out, input MARin, Zin,
 							  .BusMuxIn_R2(R2in), .BusMuxIn_R4(R4in), .BusMuxIn_R5(R5in), .BusMuxIn_PC(PCin), .BusMuxIn_MDR(MDRin), .BusMuxOut(Bus_Mux_Out));
 							  
 
-			ALU myALU	(.A(R2out), .B(R4out), .R5in(C), .AND(cntrl));
+			ALU myALU	(.A(R2out), .B(R4out), .C(ALU_Out), .cntrl(CONTROL));
 							
-			MDR (.Read(Read), .Clock(clk), .MDRin(MDRin), .R5in(BusMuxOut), .Mdatain(Mdatain),  .MDRout(MDRout));     
+			MDR myMDR (.Read(Read), .clk(Clock), .MDRin(MDRin), .R5in(Bus_Mux_Out), .Mdatain(Mdatain),  .MDRout(MDRout));     
 			
+			always @(ALU_Out) begin
+				ALU_HI <= ALU_Out[63:32];
+				ALU_HI <= ALU_Out[31:0];
+			end
 				
 endmodule 

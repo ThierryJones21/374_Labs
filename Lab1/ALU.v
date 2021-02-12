@@ -1,4 +1,4 @@
-module ALU (input [31:0] A, B, output reg[31:0]C, input wire [3:0]cntrl);
+module ALU (input [31:0] A, B, output reg[63:0]C, input wire [3:0]cntrl);
 
 function [63:0] booth;
 
@@ -56,16 +56,6 @@ function [63:0] booth;
 			end  
     
 endfunction
-
-
-// function [31:0] divInt
-//         input[31:0] X, [31:0] Y;
-
-
-//     ;
-    
-//endfunction
-
 
 always @(A, B ,cntrl) begin
     case(cntrl)
