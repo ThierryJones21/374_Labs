@@ -1,4 +1,4 @@
-module ALU (input [31:0] A, B, output reg[63:0]C, input wire [3:0]cntrl);
+module ALU (input [31:0] A, B, output reg [63:0]C, input wire [3:0]cntrl);
 
 function [63:0] booth;
 

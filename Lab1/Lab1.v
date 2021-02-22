@@ -13,14 +13,19 @@ module Lab1;
 
     reg[3:0] Present_state= Default;
 
-Datapath DUT(.PCout(PCout), .Zlowout(Zlowout), .MDRout(MDRout), .R2out(R2out), .R4out(R4out), 
+datapath DUT(.PCout(PCout), .Zlowout(Zlowout), .MDRout(MDRout), .R2out(R2out), .R4out(R4out), 
 				.MARin(MARin), .Zin(Zin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), 
 				.IncPC(IncPC), .Read(Read), .CONTROL(CONTROL), .R5in(R5in), .R2in(R2in), .R4in(R4in), 
 				.Clock(Clock), .Mdatain(Mdatain));
 // add test logic here
+integer i ;
 initial begin
+#100 $finish;
     Clock = 0;
-    forever #10 Clock = ~Clock;
+	 
+    for(i = 0;i < 250;i=i+1)begin
+	 #10 Clock = ~Clock;
+	end 
 end
 
 always @(posedge Clock)//finite state machine; if clock rising-edge

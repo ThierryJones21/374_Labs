@@ -4,7 +4,7 @@
 module MDR (input Read, clr, clk, MDRin, input [31: 0]BusMuxOut, Mdatain, output reg [31:0] MDRout);
 
 
-	reg MDMuxOut;
+	reg [31:0]MDMuxOut;
 
     // multiplexer logic
 	 //mux21_32_bit myMuxyMux(BusMuxOut, Mdatain, Read, MDMuxOut);
