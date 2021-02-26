@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{listings}
+\lstset{
+    language=Verilog,
+    breaklines=true,
+    tabsize=2
+}
+\graphicspath{ {images/} }
+
+\title{
+    \begin{large}
+        ELEC374 - Lab 1
+    \end{large}
+}
+\author{Naod Dereje - 20103501, Thierri Jones - 20108349, Jamie Won - 20113217}
+
+\begin{document}
+\maketitle
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+
+\section{Components}
+    The purpose of this lab was to design and simulate a part of the mini SRC datapath. A bus, MDR, ALU, datapath and 16 registers were needed to do so. Verilog was chosen over VHDL as it is better for more complex simulations. The verilog code for each of these components can be found in the Appendices.
+    
+    \subsection{Register(s)}
+    For the datapath, 16 registers are required. A register module was not created, but rather, several instances of a register. The verilog code for a single register(R0) can be found in Appendix \ref{A.1}. The verilog code used to create all registers, with variable names as related to the datapath can be found in Appendix \ref{A.2}
+
+    \subsection{Bus}
+    The bus was implemented using a 32-to-5 bit encoder. The verilog code for this component can be found in Appendix \ref{B}
+
+    \subsection{Memory Data Register (MDR)}
+    \subsection{Arithmetic Logic Unit (ALU)}
+\section{Circuitry Demonstration}
+    \subsection{and R5, R2, R4}
+    \subsection{or R5, R2, R4}
+    \subsection{add R5, R2, R4}
+    \subsection{sub R5, R2, R4}
+    \subsection{mul R5, R2, R4}
+    \subsection{div R5, R2, R4}
+    \subsection{shr R5, R2, R4}
+    \subsection{shl R5, R2, R4}
+    \subsection{ror R5, R2, R4}
+    \subsection{rol R5, R2, R4}
+    \subsection{neg R5, R2, R4}
+    \subsection{not R5, R2, R4}
+
+\appendix
+% \section{Testbench}
+% \lstinputlisting{Lab1.v}
+\section{Registers} \label{A}
+    \subsection{A Single Register} \label{A.1}
+        \lstinputlisting[firstline=16,lastline=20]{Registers.v}
+    \subsection{Register Module} \label{A.2}
+        \lstinputlisting{Registers.v}
+\section{Bus} \label{B}
+    \lstinputlisting{Bus.v}
+\section{Datapath} \label{C}
+    \lstinputlisting{datapath.v}
+\section{MDR} \label{D}
+    \lstinputlisting{MDR.v}
+\section{D Flip Flop} \label{E}
+    \lstinputlisting{Modules/dff_32bit.v}
+\section{Multiplexer} \label{F}
+    \lstinputlisting{Modules/mux21_32bit.v}
+\section{ALU} \label{G}
+    \lstinputlisting{ALU.v}
+    \subsection{And}
+    \subsection{Or}
+    \subsection{Add}
+    \subsection{Subtract}
+    \subsection{Multiplication}
+    \subsection{Division}
+    \subsection{Negation}
+    \subsection{Not}
+    \subsection{Shift Left}
+    \subsection{Shift Right}
+    \subsection{Rotate Left}
+    \subsection{Rotate Right}
+\end{document}

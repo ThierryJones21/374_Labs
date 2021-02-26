@@ -1,5 +1,7 @@
 `timescale 1ns/10ps
+
 module Lab1(output reg PCout, Zlowout, MDRout, R2out, R4out, Clock, Clear);
+
     // add any other signals to see in your simulation
     reg MARin, Zin, PCin, MDRin, IRin, Yin;
     reg IncPC,Read, CONTROL, R5in, R2in, R4in;
@@ -84,7 +86,7 @@ always @(Present_state)// do the required job ineach state
             end
             T1: begin
                 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1;
-                Mdatain <= 32'h4A920000; //opcode for Ã¢â‚¬Å“CONTROL R5, R2, R4Ã¢â‚¬Â
+                Mdatain <= 32'h4A920000; //opcode for ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œCONTROL R5, R2, R4ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â
             end
             T2: begin
                 MDRout<= 1; IRin <= 1;

@@ -26,7 +26,7 @@ function [63:0] booth;
      
 				 Y1 = -Y;
 			  
-				  //Y1 is the 2’ complement of Y
+				  //Y1 is the 2's complement of Y
 			  
 				 case (temp)
 					  2'd2 : booth [63 : 31] = booth [63 : 31] + Y1;
