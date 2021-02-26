@@ -1,11 +1,10 @@
 `timescale 1ns/10ps
-module Lab1;
-    reg PCout, Zlowout, MDRout, R2out, R4out;
+module Lab1(output reg PCout, Zlowout, MDRout, R2out, R4out, Clock, Clear);
     // add any other signals to see in your simulation
     reg MARin, Zin, PCin, MDRin, IRin, Yin;
     reg IncPC,Read, CONTROL, R5in, R2in, R4in;
 	 //reg[3:0] cntrl;
-    reg Clock;
+    //reg Clock;
     reg[31:0] Mdatain;
 
     parameter Default = 4'b0000, Reg_load1a= 4'b0001, Reg_load1b= 4'b0010, Reg_load2a= 4'b0011, Reg_load2b = 4'b0100, Reg_load3a = 4'b0101,
@@ -16,16 +15,12 @@ module Lab1;
 datapath DUT(.PCout(PCout), .Zlowout(Zlowout), .MDRout(MDRout), .R2out(R2out), .R4out(R4out), 
 				.MARin(MARin), .Zin(Zin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), 
 				.IncPC(IncPC), .Read(Read), .CONTROL(CONTROL), .R5in(R5in), .R2in(R2in), .R4in(R4in), 
-				.Clock(Clock), .Mdatain(Mdatain));
+				.Clock(Clock), .Mdatain(Mdatain), .Clear(Clear));
 // add test logic here
-integer i ;
 initial begin
-#100 $finish;
+
     Clock = 0;
-	 
-    for(i = 0;i < 250;i=i+1)begin
-	 #10 Clock = ~Clock;
-	end 
+	 forever #10 Clock = ~Clock;
 end
 
 always @(posedge Clock)//finite state machine; if clock rising-edge
@@ -89,7 +84,7 @@ always @(Present_state)// do the required job ineach state
             end
             T1: begin
                 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1;
-                Mdatain <= 32'h4A920000; //opcode for â€œCONTROL R5, R2, R4â€
+                Mdatain <= 32'h4A920000; //opcode for Ã¢â‚¬Å“CONTROL R5, R2, R4Ã¢â‚¬Â
             end
             T2: begin
                 MDRout<= 1; IRin <= 1;
