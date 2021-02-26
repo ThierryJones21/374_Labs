@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{listings}
+\lstset{
+    language=Verilog,
+    breaklines=true
+}
+\graphicspath{ {images/} }
+
+
+\title{
+    \begin{large}
+        ELEC374 - Lab 1
+    \end{large}
+}
+\author{Naod Dereje - , Thierri Jones -,Jamie Won - 20113217}
+
+\begin{document}
+\maketitle
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+
+\section{Introduction}
+\section{Components}
+\subsection{Register}
+\subsection{Bus}
+\subsection{Memory Data Register (MDR)}
+\subsection{Arithmetic Logic Unit (ALU)}
+\section{Circuitry Demonstration}
+\subsection{and R5, R2, R4}
+\subsection{or R5, R2, R4}
+\subsection{add R5, R2, R4}
+\subsection{sub R5, R2, R4}
+\subsection{mul R5, R2, R4}
+\subsection{div R5, R2, R4}
+\subsection{shr R5, R2, R4}
+\subsection{shl R5, R2, R4}
+\subsection{ror R5, R2, R4}
+\subsection{rol R5, R2, R4}
+\subsection{neg R5, R2, R4}
+\subsection{not R5, R2, R4}
+
+\appendix
+\section{Bus}
+\lstinputlisting{Bus.v}
+\section{Datapath}
+\lstinputlisting{datapath.v}
+\section{MDR}
+\lstinputlisting{MDR.v}
+\section{D Flip Flop}
+\lstinputlisting{Modules/dff_32bit.v}
+\section{Multiplexer}
+\lstinputlisting{Modules/mux21_32bit.v}
+% \section{Testbench}
+% \lstinputlisting{Lab1.v}
+% \section{ALU}
+% \lstinputlisting{ALU.v}
+\end{document}
