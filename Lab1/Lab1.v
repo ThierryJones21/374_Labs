@@ -1,5 +1,5 @@
 `timescale 1ns/10ps
-module Lab1(outputPCout, Zlowout, MDRout, R2out, R4out);
+module Lab1(output PCout, Zlowout, MDRout, R2out, R4out);
  
     // add any other signals to see in your simulation
     reg MARin, Zin, PCin, MDRin, IRin, Yin;
