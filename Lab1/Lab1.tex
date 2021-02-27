@@ -69,14 +69,21 @@
     \subsection{add R5, R2, R4}
     \subsection{sub R5, R2, R4}
     \subsection{mul R5, R2, R4}
-    The mul instruction control sequence can be found in the ALU code in the appendix, our team used booth's algorithm to generate the multiplication of two numbers in binary form.\ref{MUL}.
+    The mul instruction control sequence can be found in the ALU code in Appendix \ref{MUL}, our team used booth's algorithm to generate the multiplication of two numbers in binary form.
     \subsection{div R5, R2, R4}
+    This instruction demonstrates the ALU's division circuitry. This differs from the control sequence in the testbench shown with the addition of a sixth stage, a change in the CONTROL signal to that of the division command and having two 32 bit outputs (Zlowout, Zhighout) as opposed to one. These changes can be found from stages 4-6. The control sequence for this instruction can be found below in Appendix \ref{DIV}.
     \subsection{shr R5, R2, R4}
+    This instruction demonstrates the ALU's shift right circuitry. This differs from the control sequence in the testbench shown with the removal of a second input. That is, R4 is no longer used. Furthermore, the CONTROL signal is changed to that of the right shift command. The control sequence for this instruction can be found below in Appendix \ref{SHR}.
     \subsection{shl R5, R2, R4}
+    This instruction demonstrates the ALU's shift left circuitry. Its control sequence is identical to that of the shift right command with the exception of the CONTROL signal being changed to that of the shift left instruction. The control sequence for this instruction can be found below in Appendix \ref{SHL}.
     \subsection{ror R5, R2, R4}
+    This instruction demonstrates the ALU's rotate right circuitry. Its control sequence is identical to that of the shift right command with the exception of the CONTROL signal being changed to that of the rotate right instruction. The control sequence for this instruction can be found below in Appendix \ref{ROR}.
     \subsection{rol R5, R2, R4}
+    This instruction demonstrates the ALU's rotate left circuitry. Its control sequence is identical to that of the shift right command with the exception of the CONTROL signal being changed to that of the rotate left instruction. The control sequence for this instruction can be found below in Appendix \ref{ROL}.
     \subsection{neg R5, R2, R4}
+    This instruction demonstrates the ALU's negation circuitry. The control sequence only has 4 stages. States 0-2 are identical and the changes can be found in states 3 and 4. Also, no second input is required. The CONTROL signal is changed to that of the negate instruction. The control sequence for this instruction can be found below in Appendix \ref{NEG}.
     \subsection{not R5, R2, R4}
+    This instruction demonstrates the ALU's not circuitry. Its control sequence is identical to that of the negation instruction with the exception of the CONTROL signal being changed to that of the negation instruction. The control sequence for this instruction can be found below in Appendix \ref{NOT}.
 
 \appendix
 % \section{Testbench}
