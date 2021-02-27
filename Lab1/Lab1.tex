@@ -87,19 +87,50 @@
 \section{Datapath} \label{Datapath}
     \lstinputlisting{datapath.v}
 \section{ALU} \label{ALU}
-    \lstinputlisting{ALU.v}
+    \subsection{ALU}
+        \lstinputlisting{ALU.v}
     \subsection{And}
+        \begin{lstlisting}
+            0   :   C = A & B;
+        \end{lstlisting}
     \subsection{Or}
+        \begin{lstlisting}
+			1   :   C = A | B;
+        \end{lstlisting}
     \subsection{Add}
+        \begin{lstlisting}
+            2   :   C = A + B;
+        \end{lstlisting}
     \subsection{Subtract}
+        \begin{lstlisting}
+			3   :   C = A - B;
+        \end{lstlisting}
     \subsection{Multiplication}
+        \lstinputlisting{ALU.v}[firstline=3,lastline=58]
     \subsection{Division}
+        \begin{lstlisting}
+            11  :   C = A/B;  //TO-DO: Make cool division algo
+        \end{lstlisting}
     \subsection{Negation}
+        \begin{lstlisting}
+            4   :   C = -B; //negation function
+        \end{lstlisting}
     \subsection{Not}
+        \begin{lstlisting}
+            5   :   C = !B; // logical not 
+        \end{lstlisting}
     \subsection{Shift Left}
+        \begin{lstlisting}
+            6   :   C = A <<< B; // left arithtmatic shift - A = how many shifts, B = the number you want to shift 
+        \end{lstlisting}
     \subsection{Shift Right}
+        \begin{lstlisting}
+            7   :   C = A >>> B; // right arithmetic shift - A = how many shifts, B = the number you want to shift 
+        \end{lstlisting}
     \subsection{Rotate Left}
+        \lstinputlisting{ALU.v}[firstline=68,lastline=71]
     \subsection{Rotate Right}
+        \lstinputlisting{ALU.v}[firstline=64,lastline=67]
 \section{Control Sequences}
     \subsection{and R5, R2, R4} \label{AND}
         \lstinputlisting{TestBenches/tb_AND.v}
