@@ -1,5 +1,10 @@
-module datapath(input PCout, Zlowout, MDRout, R2out, R4out, MARin, Zin, 
-					 PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL, R5in, R2in, R4in, Clock, Mdatain, R0out, R1out);    //WE NEEED A CLEAAAARRRR!!!
+module datapath(input PCout, Zlowout, MDRout, MARin, Zin, 
+					 PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL,Clock, 
+					 Mdatain, Clear, R0out, R1out, R2out, R3out, R4out, R5out, R6out,
+					 R7out,R8out,R9out,R10out,R11out,R12out,R13out,R14out,R15out,
+					R0in, R1in, R2in, R3in, R4in, R5in, R6in,
+					 R7in, R8in, R9in,R10in,R11in,R12in,R13in,R14in,R15in
+					 );    
 
 			
 			wire [31:0] Bus_Mux_Out;
@@ -7,15 +12,30 @@ module datapath(input PCout, Zlowout, MDRout, R2out, R4out, MARin, Zin,
 			
 			reg [31:0] ALU_HI, ALU_LO;
 			wire[63:0] C;
-					 
-					 
-			Registers dataReg (.R2_in(R2in),.R4_in(R4in), .R5_in(R5in), .clk(Clock),
-									
-										.BusMuxIn_R0(R0out), .BusMuxIn_R1(R1out), .BusMuxIn_R2(R2out), .BusMuxIn_R4(R4out), .BusMuxOut(Bus_Mux_Out));
-									
-			Bus myBusMux (.R0_out(R0out), .R1_out(R1out), .R2_out(R2out), .R4_out(R4out), .Z_low_out(Zlowout), .PC_out(PCout), .MDR_out(MDRout), 
-							  .BusMuxIn_R2(R2in), .BusMuxIn_R4(R4in), .BusMuxIn_R5(R5in), .BusMuxIn_PC(PCin), .BusMuxIn_MDR(MDRin), .BusMuxOut(Bus_Mux_Out));
-							  
+					
+         Register myR0 (Clock, Clear, Bus_Mux_Out, R0in, R0out); 
+         Register myR1 (Clock, Clear, Bus_Mux_Out, R1in, R1out); 
+			Register myR2 (Clock, Clear, Bus_Mux_Out, R2in, R2out); 
+			Register myR3 (Clock, Clear, Bus_Mux_Out, R3in, R3out); 
+			Register myR4 (Clock, Clear, Bus_Mux_Out, R4in, R4out); //add regiteser output 
+			Register myR5 (Clock, Clear, Bus_Mux_Out, R5in, R5out); 
+			Register myR6 (Clock, Clear, Bus_Mux_Out, R6in, R6out); 
+			Register myR7 (Clock, Clear, Bus_Mux_Out, R7in, R7out); 
+			Register myR8 (Clock, Clear, Bus_Mux_Out, R8in, R8out); 
+			Register myR9 (Clock, Clear, Bus_Mux_Out, R9in, R9out); 
+			Register myR10 (Clock, Clear, Bus_Mux_Out, R10in, R10out); 
+			Register myR11 (Clock, Clear, Bus_Mux_Out, R11in, R11out);  
+			Register myR12 (Clock, Clear, Bus_Mux_Out, R12in, R12out); 
+			Register myR13 (Clock, Clear, Bus_Mux_Out, R13in, R13out); 
+			Register myR14 (Clock, Clear, Bus_Mux_Out, R14in, R14out); 
+			Register myR15 (Clock, Clear, Bus_Mux_Out, R15in, R15out); 
+								
+														
+			Bus myBusMux (R0_out, R1_out, R2_out, R3_out, R4_out, R5_out, R6_out, R7_out, R8_out, R9_out,  R10_out, R11_out, R12_out, R13_out, R14_out, R15_out, HI_out, LO_out, Z_high_out, Z_low_out, PC_out, MDR_out, In_Portout, C_out,
+								BusMuxIn_R0, BusMuxIn_R1, BusMuxIn_R2, BusMuxIn_R3, BusMuxIn_R4, BusMuxIn_R5, BusMuxIn_R6, BusMuxIn_R7, BusMuxIn_R8, BusMuxIn_R9, BusMuxIn_R10, BusMuxIn_R11, BusMuxIn_R12, BusMuxIn_R13, BusMuxIn_R14, BusMuxIn_R15,
+								BusMuxIn_HI, BusMuxIn_LO,
+ BusMuxIn_Z_HI, BusMuxIn_Z_LO, BusMuxIn_PC, BusMuxIn_MDR, BusMuxIn_IN_PORT, C_Sign_Extended, BusMuxOut);
+
 
 			ALU myALU	(.A(R2out), .B(R4out), .C(C), .cntrl(CONTROL));
 							
