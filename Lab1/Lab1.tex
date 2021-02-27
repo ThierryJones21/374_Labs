@@ -1,11 +1,23 @@
 \documentclass{article}
 \usepackage[a4paper, total={6in, 9in}]{geometry}
 \usepackage{graphicx}
-\usepackage{multicol}
+\usepackage{xcolor}
 \usepackage{listings}
+\definecolor{vgreen}{RGB}{104,180,104}
+\definecolor{vblue}{RGB}{49,49,255}
 \lstset{
     language=Verilog,
-    breaklines=true,
+    % wrap text
+    breaklines=true, 
+    % line numbers
+    numbers=left,
+    numberstyle=\tiny\color{black},
+    numbersep=10pt,
+    % other styling
+    basicstyle=\small\ttfamily,
+    keywordstyle=\color{vblue},
+    identifierstyle=\color{black},
+    commentstyle=\color{vgreen},
     tabsize=2
 }
 \graphicspath{ {images/} }
