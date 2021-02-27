@@ -106,7 +106,7 @@
 			3   :   C = A - B;
         \end{lstlisting}
     \subsection{Multiplication}
-        \lstinputlisting{ALU.v}[firstline=3,lastline=58]
+        \lstinputlisting[firstline=3,lastline=58]{ALU.v}
     \subsection{Division}
         \begin{lstlisting}
             11  :   C = A/B;  //TO-DO: Make cool division algo
@@ -128,9 +128,9 @@
             7   :   C = A >>> B; // right arithmetic shift - A = how many shifts, B = the number you want to shift 
         \end{lstlisting}
     \subsection{Rotate Left}
-        \lstinputlisting{ALU.v}[firstline=68,lastline=71]
+        \lstinputlisting[firstline=68,lastline=71]{ALU.v}
     \subsection{Rotate Right}
-        \lstinputlisting{ALU.v}[firstline=64,lastline=67]
+        \lstinputlisting[linerange=64-67]{ALU.v}
 \section{Control Sequences}
     \subsection{and R5, R2, R4} \label{AND}
         \lstinputlisting{TestBenches/tb_AND.v}
