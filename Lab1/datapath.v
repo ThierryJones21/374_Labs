@@ -17,13 +17,9 @@ module datapath(input PCout, Zlowout, MDRout, R2out, R4out, MARin, Zin,
 							  .BusMuxIn_R2(R2in), .BusMuxIn_R4(R4in), .BusMuxIn_R5(R5in), .BusMuxIn_PC(PCin), .BusMuxIn_MDR(MDRin), .BusMuxOut(Bus_Mux_Out));
 							  
 
-			ALU myALU	(.A(R2out), .B(R4out), .C(C), .cntrl(CONTROL));
+			ALU myALU	(R2out, R4out, .ALU_LO, ALU_HI, CONTROL);
 							
 			MDR myMDR (.Read(Read), .clk(Clock), .MDRin(MDRin), .BusMuxOut(R5in), .Mdatain(Mdatain),  .MDRout(MDRout));     
 			
-			always @(C) begin
-				ALU_HI <= C[63:32];
-				ALU_LO <= C[31:0];
-			end
 				
 endmodule 
