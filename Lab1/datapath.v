@@ -11,12 +11,9 @@ module datapath(input PCout,  MDRout, MARin, Zin,
 			reg [31:0] IR;
 			
 			reg [31:0] ALU_HI, ALU_LO;
-			//wire[63:0] C;
-			
-					
-					
-         Register myR0 (Clock, Clear, Bus_Mux_Out, R0in, R0out); 
-         Register myR1 (Clock, Clear, Bus_Mux_Out, R1in, R1out); 
+
+			Register myR0 (Clock, Clear, Bus_Mux_Out, R0in, R0out); 
+			Register myR1 (Clock, Clear, Bus_Mux_Out, R1in, R1out); 
 			Register myR2 (Clock, Clear, Bus_Mux_Out, R2in, R2out); 
 			Register myR3 (Clock, Clear, Bus_Mux_Out, R3in, R3out); 
 			Register myR4 (Clock, Clear, Bus_Mux_Out, R4in, R4out); 
@@ -33,9 +30,6 @@ module datapath(input PCout,  MDRout, MARin, Zin,
 			Register myR15 (Clock, Clear, Bus_Mux_Out, R15in, R15out);
 			
 			Register PC (clr, clock, PCin, Bus_Mux_Out, busMuxIn_PCin);
-			
-			//IR IR_reg (clr, clk, IRin, BusMuxOut, Gra, Grb, Grc, Rin, Rout, BAout, C_sign_extended, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in,
-               //R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out,);
 			Register Y (clr, clock, Yin, Bus_Mux_Out, temp_Y);
 			Register Zlow(clr, clock, Zlow_in, ALU_zlow, busMuxIn_Zlowin);
 			Register Zhigh(clr, clock, Zhigh_in, ALU_zhigh, busMuxIn_Zhighin);
@@ -58,7 +52,7 @@ module datapath(input PCout,  MDRout, MARin, Zin,
 			MDR myMDR (.Read(Read), .clk(Clock), .MDRin(MDRin), .BusMuxOut(R5in), .Mdatain(Mdatain),  .MDRout(MDRout));     
 			
 			always @(Zlowout) begin
-				//ALU_HI <= Zlowout[63:32];
+				ALU_HI <= Zlowout[63:32];
 				ALU_LO <= Zlowout[31:0];
 			end
 				
