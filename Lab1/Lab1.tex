@@ -93,16 +93,63 @@
 
     \subsection{shr R5, R2, R4}
     This instruction demonstrates the ALU's shift right circuitry. This differs from the control sequence in the testbench shown with the removal of a second input. That is, R4 is no longer used. Furthermore, the CONTROL signal is changed to that of the right shift command. The control sequence for this instruction can be found below in Appendix \ref{SHR}.
+    
+    % \begin{figure}
+    %     \begin{center}
+    %         \includegraphics[width=10cm]{shr}
+    %         \caption{A screenshot of the simulated waveforms for the shr R5, R2, R4 instruction}
+    %     \end{center}
+    % \end{figure}
+
     \subsection{shl R5, R2, R4}
     This instruction demonstrates the ALU's shift left circuitry. Its control sequence is identical to that of the shift right command with the exception of the CONTROL signal being changed to that of the shift left instruction. The control sequence for this instruction can be found below in Appendix \ref{SHL}.
+
+    % \begin{figure}
+    %     \begin{center}
+    %         \includegraphics[width=10cm]{shl}
+    %         \caption{A screenshot of the simulated waveforms for the shl R5, R2, R4 instruction}
+    %     \end{center}
+    % \end{figure}
+
     \subsection{ror R5, R2, R4}
     This instruction demonstrates the ALU's rotate right circuitry. Its control sequence is identical to that of the shift right command with the exception of the CONTROL signal being changed to that of the rotate right instruction. The control sequence for this instruction can be found below in Appendix \ref{ROR}.
+
+    % \begin{figure}
+    %     \begin{center}
+    %         \includegraphics[width=10cm]{ror}
+    %         \caption{A screenshot of the simulated waveforms for the ror R5, R2, R4 instruction}
+    %     \end{center}
+    % \end{figure}
+
     \subsection{rol R5, R2, R4}
     This instruction demonstrates the ALU's rotate left circuitry. Its control sequence is identical to that of the shift right command with the exception of the CONTROL signal being changed to that of the rotate left instruction. The control sequence for this instruction can be found below in Appendix \ref{ROL}.
-    \subsection{neg R5, R2, R4}
+
+    % \begin{figure}
+    %     \begin{center}
+    %         \includegraphics[width=10cm]{rol}
+    %         \caption{A screenshot of the simulated waveforms for the rol R5, R2, R4 instruction}
+    %     \end{center}
+    % \end{figure}
+
+    \subsection{neg R5, R2}
     This instruction demonstrates the ALU's negation circuitry. The control sequence only has 4 stages. States 0-2 are identical and the changes can be found in states 3 and 4. Also, no second input is required. The CONTROL signal is changed to that of the negate instruction. The control sequence for this instruction can be found below in Appendix \ref{NEG}.
+
+    % \begin{figure}
+    %     \begin{center}
+    %         \includegraphics[width=10cm]{neg}
+    %         \caption{A screenshot of the simulated waveforms for the neg R5, R2 instruction}
+    %     \end{center}
+    % \end{figure}
+
     \subsection{not R5, R2, R4}
     This instruction demonstrates the ALU's not circuitry. Its control sequence is identical to that of the negation instruction with the exception of the CONTROL signal being changed to that of the negation instruction. The control sequence for this instruction can be found below in Appendix \ref{NOT}.
+
+    % \begin{figure}
+    %     \begin{center}
+    %         \includegraphics[width=10cm]{not}
+    %         \caption{A screenshot of the simulated waveforms for the not R5, R2 instruction}
+    %     \end{center}
+    % \end{figure}
 
 \appendix
 % \section{Testbench}
