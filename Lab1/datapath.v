@@ -1,23 +1,23 @@
-module datapath(input PCout, Zlowout, MDRout, MARin, Zin, 
+module datapath(input PCout, MDRout, MARin, Zlowin, Zhighin, 
 					 PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL,Clock, 
-					 Mdatain, Clear, R0out, R1out, R2out, R3out, R4out, R5out, R6out,
+					 Mdatain, Clear, input [31:0] R0out, R1out, R2out, R3out, R4out, R5out, R6out,
 					 R7out,R8out,R9out,R10out,R11out,R12out,R13out,R14out,R15out,
 					R0in, R1in, R2in, R3in, R4in, R5in, R6in,
-					 R7in, R8in, R9in,R10in,R11in,R12in,R13in,R14in,R15in
-					 );    
+					 R7in, R8in, R9in,R10in,R11in,R12in,R13in,R14in,R15in,
+					 output reg [31:0] Zlowout, Zhighout);    
 
 			
 			wire [31:0] Bus_Mux_Out;
 			reg [31:0] IR;
 			
-			reg [31:0] ALU_HI, ALU_LO;
+			//reg [31:0] ALU_HI, ALU_LO;
 			wire[63:0] C;
 					
          Register myR0 (Clock, Clear, Bus_Mux_Out, R0in, R0out); 
          Register myR1 (Clock, Clear, Bus_Mux_Out, R1in, R1out); 
 			Register myR2 (Clock, Clear, Bus_Mux_Out, R2in, R2out); 
 			Register myR3 (Clock, Clear, Bus_Mux_Out, R3in, R3out); 
-			Register myR4 (Clock, Clear, Bus_Mux_Out, R4in, R4out); //add regiteser output 
+			Register myR4 (Clock, Clear, Bus_Mux_Out, R4in, R4out);  
 			Register myR5 (Clock, Clear, Bus_Mux_Out, R5in, R5out); 
 			Register myR6 (Clock, Clear, Bus_Mux_Out, R6in, R6out); 
 			Register myR7 (Clock, Clear, Bus_Mux_Out, R7in, R7out); 
@@ -37,13 +37,13 @@ module datapath(input PCout, Zlowout, MDRout, MARin, Zin,
  BusMuxIn_Z_HI, BusMuxIn_Z_LO, BusMuxIn_PC, BusMuxIn_MDR, BusMuxIn_IN_PORT, C_Sign_Extended, BusMuxOut);
 
 
-			ALU myALU	(.A(R2out), .B(R4out), .C(C), .cntrl(CONTROL));
+			ALU myALU	(R2out, R4out, R5in, CONTROL);
 							
 			MDR myMDR (.Read(Read), .clk(Clock), .MDRin(MDRin), .BusMuxOut(R5in), .Mdatain(Mdatain),  .MDRout(MDRout));     
 			
 			always @(C) begin
-				ALU_HI <= C[63:32];
-				ALU_LO <= C[31:0];
+				Zhighout <= C[63:32];
+				Zlowout <= C[31:0];
 			end
 				
 endmodule 

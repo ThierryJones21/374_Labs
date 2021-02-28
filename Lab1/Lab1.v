@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 
-module Lab1(output reg PCout, Zlowout, MDRout, R2out, R4out, Clock, Clear);
+module Lab1(output reg PCout, Zlowout, Zlowin, Zhighout, Zhighin, MDRout, R2out, R4out, Clock, Clear, Yout);
 
     // add any other signals to see in your simulation
     reg MARin, Zin, PCin, MDRin, IRin, Yin;
@@ -11,11 +11,12 @@ module Lab1(output reg PCout, Zlowout, MDRout, R2out, R4out, Clock, Clear);
 
     parameter Default = 4'b0000, Reg_load1a= 4'b0001, Reg_load1b= 4'b0010, Reg_load2a= 4'b0011, Reg_load2b = 4'b0100, Reg_load3a = 4'b0101,
 				  Reg_load3b = 4'b0110, T0= 4'b0111, T1= 4'b1000,T2= 4'b1001, T3= 4'b1010, T4= 4'b1011, T5= 4'b1100;
+				  //,T6 = 4'b1101;
 
     reg[3:0] Present_state= Default;
 
-datapath DUT(.PCout(PCout), .Zlowout(Zlowout), .MDRout(MDRout), .R2out(R2out), .R4out(R4out), 
-				.MARin(MARin), .Zin(Zin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), 
+datapath DUT(.PCout(PCout), .Zlowout(Zlowout),.Zhighout(Zhighout), .MDRout(MDRout), .R2out(R2out), .R4out(R4out), 
+				.MARin(MARin), .Zlowin(Zlowin),.Zhighin(Zhighin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), 
 				.IncPC(IncPC), .Read(Read), .CONTROL(CONTROL), .R5in(R5in), .R2in(R2in), .R4in(R4in), 
 				.Clock(Clock), .Mdatain(Mdatain), .Clear(Clear));
 // add test logic here
@@ -40,6 +41,7 @@ always @(posedge Clock)//finite state machine; if clock rising-edge
             T2          :   Present_state = T3;
             T3          :   Present_state = T4;
             T4          :   Present_state = T5;
+				//T5				:	 Present_state = T6;
         endcase
     end
 
@@ -81,25 +83,29 @@ always @(Present_state)// do the required job ineach state
                 #10 MDRout<= 1; R5in <= 1;
                 #15 MDRout<= 0; R5in <= 0; // initialize R5 with the value $26 
             end
-                T0: begin//see if you need to de-assertthese signals
-                PCout<= 1; MARin <= 1; IncPC <= 1; Zin <= 1;
-            end
-            T1: begin
-                Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1;
-                Mdatain <= 32'h4A920000; //opcode for ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œCONTROL R5, R2, R4ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â
-            end
-            T2: begin
-                MDRout<= 1; IRin <= 1;
-            end
-            T3: begin
-                R2out<= 1; Yin <= 1;
-            end
-            T4: begin
-                R4out<= 1; CONTROL <= 1; Zin <= 1;
-            end
-            T5: begin
-                Zlowout<= 1; R5in <= 1;
-            end
-        endcase
-    end
-endmodule 
+				
+				//**********************This is the logic for the Specific instruction we are testing**********************\\
+
+           
+					T0: begin//see if you need to de-assertthese signals
+						 PCout<= 1; MARin <= 1; IncPC <= 1; Zin <= 1;
+					end
+					T1: begin
+						 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1;
+						 Mdatain <= 32'h4A920000; //opcode for AND R5, R2, R4
+					end
+					T2: begin
+						 MDRout<= 1; IRin <= 1;
+					end
+					T3: begin
+						 R2out<= 1; Yin <= 1;
+					end
+					T4: begin
+						 R4out<= 1; CONTROL <= 2; Zin <= 1;
+					end
+					T5: begin
+						 Zlowout<= 1; R5in <= 1;
+					end
+				endcase
+			 end
+						endmodule 
