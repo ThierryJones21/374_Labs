@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 
-module Lab1(output reg PCout, Zlowout, Zlowin, Zhighout, Zhighin, MDRout, R2out, R4out, Clock, Clear, Yout);
+module Lab1(output reg PCout, Zlowout, Zhighout, MDRout, R2out, R4out, Clock, Clear, Yout);
 
     // add any other signals to see in your simulation
     reg MARin, Zin, PCin, MDRin, IRin, Yin;
@@ -15,8 +15,7 @@ module Lab1(output reg PCout, Zlowout, Zlowin, Zhighout, Zhighin, MDRout, R2out,
 
     reg[3:0] Present_state= Default;
 
-	datapath DUT(.PCout(PCout), .Zlowout(Zlowout), .MDRout(MDRout), .R2out(R2out), .R4out(R4out), 
-				.MARin(MARin), .Zin(Zin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), 
+	datapath DUT(.PCout(PCout), .Zlowin(Zlowout), .Zhighin(Zhighout), .MDRout(MDRout), .R2out(R2out), .R4out(R4out), .MARin(MARin), .Zin(Zin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), 
 				.IncPC(IncPC), .Read(Read), .CONTROL(CONTROL), .R5in(R5in), .R2in(R2in), .R4in(R4in), 
 				.Clock(Clock), .Mdatain(Mdatain), .Clear(Clear));
 // add test logic here
@@ -56,55 +55,58 @@ always @(Present_state)// do the required job ineach state
                 R5in <= 0; R2in <= 0; R4in <= 0; Mdatain <= 32'h00000000;
             end
             Reg_load1a: begin 
-                Mdatain<= 32'h00000022;
+                Mdatain<= 32'h00000022; // loads hex 22 into MDR
                 Read = 0; MDRin = 0; //the first zero is there for completeness
                 #10 Read <= 1; MDRin <= 1;
                 #15 Read <= 0; MDRin <= 0;
             end
             Reg_load1b: begin
-                #10 MDRout<= 1; R2in <= 1;
+                #10 MDRout<= 1; R2in <= 1; // copies from MDR into R2
                 #15 MDRout<= 0; R2in <= 0; // initialize R2 with the value $22
             end
             Reg_load2a: begin 
-                Mdatain <= 32'h00000024;
+                Mdatain <= 32'h00000024; // loads hex 24 into MDR
                 #10 Read <= 1; MDRin <= 1;
                 #15 Read <= 0; MDRin <= 0;
             end
             Reg_load2b: begin
-                #10 MDRout<= 1; R4in <= 1;
+                #10 MDRout<= 1; R4in <= 1; // copies from MDR into R4
                 #15 MDRout<= 0; R4in <= 0; // initialize R4 with the value $24 
             end
             Reg_load3a: begin 
-                Mdatain <= 32'h00000026;
+                Mdatain <= 32'h00000026; // loads hex 26 into MDR
                 #10 Read <= 1; MDRin <= 1;
                 #15 Read <= 0; MDRin <= 0;
             end
             Reg_load3b: begin
-                #10 MDRout<= 1; R5in <= 1;
+                #10 MDRout<= 1; R5in <= 1; // copies from MDR into R5 - so that we know it overwrites!
                 #15 MDRout<= 0; R5in <= 0; // initialize R5 with the value $26 
             end
 				
-				//**********************This is the logic for the Specific instruction we are testing**********************\\
+            //**********************This is the logic for the Specific instruction we are testing**********************\\
+            // different OPcodes can be found in the CPU_Spec file
+            // Use the R formats
+            // Registers in opcode are their binary -> R5 = 101
 
-					T0: begin//see if you need to de-assertthese signals
-						 PCout<= 1; MARin <= 1; IncPC <= 1; Zin <= 1;
-					end
-					T1: begin
-						 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1;
-						 Mdatain <= 32'h4A920000; //opcode for AND R5, R2, R4
-					end
-					T2: begin
-						 MDRout<= 1; IRin <= 1;
-					end
-					T3: begin
-						 R2out<= 1; Yin <= 1;
-					end
-					T4: begin
-						 R4out<= 1; CONTROL <= 0; Zin <= 1;
-					end
-					T5: begin
-						 Zlowout<= 1; R5in <= 1;
-					end
-				endcase
-			 end
-						endmodule 
+            T0: begin //see if you need to de-assertthese signals
+                PCout<= 1; MARin <= 1; IncPC <= 1; Zin <= 1;
+            end
+            T1: begin
+                Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1;
+                Mdatain <= 32'h4A920000; //opcode for AND R5, R2, R4 
+            end
+            T2: begin
+                MDRout<= 1; IRin <= 1;
+            end
+            T3: begin
+                R2out<= 1; Yin <= 1;
+            end
+            T4: begin
+                R4out<= 1; CONTROL <= 0; Zin <= 1;
+            end
+            T5: begin
+                Zlowout<= 1; R5in <= 1;
+            end
+        endcase
+    end
+endmodule 
