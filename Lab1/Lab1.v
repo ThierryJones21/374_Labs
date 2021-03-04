@@ -15,8 +15,7 @@ module Lab1(output reg PCout, Zlowout, Zhighout, MDRout, R2out, R4out, Clock, Cl
 
     reg[3:0] Present_state= Default;
 
-	datapath DUT(.PCout(PCout), .Zlowin(Zlowin), .Zhighin(Zhighin), .MDRout(MDRout), .R2out(R2out), .R4out(R4out), .MARin(MARin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), 
-				.IncPC(IncPC), .Read(Read), .CONTROL(CONTROL), .R5in(R5in), .R2in(R2in), .R4in(R4in), 
+	datapath DUT(.PCout(PCout), .Zlowin(Zlowin), .Zhighin(Zhighin), .MDRout(MDRout), .R2out(R2out), .R4out(R4out), .MARin(MARin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), .IncPC(IncPC), .Read(Read), .CONTROL(CONTROL), .R5in(R5in), .R2in(R2in), .R4in(R4in), 
 				.Clock(Clock), .Mdatain(Mdatain), .Clear(Clear));
 // add test logic here
 initial begin
