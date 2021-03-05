@@ -57,14 +57,14 @@ always @(A, B ,cntrl) begin
                     C = 1 << B;
                     C[0] = B[31];
 						end  
-			7   :   C = A >>> B; // right arithmetic shift - A = how many shifts, B = the number you want to shift 
+			7   :   C[31:0] = A >>> B;// right arithmetic shift - A = how many shifts, B = the number you want to shift 
 			6   :   C = A <<< B; // left arithtmatic shift - A = how many shifts, B = the number you want to shift 
 			5   :   C = !B; // logical not 
 			4   :   C = -B; //negation function
 			3   :   C = A - B;
 			2   :   C = A + B;
 			1   :   C = A | B;
-         0   :   C = A & B;
+         0   :   C[31:0] = A & B; //ToDO: add upper half assignments
 	endcase
 end
 

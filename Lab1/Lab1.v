@@ -2,7 +2,7 @@
 
 module Lab1;
 	
-	 reg PCout, Zlowin, Zhighin, Zlowout, Zhighout, MDRout, R2out, R4out, Clock, Clear, Yout;
+	 reg PCout, Zlowout, Zhighout, MDRout, R2out, R4out, Clock, Clear, Yout;
     // add any other signals to see in your simulation
     reg MARin, Zin, PCin, MDRin, IRin, Yin;
     reg IncPC,Read, CONTROL, R5in, R2in, R4in;
@@ -16,7 +16,7 @@ module Lab1;
 
     reg[3:0] Present_state= Default;
 
-	datapath DUT(.PCout(PCout), .Zlowin(Zlowin), .Zhighin(Zhighin), .MDRout(MDRout), .R2out(R2out), .Zhighout(Zhighout), .Zlowout(Zlowout),
+	datapath DUT(.PCout(PCout), .Zin(Zin), .MDRout(MDRout), .R2out(R2out), .Zhighout(Zhighout), .Zlowout(Zlowout),
 					 .R4out(R4out), .MARin(MARin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), 
 					 .IncPC(IncPC), .Read(Read), .CONTROL(CONTROL), .R5in(R5in), .R2in(R2in), .R4in(R4in), 
 					 .Clock(Clock), .Mdatain(Mdatain), .Clear(Clear));
@@ -86,28 +86,37 @@ always @(Present_state)// do the required job ineach state
             end
 				
             //**********************This is the logic for the Specific instruction we are testing**********************\\
+				
             // different OPcodes can be found in the CPU_Spec file
             // Use the R formats
             // Registers in opcode are their binary -> R5 = 101
 
             T0: begin //see if you need to de-assertthese signals
                 #10 PCout<= 1; MARin <= 1; IncPC <= 1; Zin <= 1;
+					 #15 PCout<= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
+
+					 
             end
             T1: begin
-                #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1;
-                Mdatain <= 32'h4A920000; //opcode for AND R5, R2, R4 
+                #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h4A920000; //opcode for AND R5, R2, R4 
+					 #15 Zlowout<= 0; PCin <= 0; Read <= 0; MDRin <= 0;
             end
             T2: begin
                 #10 MDRout<= 1; IRin <= 1;
+					 #15 MDRout<= 0; IRin <= 0;
             end
             T3: begin
                 #10 R2out<= 1; Yin <= 1;
+					 #15 R2out<= 0; Yin <= 0;
             end
             T4: begin
                 #10 R4out<= 1; CONTROL <= 0; Zin <= 1;
+					 #15 R4out<= 0; Zin <= 0;
             end
             T5: begin
                 #10 Zlowout<= 1; R5in <= 1;
+					 #15 Zlowout<= 0; R5in <= 0;
+
             end
         endcase
     end
