@@ -6,14 +6,11 @@ T1: begin
     Mdatain <= 32'h4A920000; //opcode for AND R5, R2, R4
 end
 T2: begin
-    MDRout<= 1; IRin <= 1;
+    #10 MDRout<= 1; IRin <= 1;
 end
 T3: begin
-    R2out<= 1; 
-    // Negate
-    CONTROL <= 4; 
-    Zlowin <= 1;
+    #10 R2out<= 1; CONTROL <= 4; Zlowin <= 1;
 end
 T4: begin
-    Zlowout<= 1; R5in <= 1;
+    #10 Zlowout<= 1; R5in <= 1;
 end
