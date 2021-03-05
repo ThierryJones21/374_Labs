@@ -1,5 +1,5 @@
 T0: begin//see if you need to de-assertthese signals
-    PCout<= 1; MARin <= 1; IncPC <= 1; Zin <= 1;
+    PCout<= 1; MARin <= 1; IncPC <= 1; Zlowin <= 1;
 end
 T1: begin
     Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1;
@@ -12,7 +12,7 @@ T3: begin
     R2out<= 1; Yin <= 1;
 end
 T4: begin
-    R4out<= 1; CONTROL <= 0; Zin <= 1;
+    R4out<= 1; CONTROL <= 0; Zlowin <= 1;
 end
 T5: begin
     Zlowout<= 1; R5in <= 1;
