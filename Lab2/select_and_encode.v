@@ -8,15 +8,20 @@ module select_and_encode (Gra, Grb, Grc, Rin, Rout, BAout, IR, RXin, RXout, CSig
     reg [3:0] selected_register;
 
     always @(Gra, Grb, Grc, BAout, Rout, Rin) // are these the right thingsin the sensitivity list
-      begin
+    begin
 
         // default RXin and RXout to 0;
-        RXin = 0; RXout = 0;
+        RXin <= 0; RXout <= 0;
         
         // Select
         if (Gra == 1) selected_register <= IR[26:23]; else
         if (Grb == 1) selected_register <= IR[22:19]; else
         if (Grc == 1) selected_register <= IR[18:15];
+
+    end
+
+    always @(selected_register)
+    begin
 
         // encode
         if (BAout == 1|| Rout == 1) RXout[selected_register] = 1; else 
@@ -24,7 +29,6 @@ module select_and_encode (Gra, Grb, Grc, Rin, Rout, BAout, IR, RXin, RXout, CSig
 
         // C_sign_extended
         CSignExtended = $signed(IR[18:0]);
-
     end
 
 endmodule
