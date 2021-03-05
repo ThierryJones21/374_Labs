@@ -1,7 +1,8 @@
 `timescale 1ns/10ps
 
-module Lab1(output reg PCout, Zlowout, Zhighout, MDRout, R2out, R4out, Clock, Clear, Yout);
-
+module Lab1;
+	
+	 reg PCout, Zlowin, Zhighin, Zlowout, Zhighout, MDRout, R2out, R4out, Clock, Clear, Yout;
     // add any other signals to see in your simulation
     reg MARin, Zin, PCin, MDRin, IRin, Yin;
     reg IncPC,Read, CONTROL, R5in, R2in, R4in;
@@ -15,8 +16,10 @@ module Lab1(output reg PCout, Zlowout, Zhighout, MDRout, R2out, R4out, Clock, Cl
 
     reg[3:0] Present_state= Default;
 
-	datapath DUT(.PCout(PCout), .Zlowin(Zlowin), .Zhighin(Zhighin), .MDRout(MDRout), .R2out(R2out), .R4out(R4out), .MARin(MARin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), .IncPC(IncPC), .Read(Read), .CONTROL(CONTROL), .R5in(R5in), .R2in(R2in), .R4in(R4in), 
-				.Clock(Clock), .Mdatain(Mdatain), .Clear(Clear));
+	datapath DUT(.PCout(PCout), .Zlowin(Zlowin), .Zhighin(Zhighin), .MDRout(MDRout), .R2out(R2out), .Zhighout(Zhighout), .Zlowout(Zlowout),
+					 .R4out(R4out), .MARin(MARin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), 
+					 .IncPC(IncPC), .Read(Read), .CONTROL(CONTROL), .R5in(R5in), .R2in(R2in), .R4in(R4in), 
+					 .Clock(Clock), .Mdatain(Mdatain), .Clear(Clear));
 // add test logic here
 initial begin
 
@@ -28,17 +31,17 @@ always @(posedge Clock)//finite state machine; if clock rising-edge
     begin
         case (Present_state)
             Default     :   Present_state = Reg_load1a;
-            Reg_load1a  :   Present_state = Reg_load1b;
-            Reg_load1b  :   Present_state = Reg_load2a;
-            Reg_load2a  :   Present_state = Reg_load2b;
-            Reg_load2b  :   Present_state = Reg_load3a;
-            Reg_load3a  :   Present_state = Reg_load3b;
-            Reg_load3b  :   Present_state = T0;
-            T0          :   Present_state = T1;
-            T1          :   Present_state = T2;
-            T2          :   Present_state = T3;
-            T3          :   Present_state = T4;
-            T4          :   Present_state = T5;
+            Reg_load1a  :   #40 Present_state = Reg_load1b;
+            Reg_load1b  :   #40 Present_state = Reg_load2a;
+            Reg_load2a  :   #40 Present_state = Reg_load2b;
+            Reg_load2b  :   #40 Present_state = Reg_load3a;
+            Reg_load3a  :   #40 Present_state = Reg_load3b;
+            Reg_load3b  :   #40 Present_state = T0;
+            T0          :   #40 Present_state = T1;
+            T1          :   #40 Present_state = T2;
+            T2          :   #40 Present_state = T3;
+            T3          :   #40 Present_state = T4;
+            T4          :   #40 Present_state = T5;
 				//T5				:	 Present_state = T6;
         endcase
     end
@@ -88,23 +91,23 @@ always @(Present_state)// do the required job ineach state
             // Registers in opcode are their binary -> R5 = 101
 
             T0: begin //see if you need to de-assertthese signals
-                PCout<= 1; MARin <= 1; IncPC <= 1; Zin <= 1;
+                #10 PCout<= 1; MARin <= 1; IncPC <= 1; Zin <= 1;
             end
             T1: begin
-                Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1;
+                #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1;
                 Mdatain <= 32'h4A920000; //opcode for AND R5, R2, R4 
             end
             T2: begin
-                MDRout<= 1; IRin <= 1;
+                #10 MDRout<= 1; IRin <= 1;
             end
             T3: begin
-                R2out<= 1; Yin <= 1;
+                #10 R2out<= 1; Yin <= 1;
             end
             T4: begin
-                R4out<= 1; CONTROL <= 0; Zin <= 1;
+                #10 R4out<= 1; CONTROL <= 0; Zin <= 1;
             end
             T5: begin
-                Zlowout<= 1; R5in <= 1;
+                #10 Zlowout<= 1; R5in <= 1;
             end
         endcase
     end
