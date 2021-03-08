@@ -1,47 +1,38 @@
 module ALU (input [31:0] A, B, output reg [63:0]C, input wire [3:0]cntrl);
 
-	wire[63:0] div_quotient;
+reg[63:0] div_quotient;
 
 function [63:0] booth;
 
-    input[31:0] X, Y;      
-    
-    reg [1:0] temp;
+    input[31:0] x, y;      
+   
     
     integer i;
+	
+	reg [63:0] P, y_temp, y_temp_neg; 
     
-    reg E1;
-    
-    reg [31:0] Y1;
-
-	begin
-		booth = 64'd0;
-		E1 = 1'd0;
-	for (i = 0; i < 32; i = i + 1)
-		begin
-			temp = {X[i], E1};  // concatenation
-
-			Y1 = -Y; // 2's complement
-		
-			case (temp)
-				2'd2 : booth [63 : 31] = booth [63 : 31] + Y1;
-				2'd1 : booth [63 : 31] = booth [63 : 31] + Y;
-				default : begin end
-			endcase
-			
-			booth = booth >> 1; // logical shift right
-		
-			booth[31] = booth[30]; //Arithmetic shift
-		
-			E1 = X[i];
-		end
-		
-		if (Y == 16'd32)
-		begin
-			booth = - booth;
-		end
-
-	end  
+    reg rightBit;
+   
+    	P = 64'd0;
+    	y_temp = 64'd0 + y;
+    	y_temp_neg = 64'd0 - y;
+    	rightBit = 0;
+     
+    	for(i=0;i<32;i =i+1) begin
+    		// 00 or 11
+    		if(x[i] != rightBit) begin
+    			if(rightBit == 1) begin //01
+    				P = P + (y_temp << i);
+    			end else begin
+    				P = P + (y_temp_neg << i);
+    			end
+    			if(x[i] == 1) begin
+    				rightBit = 1;
+    			end else begin
+    				rightBit = 0;
+    			end
+    		end
+     	end
     
 endfunction
 
