@@ -17,7 +17,11 @@ end
 T4: begin
     // or
     #10 R4out<= 1; CONTROL <= 1; Zlowin <= 1;
+    #15 R4out<= 0; CONTROL <= 0; Zlowin <= 0;
 end
 T5: begin
     #10 Zlowout<= 1; R5in <= 1;
+    #15 Zlowout<= 0; R5in <= 0;
+    
+    
 end
