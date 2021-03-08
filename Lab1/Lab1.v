@@ -5,9 +5,9 @@ module Lab1;
 	 reg PCout, Zlowout, Zhighout, MDRout, R2out, R4out, Clock, Clear, Yout;
     // add any other signals to see in your simulation
     reg MARin, Zin, PCin, MDRin, IRin, Yin;
-    reg IncPC,Read, CONTROL, R5in, R2in, R4in;
-	 //reg[3:0] cntrl;
-    //reg Clock;
+    reg IncPC,Read, R5in, R2in, R4in;
+	 reg[3:0] CONTROL;
+    
     reg[31:0] Mdatain;
 
     parameter Default = 4'b0000, Reg_load1a= 4'b0001, Reg_load1b= 4'b0010, Reg_load2a= 4'b0011, Reg_load2b = 4'b0100, Reg_load3a = 4'b0101,
@@ -92,32 +92,30 @@ always @(Present_state)// do the required job ineach state
             // Registers in opcode are their binary -> R5 = 101
 
             T0: begin //see if you need to de-assertthese signals
-                #10 PCout<= 1; MARin <= 1; IncPC <= 1; Zin <= 1;
-					 #15 PCout<= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
-
-					 
+					#10 PCout<= 1; MARin <= 1; IncPC <= 1; Zin <= 1;
+					#15 PCout<= 0; MARin <= 0; IncPC <= 0; Zin <= 0; 
             end
             T1: begin
-                #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h4A920000; //opcode for AND R5, R2, R4 
-					 #15 Zlowout<= 0; PCin <= 0; Read <= 0; MDRin <= 0;
+					#10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h4A920000; //opcode for AND R5, R2, R4 
+					#15 Zlowout<= 0; PCin <= 0; Read <= 0; MDRin <= 0;
             end
             T2: begin
-                #10 MDRout<= 1; IRin <= 1;
-					 #15 MDRout<= 0; IRin <= 0;
+					#10 MDRout<= 1; IRin <= 1;
+					#15 MDRout<= 0; IRin <= 0;
             end
             T3: begin
-                #10 R2out<= 1; Yin <= 1;
-					 #15 R2out<= 0; Yin <= 0;
+					#10 R2out<= 1; Yin <= 1;
+					#15 R2out<= 0; Yin <= 0;
             end
             T4: begin
-                #10 R4out<= 1; CONTROL <= 0; Zin <= 1;
-					 #15 R4out<= 0; Zin <= 0;
+               #10 R4out<= 1; CONTROL <= 0; Zin <= 1;
+					#15 R4out<= 0; Zin <= 0;
             end
             T5: begin
-                #10 Zlowout<= 1; R5in <= 1;
-					 #15 Zlowout<= 0; R5in <= 0;
+               #10 Zlowout<= 1; R5in <= 1;
+					#15 Zlowout<= 0; R5in <= 0;
 
             end
-        endcase
-    end
+		endcase
+	end
 endmodule 

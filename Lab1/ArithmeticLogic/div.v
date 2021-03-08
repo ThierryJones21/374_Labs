@@ -1,4 +1,4 @@
-module div(output [63:0] quotient_and_remainder, input [31:0] divisor, dividend);
+module div(output reg [63:0] quotient_and_remainder, input [31:0] divisor, dividend);
 
 reg [5:0] i; // for loop iterator
 reg [64:0] A; // just so that we have a shorter name to work with
@@ -27,8 +27,9 @@ always @(divisor or dividend) begin
 			A[0] = 1; // set negative
 		end
 	end
+	quotient_and_remainder <= A; // at the very end, assign the output
+
 end
 
-assign quotient_and_remainder = A; // at the very end, assign the output
-
-endmodule
+ 
+endmodule 

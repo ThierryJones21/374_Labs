@@ -1,10 +1,11 @@
 module datapath(PCout, MDRout, MARin, Zin, Zhighout, Zlowout, PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL, Clock, Mdatain, Clear, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in);
 
-	input PCout, MDRout, MARin, Zin, Zhighout, Zlowout, PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL, Clock, Clear;
+	input PCout, MDRout, MARin, Zin, Zhighout, Zlowout, PCin, MDRin, IRin, Yin, IncPC, Read, Clock, Clear;
 	input [31:0] Mdatain;
 	input R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out;
 	input R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
-			
+		
+	input[3:0] CONTROL;	
 	wire [31:0] Bus_Mux_Out; // output of bus
 	wire [31:0] BusMuxIn_R0, BusMuxIn_R1, BusMuxIn_R2, BusMuxIn_R3, BusMuxIn_R4, BusMuxIn_R5, BusMuxIn_R6, BusMuxIn_R7, BusMuxIn_R8, 
 					BusMuxIn_R9, BusMuxIn_R10, BusMuxIn_R11, BusMuxIn_R12, BusMuxIn_R13, BusMuxIn_R14, BusMuxIn_R15, BusMuxIn_Z_HI, BusMuxIn_Z_LO, 
@@ -12,6 +13,7 @@ module datapath(PCout, MDRout, MARin, Zin, Zhighout, Zlowout, PCin, MDRin, IRin,
 					
 	wire [63:0] ZOut; // ALU output
 	wire [31:0] MDR_wire_out;
+	wire [31:0] Y_contents;
 	
 	wire highout, lowout, highin, lowin;
 
