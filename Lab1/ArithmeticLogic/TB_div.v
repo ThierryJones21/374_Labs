@@ -3,7 +3,7 @@ module TB_div ();
     reg [31:0] dividend, divisor;
     reg [63:0] quotient_and_remainder;
 
-    DIV restoring_div(quotient_and_remainder, dividend, divisor);
+    div restoring_div(quotient_and_remainder, dividend, divisor);
 
     initial begin
         // no remainder
