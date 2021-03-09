@@ -1,4 +1,4 @@
-module div(dividend, divisor, quotient_and_remainder);
+module div(quotient_and_remainder, dividend, divisor);
 	input [31:0] dividend, divisor;
     output reg [63:0] quotient_and_remainder;
 
