@@ -12,7 +12,7 @@ T2: begin
 end
 T3: begin
     #10 R2out<= 1; Yin <= 1;
-    #15 R2out<= 0; Yin <= 0
+    #15 R2out<= 0; Yin <= 0;
 end
 T4: begin
     // put value in R4 on bus; div
