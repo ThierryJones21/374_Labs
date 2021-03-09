@@ -1,6 +1,6 @@
-module datapath(PCout, MDRout, MARin, Zin, Zhighout, Zlowout, PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL, Clock, Mdatain, Clear, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in);
+module datapath(PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL, Clock, Mdatain, Clear, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in);
 
-	input PCout, MDRout, MARin, Zin, Zhighout, Zlowout, PCin, MDRin, IRin, Yin, IncPC, Read, Clock, Clear;
+	input PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, PCin, MDRin, IRin, Yin, IncPC, Read, Clock, Clear;
 	input [31:0] Mdatain;
 	input R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out;
 	input R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
@@ -39,8 +39,8 @@ module datapath(PCout, MDRout, MARin, Zin, Zhighout, Zlowout, PCin, MDRin, IRin,
 	Register HI (Clock, Clear, Bus_Mux_Out, highin, BusMuxIn_HI);
 	Register LO (Clock, Clear, Bus_Mux_Out, lowin, BusMuxIn_LO);
 	// Unneeded b/c ZXX stores on the bus, whereas HI/LO read from the bus
-	Register Z_HI (Clock, Clear, ZOut[63:32], Zin, BusMuxIn_Z_HI);
-	Register Z_LO (Clock, Clear, ZOut[31:0], Zin, BusMuxIn_Z_LO);
+	Register Z_HI (Clock, Clear, ZOut[63:32], Zhighin, BusMuxIn_Z_HI);
+	Register Z_LO (Clock, Clear, ZOut[31:0], Zlowin, BusMuxIn_Z_LO);
 
 	// PC IR IN_PORT
 		Register PC (Clock, Clear, Bus_Mux_Out, PCin, BusMuxIn_PC);
