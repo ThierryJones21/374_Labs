@@ -8,9 +8,9 @@ module ALU (input[31:0] A, B, output reg[31:0] C_LO, C_HI, input wire [3:0]cntrl
 
 
 
-div my_divalgo(.quotient_and_remainder(div_quotient), .dividend(A), .divisor(B));
+div restoring_div(.quotient_and_remainder(div_quotient), .dividend(A), .divisor(B));
 
-mul myBoothOP (booth_result, A, B);
+mul booth (booth_result, A, B);
 
  //division algorthim module instance
 	//assign div_temp = div myDivalgo (div_quotient, A, B);
