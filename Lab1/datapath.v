@@ -50,6 +50,7 @@ module datapath(PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin
 		Register PC (Clock, Clear, Bus_Mux_Out, PCin, BusMuxIn_PC);
 	// Register IR (Clock, Clear, Bus_Mux_Out, IRin), IROut);
 	// Register IN_PORT (Clock, Clear, Bus_Mux_Out, IRin, PCOut);
+
 		Register Y (Clock, Clear, Bus_Mux_Out, Yin, Y_contents);
 
 												

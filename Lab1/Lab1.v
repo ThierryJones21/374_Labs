@@ -11,7 +11,7 @@ module Lab1;
     reg[31:0] Mdatain;
 
     parameter Default = 4'b0000, Reg_load1a= 4'b0001, Reg_load1b= 4'b0010, Reg_load2a= 4'b0011, Reg_load2b = 4'b0100, Reg_load3a = 4'b0101,
-				  Reg_load3b = 4'b0110, T0= 4'b0111, T1= 4'b1000,T2= 4'b1001, T3= 4'b1010, T4= 4'b1011, T5= 4'b1100; //, T6 = 4'b1101;
+				  Reg_load3b = 4'b0110, T0= 4'b0111, T1= 4'b1000,T2= 4'b1001, T3= 4'b1010, T4= 4'b1011, T5= 4'b1100, T6 = 4'b1101;
 
     reg[3:0] Present_state= Default;
 
@@ -40,8 +40,8 @@ always @(posedge Clock)//finite state machine; if clock rising-edge
             T1          :   #40 Present_state = T2;
             T2          :   #40 Present_state = T3;
             T3          :   #40 Present_state = T4;
-            T4          :   #140 Present_state = T5;
-				//T5				:	 #40 Present_state = T6;
+            T4          :   #40 Present_state = T5;
+				T5				:	 #40 Present_state = T6;
         endcase
     end
 
@@ -49,14 +49,14 @@ always @(Present_state)// do the required job ineach state
     begin
         case (Present_state) //assert the required signals in each clock cycle
             Default: begin
-                PCout <= 0; Zlowout <= 0; MDRout<= 0;  //initialize the signals
-                R2out <= 0; R4out <= 0; MARin <= 0; Zlowin <= 0;
+                PCout <= 0; Zlowout <= 0; Zhighout <= 0; MDRout<= 0;  //initialize the signals
+                R2out <= 0; R4out <= 0; MARin <= 0; Zlowin <= 0; Zhighin <= 0;
                 PCin <= 0; MDRin <= 0; IRin  <= 0; Yin <= 0;
                 IncPC <= 0; Read <= 0; CONTROL <= 0;
                 R5in <= 0; R2in <= 0; R4in <= 0; Mdatain <= 32'h00000000;
             end
             Reg_load1a: begin 
-                Mdatain<= 32'h0000009
+                Mdatain<= 32'h0000004
 					 ; // loads hex 22 into MDR
                 Read = 0; MDRin = 0; //the first zero is there for completeness
                 #10 Read <= 1; MDRin <= 1;
@@ -67,7 +67,7 @@ always @(Present_state)// do the required job ineach state
                 #15 MDRout<= 0; R2in <= 0; // initialize R2 with the value $22
             end
             Reg_load2a: begin 
-                Mdatain <= 32'h00000024; // loads hex 24 into MDR
+                Mdatain <= 32'h00000009; // loads hex 24 into MDR
                 #10 Read <= 1; MDRin <= 1;
                 #15 Read <= 0; MDRin <= 0;
             end
@@ -95,7 +95,7 @@ always @(Present_state)// do the required job ineach state
 					 #15 PCout<= 0; MARin <= 0; IncPC <= 0; Zlowin <= 0;
 				end
 				T1: begin
-					 #10 Zlowout <= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h1A920000; //opcode for ADD R5, R2, R4 0001 1 010 1 001 0 010 0000 0000 0000 0000 
+					 #10 Zlowout <= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h7920000; //opcode for DIV R2, R4 01111 0010 0100 000 0000 0000 0000  
 					 #15 Zlowout <= 0; PCin <= 0; Read <= 0; MDRin <= 0;
 				end
 				T2: begin
@@ -107,18 +107,19 @@ always @(Present_state)// do the required job ineach state
 					 #15 R2out<= 0; Yin <= 0;
 				end
 				T4: begin
-					 // add
-					 #10 R4out<= 1; CONTROL <= 2; Zlowin <= 1;
-					 #15 R4out<= 0; Zlowin <= 0;
+					 // put value in R4 on bus; div
+					 #10 R4out<= 1; CONTROL <= 11; Zlowin <= 1; Zhighin <= 1;
+					 #25 R4out<= 0; Zlowin <= 0; Zhighin <= 0; 
 				end
 				T5: begin
-					 #10 Zlowout<= 1; R5in <= 1;
-					 #15 Zlowout<= 0; R5in <= 0;
+					 #10 Zlowout<= 1; lowin <= 1;
+					 #15 Zlowout<= 0; lowin <= 0;
+
 				end
-
-
-
-
+				T6: begin
+					 #10 Zhighout<= 1; highin <= 1;
+					 #15 Zhighout<= 0; highin <= 0;
+				end
 		endcase
 	end
 endmodule 

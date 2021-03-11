@@ -8,7 +8,7 @@ module div(quotient_and_remainder, dividend, divisor);
 
     always @(dividend or divisor) begin
         A[31:0] = divisor; // lowest 32 = divisor
-        A[64:32] = 0;
+        A[64:32] = 0;		// fill the rest of the bit with zeros
         M[31:0] = dividend;
 
         // Loop 32 time because dividend is 32 bits
