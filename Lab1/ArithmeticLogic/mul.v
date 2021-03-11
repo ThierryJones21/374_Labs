@@ -1,4 +1,4 @@
-module booth_op(output [63:0] booth, input[31:0] x, y);      
+module mul(output [63:0] booth, input[31:0] x, y);      
 	integer i;
 	reg [63:0] P, y_temp, y_temp_neg;  
 	reg rightBit;
