@@ -48,7 +48,7 @@ always @(Present_state)// do the required job ineach state
 					 #15 PCout<= 0; MARin <= 0; IncPC <= 0; Zlowin <= 0;
 				end
 				T1: begin
-					 #10 Zlowout <= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h1A920000; //opcode for ADD R5, R2, R4 0001 1 010 1 001 0 010 0000 0000 0000 0000 
+					 #10 Zlowout <= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h7120000; //opcode for ADD R5, R2, R4 0001 1 010 1 001 0 010 0000 0000 0000 0000 
 					 #15 Zlowout <= 0; PCin <= 0; Read <= 0; MDRin <= 0;
 				end
 				T2: begin
