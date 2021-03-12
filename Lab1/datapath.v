@@ -24,16 +24,16 @@ module datapath(PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin
 	Register R3 (Clock, Clear, Bus_Mux_Out, R3in, BusMuxIn_R3); 
 	Register R4 (Clock, Clear, Bus_Mux_Out, R4in, BusMuxIn_R4); 
 	Register R5 (Clock, Clear, Bus_Mux_Out, R5in, BusMuxIn_R5); 
-	Register R6 (Clock, Clear, Bus_Mux_Out, R6in, R6out); 
-	Register R7 (Clock, Clear, Bus_Mux_Out, R7in, R7out); 
-	Register R8 (Clock, Clear, Bus_Mux_Out, R8in, R8out); 
-	Register R9 (Clock, Clear, Bus_Mux_Out, R9in, R9out); 
-	Register R10 (Clock, Clear, Bus_Mux_Out, R10in, R10out); 
-	Register R11 (Clock, Clear, Bus_Mux_Out, R11in, R11out);  
-	Register R12 (Clock, Clear, Bus_Mux_Out, R12in, R12out); 
-	Register R13 (Clock, Clear, Bus_Mux_Out, R13in, R13out); 
-	Register R14 (Clock, Clear, Bus_Mux_Out, R14in, R14out); 
-	Register R15 (Clock, Clear, Bus_Mux_Out, R15in, R15out);
+	Register R6 (Clock, Clear, Bus_Mux_Out, R6in, BusMuxIn_R6); 
+	Register R7 (Clock, Clear, Bus_Mux_Out, R7in, BusMuxIn_R7); 
+	Register R8 (Clock, Clear, Bus_Mux_Out, R8in, BusMuxIn_R8); 
+	Register R9 (Clock, Clear, Bus_Mux_Out, R9in, BusMuxIn_R9); 
+	Register R10 (Clock, Clear, Bus_Mux_Out, R10in, BusMuxIn_R10); 
+	Register R11 (Clock, Clear, Bus_Mux_Out, R11in, BusMuxIn_R11);  
+	Register R12 (Clock, Clear, Bus_Mux_Out, R12in, BusMuxIn_R12); 
+	Register R13 (Clock, Clear, Bus_Mux_Out, R13in, BusMuxIn_R13); 
+	Register R14 (Clock, Clear, Bus_Mux_Out, R14in, BusMuxIn_R14); 
+	Register R15 (Clock, Clear, Bus_Mux_Out, R15in, BusMuxIn_R15);
 	
 	/* For multiplication/division */
 	
