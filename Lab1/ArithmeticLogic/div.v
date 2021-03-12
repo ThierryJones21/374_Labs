@@ -1,8 +1,8 @@
 module div(quotient_and_remainder, dividend, divisor);
 	input [31:0] dividend, divisor;
-   output reg [63:0] quotient_and_remainder;
+    output reg [63:0] quotient_and_remainder;
 
-    reg [5:0] i; // iterator for the for loop
+    integer i; // iterator for the for loop
     reg [64:0] A; // signextended, quotient and remainder - renamed so type less
     reg [32:0] M; // signextended dividend
 
@@ -25,7 +25,7 @@ module div(quotient_and_remainder, dividend, divisor);
                 A[0] = 1;
             end
         end  
-		 quotient_and_remainder <= A; // at the very end, assign the output 
+        quotient_and_remainder <= A[63:0]; // at the very end, assign the output 
     end
 	 
 
