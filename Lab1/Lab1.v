@@ -101,8 +101,8 @@ module Lab1;
                 #15 R4out<= 0; Zlowin <= 0;
             end
             T5: begin
-                    #10 Zlowout<= 1; R5in <= 1;
-                    #15 Zlowout<= 0; R5in <= 0;
+                #10 Zlowout<= 1; R5in <= 1;
+                #15 Zlowout<= 0; R5in <= 0;
             end
         endcase
 	end
