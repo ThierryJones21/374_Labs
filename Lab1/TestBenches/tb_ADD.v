@@ -2,11 +2,11 @@ always @(Present_state)// do the required job ineach state
 begin
     case (Present_state) //assert the required signals in each clock cycle
         Default: begin //initialize the signals
-            PCout <= 0; MDRout<= 0; Clear <= 0; Yout <= 0;
-            R2out <= 0; R4out <= 0; Zlowout <= 0; Zhighout <= 0; 
-            Zlowin <= 0; Zhighin <= 0; lowin <= 0; highin <= 0;
-            PCin <= 0; MDRin <= 0; IRin <= 0; Yin <= 0; MARin <= 0; 
-            IncPC <= 0; Read <= 0; CONTROL <= 0; 
+            PCout <= 0; Zlowout <= 0; Zhighout <= 0; MDRout<= 0;  //initialize the signals
+            R2out <= 0; R4out <= 0; MARin <= 0; Zlowin <= 0; Zhighin <= 0;
+            PCin <= 0; MDRin <= 0; IRin  <= 0; Yin <= 0;
+            IncPC <= 0; Read <= 0; CONTROL <= 0;
+            Clear <= 1; Yout <= 0; highin <= 0; lowin <= 0;
             R5in <= 0; R2in <= 0; R4in <= 0; Mdatain <= 32'h00000000;
         end
         Reg_load1a: begin 
