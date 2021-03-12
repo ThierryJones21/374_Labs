@@ -21,10 +21,16 @@ module datapath(PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin
 	wire [15:0] RXin, RXout;
 	
 	wire [31:0] to_output_unit, from_input_unit;
+
+	// What is the Memory Initialization file (MIF) (Section 2.1 - the RAM unit I think)
+	// used to load values inside RAM
+	// @NAOD look here https://onq.queensu.ca/d2l/le/content/505088/viewContent/3034601/View
+	
+	// NOTE toControlUnit is it just a wire to be used later -> CPU made in phase 3
 	
 	// 15 Registers
 	register_zero R0 (Clock, Clear, BAout, Bus_Mux_Out, RXin[0], BusMuxIn_R0); 
-	Register R1 (Clock, Clear, Bus_Mux_Out, RXin[1], BusMuxIn_R1); 
+	Register #(1) R1 (Clock, Clear, Bus_Mux_Out, RXin[1], BusMuxIn_R1); // preloads 1 into R1
 	Register R2 (Clock, Clear, Bus_Mux_Out, RXin[2], BusMuxIn_R2); 
 	Register R3 (Clock, Clear, Bus_Mux_Out, RXin[3], BusMuxIn_R3); 
 	Register R4 (Clock, Clear, Bus_Mux_Out, RXin[4], BusMuxIn_R4); 
