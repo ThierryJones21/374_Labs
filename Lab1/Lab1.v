@@ -2,10 +2,11 @@
 
 module Lab1;
 	
-	reg PCout, Zlowout, Zhighout, MDRout, R2out, R4out, Clock, Clear, Yout;
-    // add any other signals to see in your simulation
+	reg PCout, Zlowout, Zhighout, MDRout, Clock, Clear, Yout;
+    reg R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
+    reg R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out;
     reg MARin, Zhighin, Zlowin, lowin, highin, PCin, MDRin, IRin, Yin;
-    reg IncPC,Read, R5in, R2in, R4in;
+    reg IncPC, Read;
 	reg[3:0] CONTROL;
     
     reg[31:0] Mdatain;
@@ -14,7 +15,7 @@ module Lab1;
 
     reg[3:0] Present_state= Default;
 
-	datapath DUT(.PCout(PCout), .Zlowin(Zlowin),.Zhighin(Zhighin), .MDRout(MDRout), .R2out(R2out), .Zhighout(Zhighout), .Zlowout(Zlowout), .R4out(R4out), .MARin(MARin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), .IncPC(IncPC), .Read(Read), .CONTROL(CONTROL), .R5in(R5in), .R2in(R2in), .R4in(R4in), .Clock(Clock), .Mdatain(Mdatain), .Clear(Clear), .highin(highin), .lowin(lowin));
+	datapath DUT(PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin, lowin, PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL, Clock, Mdatain, Clear, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in);
     
     initial begin
         Clock = 0;
@@ -106,4 +107,4 @@ module Lab1;
             end
         endcase
 	end
-endmodule 
+endmodule
