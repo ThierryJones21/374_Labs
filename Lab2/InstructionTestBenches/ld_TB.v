@@ -25,8 +25,8 @@ begin
             #10 Cout<= 0; ADD <= 0; Zlowin <= 0;
         end
         T5: begin
-            #10 Zlowout<= 1; R5in <= 1;
-            #15 Zlowout<= 0; R5in <= 0;
+            #10 Zlowout<= 1; MARin <= 1;
+            #15 Zlowout<= 0; MARin <= 0;
         end
         T6: begin
             #10 Read <= 1; MDRin <= 1; Mdatain <= 32'h4A920000;
