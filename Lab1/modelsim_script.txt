@@ -1,0 +1,30 @@
+vlog -reportprogress 300 -work work C:/Users/17jhcw/Desktop/elec374/MDR.v;
+vlog -reportprogress 300 -work work C:/Users/17jhcw/Desktop/elec374/Bus.v;
+vlog -reportprogress 300 -work work C:/Users/17jhcw/Desktop/elec374/mul.v;
+vlog -reportprogress 300 -work work C:/Users/17jhcw/Desktop/elec374/div.v;
+vlog -reportprogress 300 -work work C:/Users/17jhcw/Desktop/elec374/Register.v;
+vlog -reportprogress 300 -work work C:/Users/17jhcw/Desktop/elec374/ALU.v;
+vlog -reportprogress 300 -work work C:/Users/17jhcw/Desktop/elec374/datapath.v;
+vlog -reportprogress 300 -work work C:/Users/17jhcw/Desktop/elec374/Lab1.v;
+
+vsim Lab1;
+add wave *;
+
+add wave -position insertpoint sim:/Lab1/DUT/R2/BusMuxIn; 
+add wave -position insertpoint sim:/Lab1/DUT/R4/BusMuxIn;
+add wave -position insertpoint sim:/Lab1/DUT/R5/BusMuxIn;
+add wave -position insertpoint sim:/Lab1/DUT/Z_LO/BusMuxIn; 
+add wave -position insertpoint sim:/Lab1/DUT/LO/BusMuxIn; 
+add wave -position insertpoint sim:/Lab1/DUT/bus/BusMuxOut;
+add wave -position insertpoint sim:/Lab1/DUT/mdr/BusMuxOut;
+add wave -position insertpoint sim:/Lab1/DUT/alu/A;
+add wave -position insertpoint sim:/Lab1/DUT/alu/B;
+add wave -position insertpoint sim:/Lab1/DUT/alu/C_LO;
+add wave -position insertpoint sim:/Lab1/DUT/alu/cntrl;
+
+restart -f
+run 600ns;
+
+add wave -position insertpoint sim:/Lab1/DUT/Z_HI/BusMuxIn;
+add wave -position insertpoint sim:/Lab1/DUT/HI/BusMuxIn;
+add wave -position insertpoint sim:/Lab1/DUT/alu/C_HI;
