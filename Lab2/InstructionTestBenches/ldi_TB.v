@@ -1,4 +1,4 @@
-module ld_TB ();
+module ldi_TB ();
   
 always @(Present_state)// do the required job ineach state
 begin
@@ -9,7 +9,7 @@ begin
             #15 PCout <= 0; MARin <= 0; IncPC <= 0; Zin<= 0;
         end
         T1: begin
-            #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 1; //Reading from RAM
+            #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 1; //Reading from RAM 0000101000000xxxxxxxxxxxxxxxxxx
             #15 Zlowout<= 0; PCin <= 0; Read <= 0; MDRin <= 0;
         end
         T2: begin
@@ -25,17 +25,9 @@ begin
             #10 Cout<= 0; ADD <= 0; Zlowin <= 0;
         end
         T5: begin
-            #10 Zlowout<= 1; MARin <= 1;
-            #15 Zlowout<= 0; MARin <= 0;
-        end
-        T6: begin
-            #10 Read <= 1; MDRin <= 1; Mdatain <= 1;//Reading from RAM
-            #15 Read <= 0; MDRin <= 0; 
-        end
-        T7: begin
-            #10 MDRout <= 1; Gra <= 1; Rin <= 1; 
-            #15 MDRout <= 0; Gra <= 0; Rin <= 0;
-        end
+            #10 Zlowout<= 1; Gra <= 1; Rin <= 1;
+            #15 Zlowout<= 0; Gra <= 0; Rin <= 0;
+        
     endcase
 end
 
