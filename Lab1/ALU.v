@@ -22,7 +22,7 @@ module ALU (input[31:0] A, B, output reg[31:0] C_LO, C_HI, input wire [3:0]cntrl
 			8   :	  C_LO = A << B | A >> (32 - B); // rotate left
 			7   :   C_LO[31:0] = A >>> B; // right arithmetic shift - A = how many shifts, B = the number you want to shift 
 			6   :   C_LO[31:0] = A <<< B; // left arithtmatic shift - A = how many shifts, B = the number you want to shift 
-			5   :   C_LO[31:0] = !B; // logical not 
+			5   :   C_LO[31:0] = ~B; // logical not 
 			4   :   C_LO[31:0] = -B; //negation function
 			3   :   C_LO[31:0] = A - B;
 			2   :   C_LO[31:0] = A + B;
