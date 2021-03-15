@@ -23,6 +23,8 @@ module datapath(PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin
 	
 	wire [31:0] mdr_data_in;
 	
+	wire [8:0] mar_out;
+	
 	// NOTE toControlUnit is it just a wire to be used later -> CPU made in phase 3
 	
 	// 15 Registers
@@ -65,8 +67,9 @@ module datapath(PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin
 
 	select_and_encode IR_select(Gra, Grb, Grc, Rin, Rout, BAout, BusMuxIn_IR, RXin, RXout, CSignExtended);
 	
-	// unsure what toControlUnit actually does at this point - do we just need to graph it
 	con_ff con_logic(con_in, BusMuxIn_IR[22:19], Bus_Mux_Out, toControlUnit);
 	
-	ram ram_inst (.address(Mdatain), .clock (Clock), .data (BusMuxIn_MDR), .wren ( ram_enable ), .q(mdr_data_in));
+	MAR mar (Bus_Mux_Out, MARin, Clock, Clear, mar_out); // Mdatain - read input into MAR
+	
+	ram ram_inst (.address(mar_out), .clock (Clock), .data (BusMuxIn_MDR), .wren ( ram_enable ), .q(mdr_data_in));
 endmodule 
