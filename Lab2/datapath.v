@@ -74,4 +74,6 @@ module datapath(PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin
 	outputPort outPort(Bus_Mux_Out, Clear, Clock, outPortIn, to_output_unit);
 	
 	inputPort inPort(from_input_unit, Clear, Clock, BusMuxIn_IN_PORT);
+	
+	ram ram_inst (.address(Mdatain), .clock (Clock), .data (BusMuxIn_MDR), .wren ( wren_sig ), .q(BusMuxOut));
 endmodule 
