@@ -4,7 +4,7 @@ module Lab2;
 	
 	reg PCout, Zlowout, Zhighout, MDRout, Clock, Clear, Yout, COut, outPortIn, inPortOut;
     reg BAout, Rin, Rout, Gra, Grb, Grc;
-    reg MARin, Zhighin, Zlowin, lowin, highin, PCin, MDRin, IRin, Yin;
+    reg MARin, Zhighin, Zlowin, lowin, highin, PCin, MDRin, IRin, Yin, ram_enable;
     reg IncPC, Read;
 	reg[3:0] CONTROL;
     
@@ -14,7 +14,7 @@ module Lab2;
 
     reg[3:0] Present_state= Default;
 
-	datapath DUT(PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin, lowin, PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL, Clock, Mdatain, Clear, BAout, Rin, Rout, Gra, Grb, Grc, COut, outPortIn, inPortOut);
+	datapath DUT(PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin, lowin, PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL, Clock, Mdatain, Clear, BAout, Rin, Rout, Gra, Grb, Grc, COut, outPortIn, inPortOut, ram_enable);
     
     initial begin
         Clock = 0;
