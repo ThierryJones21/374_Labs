@@ -28,22 +28,22 @@ module datapath(PCOut, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin
 	// NOTE toControlUnit is it just a wire to be used later -> CPU made in phase 3
 	
 	// 15 Registers
-	register_zero R0 (Clock, Clear, BAout, Bus_Mux_Out, RXin[0], BusMuxIn_R0); 
+	register_zero #(0) R0 (Clock, Clear, BAout, Bus_Mux_Out, RXin[0], BusMuxIn_R0); 
 	Register #(133) R1 (Clock, Clear, Bus_Mux_Out, RXin[1], BusMuxIn_R1); // preloads 133 into R1 (hex 85)
-	Register R2 (Clock, Clear, Bus_Mux_Out, RXin[2], BusMuxIn_R2); 
-	Register R3 (Clock, Clear, Bus_Mux_Out, RXin[3], BusMuxIn_R3); 
-	Register R4 (Clock, Clear, Bus_Mux_Out, RXin[4], BusMuxIn_R4); 
-	Register R5 (Clock, Clear, Bus_Mux_Out, RXin[5], BusMuxIn_R5); 
-	Register R6 (Clock, Clear, Bus_Mux_Out, RXin[6], BusMuxIn_R6); 
-	Register R7 (Clock, Clear, Bus_Mux_Out, RXin[7], BusMuxIn_R7); 
-	Register R8 (Clock, Clear, Bus_Mux_Out, RXin[8], BusMuxIn_R8); 
-	Register R9 (Clock, Clear, Bus_Mux_Out, RXin[9], BusMuxIn_R9); 
-	Register R10 (Clock, Clear, Bus_Mux_Out, RXin[10], BusMuxIn_R10); 
-	Register R11 (Clock, Clear, Bus_Mux_Out, RXin[11], BusMuxIn_R11);  
-	Register R12 (Clock, Clear, Bus_Mux_Out, RXin[12], BusMuxIn_R12); 
-	Register R13 (Clock, Clear, Bus_Mux_Out, RXin[13], BusMuxIn_R13); 
-	Register R14 (Clock, Clear, Bus_Mux_Out, RXin[14], BusMuxIn_R14); 
-	Register R15 (Clock, Clear, Bus_Mux_Out, RXin[15], BusMuxIn_R15);
+	Register #(0) R2 (Clock, Clear, Bus_Mux_Out, RXin[2], BusMuxIn_R2); 
+	Register #(0) R3 (Clock, Clear, Bus_Mux_Out, RXin[3], BusMuxIn_R3); 
+	Register #(0) R4 (Clock, Clear, Bus_Mux_Out, RXin[4], BusMuxIn_R4); 
+	Register #(0) R5 (Clock, Clear, Bus_Mux_Out, RXin[5], BusMuxIn_R5); 
+	Register #(0) R6 (Clock, Clear, Bus_Mux_Out, RXin[6], BusMuxIn_R6); 
+	Register #(0) R7 (Clock, Clear, Bus_Mux_Out, RXin[7], BusMuxIn_R7); 
+	Register #(0) R8 (Clock, Clear, Bus_Mux_Out, RXin[8], BusMuxIn_R8); 
+	Register #(0) R9 (Clock, Clear, Bus_Mux_Out, RXin[9], BusMuxIn_R9); 
+	Register #(0) R10 (Clock, Clear, Bus_Mux_Out, RXin[10], BusMuxIn_R10); 
+	Register #(0) R11 (Clock, Clear, Bus_Mux_Out, RXin[11], BusMuxIn_R11);  
+	Register #(0) R12 (Clock, Clear, Bus_Mux_Out, RXin[12], BusMuxIn_R12); 
+	Register #(0) R13 (Clock, Clear, Bus_Mux_Out, RXin[13], BusMuxIn_R13); 
+	Register #(0) R14 (Clock, Clear, Bus_Mux_Out, RXin[14], BusMuxIn_R14); 
+	Register #(0) R15 (Clock, Clear, Bus_Mux_Out, RXin[15], BusMuxIn_R15);
 	
 	/* For multiplication/division */
 	
