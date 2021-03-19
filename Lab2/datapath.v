@@ -54,7 +54,7 @@ module datapath(PCOut, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin
 	Register Z_LO (Clock, Clear, ZOut_LO, Zlowin, BusMuxIn_Z_LO);
 
 	/* PC IR IN_PORT Y */
-	Register PC (Clock, Clear, Bus_Mux_Out, PCin, BusMuxIn_PC);
+	Register #(1) PC (Clock, Clear, Bus_Mux_Out, PCin, BusMuxIn_PC); // preload address 1 in PC
 	Register IR (Clock, Clear, Bus_Mux_Out, IRin, BusMuxIn_IR);
 	Register IN_PORT (Clock, Clear, Mdatain, inPortIn, BusMuxIn_IN_PORT);
 	Register Y (Clock, Clear, Bus_Mux_Out, Yin, Y_contents);
