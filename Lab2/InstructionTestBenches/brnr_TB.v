@@ -17,7 +17,7 @@ begin
             #15 PCout <= 0; MARin <= 0; IncPC <= 0; Zin<= 0;
         end
         T1: begin
-            #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h9111808; // opcode for brnr PC <- PC + 1 + C (1001000100010001100000001) 000//  
+            #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h9111808; // opcode for brnr R2, 35 (1001000100010001100000001) 000//  
             #15 Zlowout<= 0; PCin <= 0; Read <= 0; MDRin <= 0;
         end
         T2: begin
