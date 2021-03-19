@@ -12,7 +12,7 @@ begin
             BAout <= 0; Rin <= 0; Rout <= 0; Gra <= 0; Grb <= 0; Grc <= 0; ram_enable <= 0;
         end    
         T0: begin 
-            #10 PCout <= 1; MARin <= 1; IncPC <= 1; Zlowin <= 1; // Mdatain <= 32'h590FFFFB; opcode for ADDI R2, R1, -5 01011 0010 0001 111 1111 1111 1111 1011 in init file
+            #10 PCout <= 1; MARin <= 1; IncPC <= 1; Zlowin <= 1; // Mdatain <= 32'h61080026; opcode for ANDI R2, R1, $26 : 01100 0010 0001 000 0000 0000 0010 0110 in init file
             #15 PCout <= 0; MARin <= 0; IncPC <= 0; Zlowin<= 0;
         end
         T1: begin
@@ -28,7 +28,7 @@ begin
             #15 Grb <= 0; Rout<= 0; Yin <= 0;
         end
         T4: begin
-            #10 Cout<= 1; Zlowin <= 1; CONTROL <= 2; // add, result is stored in Z_LO
+            #10 Cout<= 1; Zlowin <= 1; CONTROL <= 0; // and, result is stored in Z_LO
             #15 Cout<= 0; Zlowin <= 0;
         end
         T5: begin
