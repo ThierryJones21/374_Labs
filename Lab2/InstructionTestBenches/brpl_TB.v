@@ -10,7 +10,7 @@ begin
             PCin <= 0; MDRin <= 0; IRin  <= 0; Yin <= 0;
             IncPC <= 0; Read <= 0; 
             Mdatain <= 32'h00000000; Rout <= 0; 
-            Gra <= 0; ADD <= 0; 
+            Gra <= 0; ADD <= 0; con_in <= 0;
         end    
         T0: begin 
             #10 PCout <= 1; MARin <= 1; IncPC <= 1; Zin<= 1;  //initialize the signals          
