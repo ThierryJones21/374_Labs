@@ -1,6 +1,6 @@
-module datapath(PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin, lowin, PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL, Clock, Mdatain, Clear, BAout, Rin, Rout, Gra, Grb, Grc, con_in, COut, outPortIn, inPortOut, ram_enable);
+module datapath(PCOut, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin, lowin, PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL, Clock, Mdatain, Clear, BAout, Rin, Rout, Gra, Grb, Grc, con_in, Cout, outPortIn, inPortOut, inPortIn, ram_enable, highout, lowout);
 
-	input PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin, lowin, PCin, MDRin, IRin, Yin, IncPC, Read, Clock, Clear, Rin, Rout, Gra, Grb, Grc, con_in, COut, outPortIn, inPortOut, ram_enable;
+	input PCOut, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin, lowin, PCin, MDRin, IRin, Yin, IncPC, Read, Clock, Clear, Rin, Rout, Gra, Grb, Grc, con_in, Cout, outPortIn, inPortOut, inPortIn, ram_enable, highout, lowout;
 	input [31:0] Mdatain;
 	input BAout; 
 		
@@ -15,7 +15,7 @@ module datapath(PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin
 	
 	wire [31:0] CSignExtended;
 	
-	wire highout, lowout, PCOut, toControlUnit;
+	wire toControlUnit;
 	
 	wire [15:0] RXin, RXout;
 	
@@ -56,14 +56,14 @@ module datapath(PCout, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin
 	/* PC IR IN_PORT Y */
 	Register PC (Clock, Clear, Bus_Mux_Out, PCin, BusMuxIn_PC);
 	Register IR (Clock, Clear, Bus_Mux_Out, IRin, BusMuxIn_IR);
-	Register IN_PORT (Clock, Clear, Bus_Mux_Out, IRin, PCOut);
+	Register IN_PORT (Clock, Clear, Mdatain, inPortIn, BusMuxIn_IN_PORT);
 	Register Y (Clock, Clear, Bus_Mux_Out, Yin, Y_contents);
 												
-	Bus bus (.R0_out(RXout[0]), .R1_out(RXout[1]), .R2_out(RXout[2]), .R3_out(RXout[3]), .R4_out(RXout[4]), .R5_out(RXout[5]), .R6_out(RXout[6]), .R7_out(RXout[7]), .R8_out(RXout[8]), .R9_out(RXout[9]), .R10_out(RXout[10]), .R11_out(RXout[11]), .R12_out(RXout[12]), .R13_out(RXout[13]), .R14_out(RXout[14]), .R15_out(RXout[15]), .HI_out(highout), .LO_out(lowout), .Z_high_out(Zhighout), .Z_low_out(Zlowout), .PC_out(PCOut), .MDR_out(MDRout), .In_Portout(inPortOut), .C_out(COut), .BusMuxIn_R0(BusMuxIn_R0), .BusMuxIn_R1(BusMuxIn_R1), .BusMuxIn_R2(BusMuxIn_R2), .BusMuxIn_R3(BusMuxIn_R3), .BusMuxIn_R4(BusMuxIn_R4), .BusMuxIn_R5(BusMuxIn_R5), .BusMuxIn_R6(BusMuxIn_R6), .BusMuxIn_R7(BusMuxIn_R7), .BusMuxIn_R8(BusMuxIn_R8), .BusMuxIn_R9(BusMuxIn_R9), .BusMuxIn_R10(BusMuxIn_R10), .BusMuxIn_R11(BusMuxIn_R11), .BusMuxIn_R12(BusMuxIn_R12), .BusMuxIn_R13(BusMuxIn_R13), .BusMuxIn_R14(BusMuxIn_R14), .BusMuxIn_R15(BusMuxIn_R15), .BusMuxIn_HI(BusMuxIn_HI), .BusMuxIn_LO(BusMuxIn_LO), .BusMuxIn_Z_HI(BusMuxIn_Z_HI), .BusMuxIn_Z_LO(BusMuxIn_Z_LO), .BusMuxIn_PC(BusMuxIn_PC), .BusMuxIn_MDR(BusMuxIn_MDR), .BusMuxIn_IN_PORT(BusMuxIn_IN_PORT), .C_Sign_Extended(CSignExtended), .BusMuxOut(Bus_Mux_Out));
+	Bus bus (.R0_out(RXout[0]), .R1_out(RXout[1]), .R2_out(RXout[2]), .R3_out(RXout[3]), .R4_out(RXout[4]), .R5_out(RXout[5]), .R6_out(RXout[6]), .R7_out(RXout[7]), .R8_out(RXout[8]), .R9_out(RXout[9]), .R10_out(RXout[10]), .R11_out(RXout[11]), .R12_out(RXout[12]), .R13_out(RXout[13]), .R14_out(RXout[14]), .R15_out(RXout[15]), .HI_out(highout), .LO_out(lowout), .Z_high_out(Zhighout), .Z_low_out(Zlowout), .PC_out(PCOut), .MDR_out(MDRout), .In_Portout(inPortOut), .C_out(Cout), .BusMuxIn_R0(BusMuxIn_R0), .BusMuxIn_R1(BusMuxIn_R1), .BusMuxIn_R2(BusMuxIn_R2), .BusMuxIn_R3(BusMuxIn_R3), .BusMuxIn_R4(BusMuxIn_R4), .BusMuxIn_R5(BusMuxIn_R5), .BusMuxIn_R6(BusMuxIn_R6), .BusMuxIn_R7(BusMuxIn_R7), .BusMuxIn_R8(BusMuxIn_R8), .BusMuxIn_R9(BusMuxIn_R9), .BusMuxIn_R10(BusMuxIn_R10), .BusMuxIn_R11(BusMuxIn_R11), .BusMuxIn_R12(BusMuxIn_R12), .BusMuxIn_R13(BusMuxIn_R13), .BusMuxIn_R14(BusMuxIn_R14), .BusMuxIn_R15(BusMuxIn_R15), .BusMuxIn_HI(BusMuxIn_HI), .BusMuxIn_LO(BusMuxIn_LO), .BusMuxIn_Z_HI(BusMuxIn_Z_HI), .BusMuxIn_Z_LO(BusMuxIn_Z_LO), .BusMuxIn_PC(BusMuxIn_PC), .BusMuxIn_MDR(BusMuxIn_MDR), .BusMuxIn_IN_PORT(BusMuxIn_IN_PORT), .C_Sign_Extended(CSignExtended), .BusMuxOut(Bus_Mux_Out));
 
 	ALU alu	(.A(Y_contents), .B(Bus_Mux_Out), .C_LO(ZOut_LO), .C_HI(ZOut_HI), .cntrl(CONTROL));
 
-	MDR mdr (.Read(Read), .clk(Clock), .MDRin(MDRin), .BusMuxOut(Bus_Mux_Out), .Mdatain(mdr_data_in),  .MDRout(BusMuxIn_MDR));
+	MDR mdr (.Read(Read), .clk(Clock), .clr(Clear), .MDRin(MDRin), .BusMuxOut(Bus_Mux_Out), .Mdatain(mdr_data_in),  .MDRout(BusMuxIn_MDR));
 
 	select_and_encode IR_select(Gra, Grb, Grc, Rin, Rout, BAout, BusMuxIn_IR, RXin, RXout, CSignExtended);
 	
