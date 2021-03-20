@@ -51,6 +51,7 @@
     
 
     \subsection{Input/Output Ports}
+    The input and output ports in the datapath allow for the bus to receive values from an input unit, as well as output values from the bus onto the output unit. In a real implmentation of an I/O port instruction, the logic for these ports would be used to read from some input given to port, and give feedback to the system through some output such as updated the result of an arithmetic instruction, or the bit pattern after a bit shift or rotation was completed.
 
 \section{Circuitry Demonstration}
     To demonstrate the success of the RAM and memory interface logic, multiple testbenches were created to simulate each operation. 
@@ -72,6 +73,10 @@
                 ? & andi R2, R1, \$26 & 61080026 \\
                 \hline
                 ? & ori R2, R1, \$26 & 69080026 \\
+                \hline
+                ? & in R1  & 00000151 \\
+                \hline
+                ? & out R1  & 00000161 \\
                 \hline
                 20 & brzr R2, 35 & 91000023 \\
                 \hline
@@ -178,7 +183,7 @@
 \section{Memory Subsystem}
 \section{CON FF}
 \section{Input/Output Ports}
-The input and output ports in the datapath allow for the bus to receive values from an input unit, as well as output values from the bus onto the output unit. In a real implmentation of an I/O port instruction, the logic for these ports would be used to read from some input given to port, and give feedback to the system through some output such as updated the result of an arithmetic instruction, or the bit pattern after a bit shift or rotation was completed.
+
 \section{Control Sequences}
     \subsection{st \$90, R1} \label{st_case_1_sequence}
     \subsection{st \$90(R1), R1} \label{st_case_2_sequence}
