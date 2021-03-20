@@ -38,6 +38,7 @@ module Lab2;
         endcase
     end
 
+    // the contents of this always statement, except for the default state, changes for the different instructions. That is, the control sequences for each testbench is different
     always @(Present_state)// do the required job ineach state
     begin
         case (Present_state) //assert the required signals in each clock cycle
