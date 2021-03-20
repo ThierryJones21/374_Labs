@@ -1,5 +1,5 @@
 module brmi_TB ();//uses ConFF to determine what branch instruction to use op code is different however
-  // opcode for brmi PC <- PC + 1 + C (10010xxxx-11xxxxxxxxxxxx10)//  
+  // opcode for brmi PC <- PC + 1 + C (10010xxxx-11xxxxxxxxxxxxxx)//  
   
 always @(Present_state)// do the required job ineach state
 begin
