@@ -117,10 +117,22 @@
             
 
     \subsection{ALU Immediate Instructions}
-        The ALU immediate instruction functionality was simulating using the \emph{addi R2, R1, -5}, \emph{andi R2, R1, \$26} and \emph{ori R2, R1, \$26} instructions. The instruction sequences can be found in Appendix \ref{addi_sequence}, Appendix \ref{andi_sequence} and Appendix \ref{ori_sequence} respectively. The instructions sequences for these sections differ only in the control signal used for the ALU and the preloaded instruction in RAM. The specific opcodes for these instructions can be found in \ref{relevant_ram_init}. Otherwise, the sequences follow the guidelines given in the spec document exactly.
+        The ALU immediate instruction functionality was simulating using the \emph{addi R2, R1, -5}, \emph{andi R2, R1, \$26} and \emph{ori R2, R1, \$26} instructions. The instruction sequences can be found in Appendix \ref{addi_sequence}, Appendix \ref{andi_sequence} and Appendix \ref{ori_sequence} respectively. The instructions sequences for these sections differ only in the control signal used for the ALU and the preloaded instruction in RAM. The specific opcodes for these instructions can be found in Figure \ref{relevant_ram_init}. Otherwise, the sequences follow the guidelines given in the spec document exactly.
 
     \subsection{Branch Instructions}
-        Four branch instructions were used to test the Ram and CONFF module. The instruction sequences \emph{brzr R2, 35}, \emph{brnz R2, 35}, \emph{brpl R2, 35} and \emph{brmi R2, 35} can be found in Appendix \ref{brzr_sequence}, \ref{brnz_sequence}, \ref{brpl_sequence} and \ref{brmi_sequence} respectively. Each instruction's opcode can be found in hexidecimal in the tabel above.  The value of R2 will be preloaded with the deciaml value 1 for each of the simulated waveforms.  
+        Four branch instructions were used to test the Ram and CONFF module. The instruction sequences \emph{brzr R2, 35}, \emph{brnz R2, 35}, \emph{brpl R2, 35} and \emph{brmi R2, 35} can be found in Appendix \ref{brzr_sequence}, \ref{brnz_sequence}, \ref{brpl_sequence} and \ref{brmi_sequence} respectively. The specific opcodes for these instructions can be found in Figure \ref{relevant_ram_init}. The value of R2 will be preloaded with the decimal value 1 for each of the simulated waveforms. 
+
+        \subsubsection{brzr R2, 35}
+            Since the value $1_{10}$ was preloaded into R2, and $1 \neq 0$ it is expected that the PC does not jump in T6, or when the Present\_State signal is equal to 7. This is reflected in the image below.
+
+        \subsubsection{brnz R2, 35}
+            Since the value $1_{10}$ was preloaded into R2, and $1 \neq 0$ it is expected that the PC jumps in T6, or when the Present\_State signal is equal to 7. This is reflected in the image below. It should be noted that $21_{16} + 35_{10} = 45_{16}$. 
+
+        \subsubsection{brpl R2, 35}
+            Since the value $1_{10}$ was preloaded into R2, and $1 > 0$ it is expected that the PC jumps in T6, or when the Present\_State signal is equal to 7. This is reflected in the image below. It should be noted that $22_{16} + 35_{10} = 46_{16}$. 
+        
+        \subsubsection{brmi R2, 35}
+            Since the value $1_{10}$ was preloaded into R2, and $1 > 0$ it is expected that the PC does not jump in T6, or when the Present\_State signal is equal to 7. This is reflected in the image below.
         
     \subsection{Special Instructions}
     The special instructions functionality was simulated using the \emph{mfhi R2} and \emph{mflo R2} commands. For the most part, they were identical to the template provided for the ALU immediate instructions. The difference lay in T3, where instead of \emph{Rout} being enabled, \emph{Rin} was and the \emph{highout} and \emph{lowout} signals were enabled for the \emph{mfhi R2} and \emph{mflo R2} commands respectively. 
