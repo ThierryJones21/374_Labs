@@ -1,6 +1,6 @@
-module datapath(PCOut, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin, lowin, PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL, Clock, Mdatain, Clear, BAout, Rin, Rout, Gra, Grb, Grc, con_in, Cout, outPortIn, inPortOut, inPortIn, ram_enable, highout, lowout, R15_enable);
+module datapath(PCOut, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin, lowin, PCin, MDRin, IRin, Yin, IncPC, Read, CONTROL, Clock, Mdatain, Clear, BAout, Rin, Rout, Gra, Grb, Grc, con_in, Cout, outPortIn, inPortOut, inPortIn, ram_enable, highout, lowout, R15_enable, PC_enable);
 
-	input PCOut, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin, lowin, PCin, MDRin, IRin, Yin, IncPC, Read, Clock, Clear, Rin, Rout, Gra, Grb, Grc, con_in, Cout, outPortIn, inPortOut, inPortIn, ram_enable, highout, lowout, R15_enable;
+	input PCOut, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin, lowin, PCin, MDRin, IRin, Yin, IncPC, Read, Clock, Clear, Rin, Rout, Gra, Grb, Grc, con_in, Cout, outPortIn, inPortOut, inPortIn, ram_enable, highout, lowout, R15_enable, PC_enable;
 	input [31:0] Mdatain;
 	input BAout; 
 		
@@ -27,6 +27,9 @@ module datapath(PCOut, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin
 
 	wire R15in;
 	assign R15in = R15_enable | RXin[15];
+
+	wire PCin_or_enable;
+	assign PCin_or_enable = PCin | (PC_enable & toControlUnit);
 	
 	// NOTE toControlUnit is it just a wire to be used later -> CPU made in phase 3
 	
@@ -57,7 +60,7 @@ module datapath(PCOut, MDRout, MARin, Zhighout, Zlowout, Zhighin, Zlowin, highin
 	Register Z_LO (Clock, Clear, ZOut_LO, Zlowin, BusMuxIn_Z_LO);
 
 	/* PC IR IN_PORT Y */
-	Register #(1) PC (Clock, Clear, Bus_Mux_Out, PCin, BusMuxIn_PC); // preload address 1 in PC
+	Register #(1) PC (Clock, Clear, Bus_Mux_Out, PCin_or_enable, BusMuxIn_PC); // preload address 1 in PC
 	Register IR (Clock, Clear, Bus_Mux_Out, IRin, BusMuxIn_IR);
 	Register IN_PORT (Clock, Clear, Mdatain, inPortIn, BusMuxIn_IN_PORT);
 	Register Y (Clock, Clear, Bus_Mux_Out, Yin, Y_contents);
