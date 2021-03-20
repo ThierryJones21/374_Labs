@@ -119,14 +119,20 @@
     \subsection{ALU Immediate Instructions}
         The ALU immediate instruction functionality was simulating using the \emph{addi R2, R1, -5}, \emph{andi R2, R1, \$26} and \emph{ori R2, R1, \$26} instructions. The instruction sequences can be found in Appendix \ref{addi_sequence}, Appendix \ref{andi_sequence} and Appendix \ref{ori_sequence} respectively. The instructions sequences for these sections differ only in the control signal used for the ALU and the preloaded instruction in RAM. The specific opcodes for these instructions can be found in \ref{relevant_ram_init}. Otherwise, the sequences follow the guidelines given in the spec document exactly.
 
-
+    \subsection{Branch Instructions}
+        Four branch instructions were used to test the Ram and CONFF module. The instruction sequences \emph{brzr R2, 35}, \emph{brnz R2, 35}, \emph{brpl R2, 35} and \emph{brmi R2, 35} can be found in Appendix \ref{brzr_sequence}, \ref{brnz_sequence}, \ref{brpl_sequence} and \ref{brmi_sequence} respectively. Each instruction's opcode can be found in hexidecimal in the tabel above. 
+        
     \subsection{Special Instructions}
     The special instructions functionality was simulated using the \emph{mfhi R2} and \emph{mflo R2} commands. For the most part, they were identical to the template provided for the ALU immediate instructions. The difference lay in T3, where instead of \emph{Rout} being enabled, \emph{Rin} was and the \emph{highout} and \emph{lowout} signals were enabled for the \emph{mfhi R2} and \emph{mflo R2} commands respectively. 
     
         \subsubsection{mfhi R2}
             The HI register was preloaded to have a value of 100. As seen in T3, or when the signal Present\_state is equal to 4, the value stored in R2 is set to the value in HI. It should be noted that $100_{10}$ is equivalent to $64_{16}$. The control sequence for this instruction can be found in Appendix \ref{mfhi_sequence}.
+
         \subsubsection{mflo R2}
             The LO register was preloaded to have a value of 10. As seen in T3, or when the signal Present\_state is equal to 4, the value stored in R2 is set to the value in LO. It should be noted that $10_{10}$ is equivalent to $a_{16}$. The control sequence for this instruction can be found in Appendix \ref{mflo_sequence}.
+      
+
+
 \appendix
 \section{Select and Encode}
 \section{Memory Subsystem}
@@ -136,6 +142,10 @@ The input and output ports in the datapath allow for the bus to receive values f
 \section{Control Sequences}
     \subsection{st \$90, R1} \label{st_case_1_sequence}
     \subsection{st \$90(R1), R1} \label{st_case_2_sequence}
+    \subsection{brzr R2, 35} \label{brzr_sequence}
+    \subsection{brnz R2, 35} \label{brnz_sequence}
+    \subsection{brpl R2, 35} \label{brpl_sequence}
+    \subsection{brmi R2, 35} \label{brmi_sequence}
     \subsection{addi R2, R1, -5} \label{addi_sequence}
     \subsection{andi R2, R1 \$26} \label{andi_sequence}
     \subsection{ori R2, R1 \$26} \label{ori_sequence}
