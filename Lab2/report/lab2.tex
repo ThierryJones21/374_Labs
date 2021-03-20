@@ -36,11 +36,31 @@
 \cleardoublepage
 
 
+\begin{figure}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Address & Instruction & Op code (hex) \\
+        \hline
+        1 & st \$90, R1 & 10080090 \\
+        \hline
+        2 & st \$90(R1), R1 & 10080090 \\
+        \hline
+        3 & addi R2, R1, \$-5 & 590FFFFB \\
+        \hline
+        4 & andi R2, R1, \$26 & 61080026 \\
+        \hline
+        5 & ori R2, R1, \$26 & 69080026 \\
+        \hline
+    \end{tabular}
+    \caption{Table of relevant values in RAM initially. The complete file is in APPENDIX S. The PC was preloaded with different values depending on the instruction}
+\end{figure}
+
+
 \section{Components}
     The purpose of this lab was to design, simulate, implement and verify a simple RISC computer(Mini SRC), including the circuits associated with the logic behind: 
     Select and Encode, Memory Subsystem, CON FF and Input/Output ports. Verilog was chosen over VHDL as it is better for more complex simulations. The verilog code 
     for each of these components can be found in the Appendices.
-
+    
     \subsection{Select and Encode}
 
 

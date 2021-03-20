@@ -10,9 +10,9 @@ begin
             Cout <= 0; outPortIn <= 0; inPortOut <= 0; inPortIn<= 0; con_in <= 0;
             Mdatain <= 32'h00000000; highout <= 0; lowout <= 0;
             BAout <= 0; Rin <= 0; Rout <= 0; Gra <= 0; Grb <= 0; Grc <= 0; ram_enable <= 0;
-        end
+        end    
         T0: begin 
-            #10 PCout <= 1; MARin <= 1; IncPC <= 1; Zlowin <= 1; // Mdatain <= 32'h10080090; // opcode for st 90 r1 
+            #10 PCout <= 1; MARin <= 1; IncPC <= 1; Zlowin <= 1; // Mdatain <= 32'h590FFFFB; opcode for ADDI R2, R1, -5 01011 0010 0001 111 1111 1111 1111 1011 in init file
             #15 PCout <= 0; MARin <= 0; IncPC <= 0; Zlowin<= 0;
         end
         T1: begin
@@ -24,16 +24,16 @@ begin
             #15 MDRout<= 0; IRin <= 0;
         end
         T3: begin
-            #10 Cout<= 1; MARin <= 1;
-            #10 Cout<= 0; MARin <= 0;
+            #10 Grb <= 1; Rout<= 1; Yin <= 1;
+            #15 Grb <= 0; Rout<= 0; Yin <= 0;
         end
         T4: begin
-            #10 Grb <= 1; BAout<= 1; Rout <= 1; MDRin <= 1;
-            #15 Grb <= 0; BAout<= 0; Rout <= 0; MDRin <= 0;
+            #10 Cout<= 1; Zlowin <= 1; CONTROL <= 2; // add, result is stored in Z_LO
+            #15 Cout<= 0; Zlowin <= 0;
         end
         T5: begin
-            #10 MDRout <= 1; ram_enable <= 1;  // output of RDR written to RAM
-            #15 MDRout <= 0; ram_enable <= 0;
+            #10 Zlowout<= 1; Gra <= 1; Rin <= 1; // read from Z_LO, store in R2
+            #20 Zlowout<= 0; Gra <= 0; Rin <= 0;
         end
     endcase
 end
