@@ -1,5 +1,5 @@
 module brzr_TB ();//uses ConFF to determine what branch instruction to use op code is different however
-// opcode for brnr PC <- PC + 1 + C (10010xxxx-xxxxxxxxxxxxxx00)//  
+  // opcode for brnr PC <- PC + 1 + C (10010xxxx-00xxxxxxxxxxxxxx)//  
   
 always @(Present_state)// do the required job ineach state
 begin
@@ -17,7 +17,7 @@ begin
             #15 PCout <= 0; MARin <= 0; IncPC <= 0; Zlowin<= 0; 
         end
         T1: begin
-            #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h91118000; // opcode for brzr R2, 35  (1001000100010001100000000) 000//  
+            #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h91000023; // opcode for brzr R2, 35  (10010 0010 0000 0000 000 0000 0010 0011)//  
             #15 Zlowout<= 0; PCin <= 0; Read <= 0; MDRin <= 0;
         end
         T2: begin
