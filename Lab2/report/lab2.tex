@@ -67,11 +67,19 @@
                 \hline
                 1* & st \$90(R1), R1 & 10080090 \\ % Thierry, Naod, don't change this line, see below figure for rationale
                 \hline
-                3 & addi R2, R1, \$-5 & 590FFFFB \\
+                ? & addi R2, R1, \$-5 & 590FFFFB \\
                 \hline
-                4 & andi R2, R1, \$26 & 61080026 \\
+                ? & andi R2, R1, \$26 & 61080026 \\
                 \hline
-                5 & ori R2, R1, \$26 & 69080026 \\
+                ? & ori R2, R1, \$26 & 69080026 \\
+                \hline
+                10 & brzr R2, 35 & 91000023 \\
+                \hline
+                11 & brnz R2, 35 & 91200023 \\
+                \hline
+                12 & brpl R2, 35 & 91400023 \\
+                \hline
+                13 & brmi R2, 35 & 91600023 \\
                 \hline
                 16 & jal R1 & A0800000 \\ % Thierry, Naod, don't change this line, these are the jump instructions - we don't want to generate new waveforms
                 \hline
