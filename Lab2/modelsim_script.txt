@@ -1,3 +1,5 @@
+// j
+restart -f;
 vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/MDR.v;
 vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/Bus.v;
 vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/mul.v;
@@ -14,13 +16,150 @@ vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/register_zero
 vsim -c -t 1ns -quiet -L C:/altera/13.0sp1/modelsim_ase/altera/verilog/altera_mf work.Lab2;
 add wave *;
 add wave -position insertpoint sim:/Lab2/DUT/R1/BusMuxIn; 
+add wave -position insertpoint sim:/Lab2/DUT/R15/BusMuxIn; 
+add wave -position insertpoint sim:/Lab2/DUT/PC/BusMuxIn; 
 add wave -position insertpoint sim:/Lab2/DUT/IR/BusMuxIn;
-add wave -position insertpoint sim:/Lab2/DUT/IN_PORT/BusMuxIn; 
+add wave -position insertpoint sim:/Lab2/DUT/Z_LO/BusMuxIn;
+add wave -position insertpoint sim:/Lab2/DUT/bus/BusMuxOut; 
+add wave -position insertpoint sim:/Lab2/DUT/IR_select/RXin; 
+add wave -position insertpoint sim:/Lab2/DUT/IR_select/RXout; 
+add wave -position insertpoint sim:/Lab2/DUT/mar/Address; 
+add wave -position insertpoint sim:/Lab2/DUT/mdr/MDRout; 
+add wave -position insertpoint sim:/Lab2/DUT/ram_inst/data; 
+add wave -position insertpoint sim:/Lab2/DUT/ram_inst/q; 
+run 300ns;
+
+// br
+restart -f;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/MDR.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/Bus.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/mul.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/div.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/Register.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/ALU.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/datapath.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/Lab2.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/select_and_encode.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/con_ff.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/ram.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/register_zero.v;
+
+vsim -c -t 1ns -quiet -L C:/altera/13.0sp1/modelsim_ase/altera/verilog/altera_mf work.Lab2;
+add wave *;
+add wave -position insertpoint sim:/Lab2/DUT/R2/BusMuxIn; 
+add wave -position insertpoint sim:/Lab2/DUT/PC/BusMuxIn;  
+add wave -position insertpoint sim:/Lab2/DUT/IR/BusMuxIn;
+add wave -position insertpoint sim:/Lab2/DUT/con_logic/toControlUnit;
+add wave -position insertpoint sim:/Lab2/DUT/con_logic/IR;
+add wave -position insertpoint sim:/Lab2/DUT/Z_LO/BusMuxIn;
+add wave -position insertpoint sim:/Lab2/DUT/bus/BusMuxOut; 
+add wave -position insertpoint sim:/Lab2/DUT/CSignExtended; 
+add wave -position insertpoint sim:/Lab2/DUT/IR_select/RXin; 
+add wave -position insertpoint sim:/Lab2/DUT/IR_select/RXout; 
+add wave -position insertpoint sim:/Lab2/DUT/mar/Address; 
+add wave -position insertpoint sim:/Lab2/DUT/mdr/MDRout; 
+add wave -position insertpoint sim:/Lab2/DUT/ram_inst/data; 
+add wave -position insertpoint sim:/Lab2/DUT/ram_inst/q; 
+add wave -position insertpoint sim:/Lab2/DUT/alu/C_LO; 
+add wave -position insertpoint sim:/Lab2/DUT/alu/C_HI; 
+run 400ns;
+
+
+// st
+restart -f;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/MDR.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/Bus.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/mul.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/div.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/Register.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/ALU.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/datapath.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/Lab2.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/select_and_encode.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/con_ff.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/ram.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/register_zero.v;
+
+vsim -c -t 1ns -quiet -L C:/altera/13.0sp1/modelsim_ase/altera/verilog/altera_mf work.Lab2;
+add wave *;
+add wave -position insertpoint sim:/Lab2/DUT/R1/BusMuxIn; 
+add wave -position insertpoint sim:/Lab2/DUT/R2/BusMuxIn; 
+add wave -position insertpoint sim:/Lab2/DUT/IR/BusMuxIn;
+add wave -position insertpoint sim:/Lab2/DUT/Y/BusMuxIn;
+add wave -position insertpoint sim:/Lab2/DUT/Z_LO/BusMuxIn; 
 add wave -position insertpoint sim:/Lab2/DUT/CSignExtended;
 add wave -position insertpoint sim:/Lab2/DUT/bus/BusMuxOut; 
 add wave -position insertpoint sim:/Lab2/DUT/IR_select/RXin; 
 add wave -position insertpoint sim:/Lab2/DUT/IR_select/RXout; 
 add wave -position insertpoint sim:/Lab2/DUT/mar/Address; 
 add wave -position insertpoint sim:/Lab2/DUT/mdr/MDRout; 
-add wave -position insertpoint sim:/Lab2/DUT/ram_inst/*; 
-run 600ns;
+add wave -position insertpoint sim:/Lab2/DUT/ram_inst/data; 
+add wave -position insertpoint sim:/Lab2/DUT/ram_inst/q; 
+add wave -position insertpoint sim:/Lab2/DUT/alu/C_LO; 
+add wave -position insertpoint sim:/Lab2/DUT/alu/C_HI; 
+run 500ns;
+
+// addi
+restart -f;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/MDR.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/Bus.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/mul.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/div.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/Register.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/ALU.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/datapath.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/Lab2.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/select_and_encode.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/con_ff.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/ram.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/register_zero.v;
+
+vsim -c -t 1ns -quiet -L C:/altera/13.0sp1/modelsim_ase/altera/verilog/altera_mf work.Lab2;
+add wave *;
+add wave -position insertpoint sim:/Lab2/DUT/R1/BusMuxIn; 
+add wave -position insertpoint sim:/Lab2/DUT/R2/BusMuxIn; 
+add wave -position insertpoint sim:/Lab2/DUT/IR/BusMuxIn;
+add wave -position insertpoint sim:/Lab2/DUT/Y/BusMuxIn;
+add wave -position insertpoint sim:/Lab2/DUT/Z_LO/BusMuxIn; 
+add wave -position insertpoint sim:/Lab2/DUT/CSignExtended;
+add wave -position insertpoint sim:/Lab2/DUT/bus/BusMuxOut; 
+add wave -position insertpoint sim:/Lab2/DUT/IR_select/RXin; 
+add wave -position insertpoint sim:/Lab2/DUT/IR_select/RXout; 
+add wave -position insertpoint sim:/Lab2/DUT/mar/Address; 
+add wave -position insertpoint sim:/Lab2/DUT/mdr/MDRout; 
+add wave -position insertpoint sim:/Lab2/DUT/ram_inst/data; 
+add wave -position insertpoint sim:/Lab2/DUT/alu/C_LO; 
+add wave -position insertpoint sim:/Lab2/DUT/alu/C_HI; 
+run 300ns;
+
+//mfhi mflo
+restart -f;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/MDR.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/Bus.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/mul.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/div.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/Register.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/ALU.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/datapath.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/Lab2.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/select_and_encode.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/con_ff.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/ram.v;
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/elec374/lab2/register_zero.v;
+
+vsim -c -t 1ns -quiet -L C:/altera/13.0sp1/modelsim_ase/altera/verilog/altera_mf work.Lab2;
+add wave *;
+add wave -position insertpoint sim:/Lab2/DUT/bus/BusMuxOut; 
+add wave -position insertpoint sim:/Lab2/DUT/R2/BusMuxIn; 
+add wave -position insertpoint sim:/Lab2/DUT/HI/BusMuxIn; 
+add wave -position insertpoint sim:/Lab2/DUT/LO/BusMuxIn;
+add wave -position insertpoint sim:/Lab2/DUT/IR/BusMuxIn;
+add wave -position insertpoint sim:/Lab2/DUT/Z_LO/BusMuxIn; 
+add wave -position insertpoint sim:/Lab2/DUT/PC/BusMuxIn; 
+add wave -position insertpoint sim:/Lab2/DUT/CSignExtended;
+add wave -position insertpoint sim:/Lab2/DUT/IR_select/RXin; 
+add wave -position insertpoint sim:/Lab2/DUT/IR_select/RXout; 
+add wave -position insertpoint sim:/Lab2/DUT/mar/Address; 
+add wave -position insertpoint sim:/Lab2/DUT/mdr/MDRout; 
+add wave -position insertpoint sim:/Lab2/DUT/ram_inst/data;
+run 300ns;
