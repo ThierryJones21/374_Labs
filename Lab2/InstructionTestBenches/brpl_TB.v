@@ -13,11 +13,11 @@ begin
             Gra <= 0; ADD <= 0; con_in <= 0;
         end    
         T0: begin 
-            #10 PCout <= 1; MARin <= 1; IncPC <= 1; Zin<= 1;  //initialize the signals          
-            #15 PCout <= 0; MARin <= 0; IncPC <= 0; Zin<= 0;
+           #10 PCout <= 1; MARin <= 1; IncPC <= 1; Zlowin<= 1;       
+            #15 PCout <= 0; MARin <= 0; IncPC <= 0; Zlowin<= 0; 
         end
         T1: begin
-            #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h9111818; // opcode for brpl R2, 35 (1001000100010001100000011) 000//  
+            #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h91118180; // opcode for brpl R2, 35 (1001000100010001100000011) 000//  
             #15 Zlowout<= 0; PCin <= 0; Read <= 0; MDRin <= 0;
         end
         T2: begin
