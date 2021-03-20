@@ -20,7 +20,7 @@
     commentstyle=\color{vgreen},
     tabsize=2
 }
-\graphicspath{ {images/} }
+\graphicspath{ {../Images/} }
 
 \title{
     \begin{large}
@@ -63,9 +63,9 @@
                 \hline
                 Address & Instruction & Op code (hex) \\
                 \hline
-                1 & st \$90, R1 & 10080090 \\
+                1* & st \$90, R1 & 10080090 \\ % Thierry, Naod, don't change this line, see below figure for rationale
                 \hline
-                2 & st \$90(R1), R1 & 10080090 \\
+                1* & st \$90(R1), R1 & 10080090 \\ % Thierry, Naod, don't change this line, see below figure for rationale
                 \hline
                 3 & addi R2, R1, \$-5 & 590FFFFB \\
                 \hline
@@ -73,33 +73,52 @@
                 \hline
                 5 & ori R2, R1, \$26 & 69080026 \\
                 \hline
-                16 & jal R1 & A0800000 \\
+                16 & jal R1 & A0800000 \\ % Thierry, Naod, don't change this line, these are the jump instructions - we don't want to generate new waveforms
                 \hline
-                17 & jr R1 & 98800000 \\
+                17 & jr R1 & 98800000 \\ % Thierry, Naod, don't change this line, these are the jump instructions - we don't want to generate new waveforms
                 \hline
             \end{tabular}
             \caption{Table of relevant values in RAM initially}
         \end{center}
     \end{figure}
-        \subsection{Store Instructions}
-            Two store instructions were used to test the RAM and memory interface logic. The instruction sequence for \emph{st \$90, R1} and \emph{st \$90(R1), R1} can be found in Appendix \ref{st_case_1_sequence} and Appendix \ref{st_case_2_sequence} respectively.
-            
-            \subsubsection{st \$90, R1}
-                This instruction is similar to the load immediate instruction. It is however, in a sense, reversed. Where the load ends by reading from the Z\_LO register and its contents to the specified register, this instruction finishes by reading from the MDR and writing to the RAM.
-            \subsubsection{st \$90(R1), R1}
-                This instruction is similar to the load instruction. It is however, in a sense, reversed. While both instructions end by reading from the MDR register, the load instruction writes its contents to the specified register, while the store instruction writes to the RAM.
+    \\
+    \small{*Note that these instructions were tested before the rest, thus, the .hex file hadn't be completed. Thus, Appendix \ref{ram_st_case_1} and Appendix \ref{ram_st_case_2} have empty values in RAM where the OP Codes are for later tests.}
 
-        \subsection{ALU Immediate Instructions}
-            The ALU immediate instruction functionality was simulating using the \emph{addi R2, R1, -5}, \emph{andi R2, R1, \$26} and \emph{ori R2, R1, \$26} instructions. The instruction sequences can be found in Appendix \ref{addi_sequence}, Appendix \ref{andi_sequence} and Appendix \ref{ori_sequence} respectively. The instructions sequences for these sections differ only in the control signal used for the ALU and the preloaded instruction in RAM. The specific opcodes for these instructions can be found in \ref{relevant_ram_init}. Otherwise, the sequences follow the guidelines given in the spec document exactly.
-
-
-        \subsection{Special Instructions}
-        The special instructions functionality was simulated using the \emph{mfhi R2} and \emph{mflo R2} commands. For the most part, they were identical to the template provided for the ALU immediate instructions. The difference lay in T3, where instead of \emph{Rout} being enabled, \emph{Rin} was and the \emph{highout} and \emph{lowout} signals were enabled for the \emph{mfhi R2} and \emph{mflo R2} commands respectively. 
+    \subsection{Store Instructions}
+        Two store instructions were used to test the RAM and memory interface logic. The instruction sequence for \emph{st \$90, R1} and \emph{st \$90(R1), R1} can be found in Appendix \ref{st_case_1_sequence} and Appendix \ref{st_case_2_sequence} respectively. It should be noted that the value $85_{16}$ was preloaded into R1 for both instructions.
         
-            \subsubsection{mfhi R2}
-                The HI register was preloaded to have a value of 100. As seen in T3, or when the signal Present\_state is equal to 4, the value stored in R2 is set to the value in HI. It should be noted that $100_{10}$ is equivalent to $64_{16}$. The control sequence for this instruction can be found in Appendix \ref{mfhi_sequence}.
-            \subsubsection{mflo R2}
-                The LO register was preloaded to have a value of 10. As seen in T3, or when the signal Present\_state is equal to 4, the value stored in R2 is set to the value in LO. It should be noted that $10_{10}$ is equivalent to $a_{16}$. The control sequence for this instruction can be found in Appendix \ref{mflo_sequence}.
+        \subsubsection{st \$90, R1}
+            This instruction is similar to the load immediate instruction. It is however, in a sense, reversed. Where the load ends by reading from the Z\_LO register and its contents to the specified register, this instruction finishes by reading from the MDR and writing to the RAM. The results of this instruction, in RAM, can be found in Appendix \ref{ram_st_case_1} at address $90_{16}$ (line 22). The following image shows the waveform generated by running this sequence. 
+
+            \begin{figure}[h!]
+                \begin{center}
+                    \includegraphics[width=15cm]{st_case_1_wave.png}
+                    \caption{A screenshot of the simulated waveforms for the and st \$90, R1 instruction}
+                \end{center}
+            \end{figure}
+
+        \subsubsection{st \$90(R1), R1}
+            This instruction is similar to the load instruction. It is however, in a sense, reversed. While both instructions end by reading from the MDR register, the load instruction writes its contents to the specified register, while the store instruction writes to the RAM. The results of this instruction, in RAM, can be found in Appendix \ref{ram_st_case_2} at address $115_{16}$ (line 38).The following image shows the waveform generated by running this sequence. 
+
+            \begin{figure}[h!]
+                \begin{center}
+                    \includegraphics[width=15cm]{st_case_1_wave.png}
+                    \caption{A screenshot of the simulated waveforms for the and st \$90(R1), R1 instruction}
+                \end{center}
+            \end{figure}
+            
+
+    \subsection{ALU Immediate Instructions}
+        The ALU immediate instruction functionality was simulating using the \emph{addi R2, R1, -5}, \emph{andi R2, R1, \$26} and \emph{ori R2, R1, \$26} instructions. The instruction sequences can be found in Appendix \ref{addi_sequence}, Appendix \ref{andi_sequence} and Appendix \ref{ori_sequence} respectively. The instructions sequences for these sections differ only in the control signal used for the ALU and the preloaded instruction in RAM. The specific opcodes for these instructions can be found in \ref{relevant_ram_init}. Otherwise, the sequences follow the guidelines given in the spec document exactly.
+
+
+    \subsection{Special Instructions}
+    The special instructions functionality was simulated using the \emph{mfhi R2} and \emph{mflo R2} commands. For the most part, they were identical to the template provided for the ALU immediate instructions. The difference lay in T3, where instead of \emph{Rout} being enabled, \emph{Rin} was and the \emph{highout} and \emph{lowout} signals were enabled for the \emph{mfhi R2} and \emph{mflo R2} commands respectively. 
+    
+        \subsubsection{mfhi R2}
+            The HI register was preloaded to have a value of 100. As seen in T3, or when the signal Present\_state is equal to 4, the value stored in R2 is set to the value in HI. It should be noted that $100_{10}$ is equivalent to $64_{16}$. The control sequence for this instruction can be found in Appendix \ref{mfhi_sequence}.
+        \subsubsection{mflo R2}
+            The LO register was preloaded to have a value of 10. As seen in T3, or when the signal Present\_state is equal to 4, the value stored in R2 is set to the value in LO. It should be noted that $10_{10}$ is equivalent to $a_{16}$. The control sequence for this instruction can be found in Appendix \ref{mflo_sequence}.
 \appendix
 \section{Select and Encode}
 \section{Memory Subsystem}
@@ -114,7 +133,13 @@ The input and output ports in the datapath allow for the bus to receive values f
     \subsection{ori R2, R1 \$26} \label{ori_sequence}
     \subsection{mfhi R2} \label{mfhi_sequence}
     \subsection{mflo R2} \label{mflo_sequence}
-\section{RAM - Initial Contents} \label{ram_init}
+\section{RAM}
+    \subsection{Initial Contents} \label{ram_init}
+    \subsection{Post "st" instructions}
+        \subsubsection{st \$90, R1} \label{ram_st_case_1}
+            \lstinputlisting{../memory_data/st_case_1_memdata.txt}
+        \subsubsection{st \$90(R1), R1} \label{ram_st_case_2}
+            \lstinputlisting{../memory_data/st_case_2_memdata.txt}
 
 
 \end{document}
