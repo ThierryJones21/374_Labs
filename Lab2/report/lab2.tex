@@ -177,13 +177,59 @@
             The LO register was preloaded to have a value of 10. As seen in T3, or when the signal Present\_state is equal to 4, the value stored in R2 is set to the value in LO. It should be noted that $10_{10}$ is equivalent to $a_{16}$. The control sequence for this instruction can be found in Appendix \ref{mflo_sequence}.
       
 
+\subsection{In and Out Instructions}
+                
+        \begin{figure}[h!]
+            \begin{center}
+                \includegraphics[width=15cm]{in_wave_top_half.png}
+                \caption{1st screenshot of the simulated waveforms for in, in R1}
+            \end{center}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \begin{center}
+                \includegraphics[width=15cm]{in_wave_bottom_half.png}
+                \caption{2nd screenshot of the simulated waveforms for in, in R1}
+            \end{center}
+        \end{figure}
+        
+        \begin{figure}[h!]
+            \begin{center}
+                \includegraphics[width=15cm]{out_wave_top_half.png}
+                \caption{1st screenshot of the simulated waveforms for out, out R1}
+            \end{center}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \begin{center}
+                \includegraphics[width=15cm]{out_wave_bottom_half.png}
+                \caption{2nd screenshot of the simulated waveforms out, out R1}
+            \end{center}
+        \end{figure}
+
+    \subsection{Jump Instructions}
+            
+        \begin{figure}[h!]
+            \begin{center}
+                \includegraphics[width=15cm]{jal_wave.png}
+                \caption{A screenshot of the simulated waveforms for jal, jal R1}
+            \end{center}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \begin{center}
+                \includegraphics[width=15cm]{jr_wave.png}
+                \caption{A screenshot of the simulated waveforms for jr, jr R1}
+            \end{center}
+        \end{figure}
+
 
 \appendix
 \section{Select and Encode}
 \section{Memory Subsystem}
 \section{CON FF}
 \section{Input/Output Ports}
-
+The input and output ports in the datapath allow for the bus to receive values from an input unit, as well as output values from the bus onto the output unit. In a real implmentation of an I/O port instruction, the logic for these ports would be used to read from some input given to port, and give feedback to the system through some output such as updated the result of an arithmetic instruction, or the bit pattern after a bit shift or rotation was completed.
 \section{Control Sequences}
     \subsection{st \$90, R1} \label{st_case_1_sequence}
     \subsection{st \$90(R1), R1} \label{st_case_2_sequence}
@@ -191,6 +237,10 @@
     \subsection{brnz R2, 35} \label{brnz_sequence}
     \subsection{brpl R2, 35} \label{brpl_sequence}
     \subsection{brmi R2, 35} \label{brmi_sequence}
+    \subsection{jal R1} \label{jal_sequence}
+    \subsection{jr R1} \label{jr_sequence}
+    \subsection{in R1} \label{in_sequence}
+    \subsection{out R1} \label{out_sequence}
     \subsection{addi R2, R1, -5} \label{addi_sequence}
     \subsection{andi R2, R1 \$26} \label{andi_sequence}
     \subsection{ori R2, R1 \$26} \label{ori_sequence}
