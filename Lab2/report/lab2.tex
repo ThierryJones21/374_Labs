@@ -125,15 +125,43 @@
         \subsubsection{brzr R2, 35}
             Since the value $1_{10}$ was preloaded into R2, and $1 \neq 0$ it is expected that the PC does not jump in T6, or when the Present\_State signal is equal to 7. This is reflected in the image below.
 
+                \begin{figure}[h!]
+                    \begin{center}
+                        \includegraphics[width=15cm]{brzr_wave.png}
+                        \caption{A screenshot of the simulated waveforms for brzr, brzr R2, 35}
+                    \end{center}
+                \end{figure}
+
         \subsubsection{brnz R2, 35}
             Since the value $1_{10}$ was preloaded into R2, and $1 \neq 0$ it is expected that the PC jumps in T6, or when the Present\_State signal is equal to 7. This is reflected in the image below. It should be noted that $21_{16} + 1_{10} + 35_{10} = 45_{16}$. 
+
+                \begin{figure}[h!]
+                    \begin{center}
+                        \includegraphics[width=15cm]{brnz_wave.png}
+                        \caption{A screenshot of the simulated waveforms for brnz, brnz R2, 35}
+                    \end{center}
+                \end{figure}
 
         \subsubsection{brpl R2, 35}
             Since the value $1_{10}$ was preloaded into R2, and $1 > 0$ it is expected that the PC jumps in T6, or when the Present\_State signal is equal to 7. This is reflected in the image below. It should be noted that $22_{16} + 1_{10} + 35_{10} = 46_{16}$. 
         
+                \begin{figure}[h!]
+                    \begin{center}
+                        \includegraphics[width=15cm]{brpl_wave.png}
+                        \caption{A screenshot of the simulated waveforms for brpl, brpl R2, 35}
+                    \end{center}
+                \end{figure}
+
         \subsubsection{brmi R2, 35}
             Since the value $1_{10}$ was preloaded into R2, and $1 > 0$ it is expected that the PC does not jump in T6, or when the Present\_State signal is equal to 7. This is reflected in the image below.
         
+                \begin{figure}[h!]
+                    \begin{center}
+                        \includegraphics[width=15cm]{brmi_wave.png}
+                        \caption{A screenshot of the simulated waveforms for brmi, brmi R2, 35}
+                    \end{center}
+                \end{figure}
+
     \subsection{Special Instructions}
     The special instructions functionality was simulated using the \emph{mfhi R2} and \emph{mflo R2} commands. For the most part, they were identical to the template provided for the ALU immediate instructions. The difference lay in T3, where instead of \emph{Rout} being enabled, \emph{Rin} was and the \emph{highout} and \emph{lowout} signals were enabled for the \emph{mfhi R2} and \emph{mflo R2} commands respectively. 
     
