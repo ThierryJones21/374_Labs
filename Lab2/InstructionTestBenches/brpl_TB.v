@@ -12,7 +12,8 @@ begin
             Clear <= 1; Yout <= 0; highin <= 0; lowin <= 0;
             Cout <= 0; outPortIn <= 0; inPortOut <= 0; inPortIn<= 0; con_in <= 0;
             Mdatain <= 32'h00000000; highout <= 0; lowout <= 0;
-            BAout <= 0; Rin <= 0; Rout <= 0; Gra <= 0; G
+            BAout <= 0; Rin <= 0; Rout <= 0; Gra <= 0; Grb <= 0; Grc <= 0; ram_enable <= 0;
+            R15_enable <= 0; PC_enable <= 0;
         end    
         T0: begin 
             #10 PCout <= 1; MARin <= 1; IncPC <= 1; Zlowin<= 1;       
