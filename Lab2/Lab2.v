@@ -49,7 +49,7 @@ module Lab2;
                 Clear <= 1; Yout <= 0; highin <= 0; lowin <= 0;
                 Cout <= 0; outPortIn <= 0; inPortOut <= 0; inPortIn<= 0; con_in <= 0;
                 Mdatain <= 32'h00000000; highout <= 0; lowout <= 0;
-                BAout <= 0; Rin <= 0; Rout <= 0; Gra <= 0; Grb <= 0; Grc <= 0; ram_enable <= 0;
+                BAout <= 0; Rin <= 0; Rout <= 0; Gra <= 0; Grb <= 0; Grc <= 0; ram_enable <= 0; R15_enable <=0;
             end    
             T0: begin // put opcode into in_port register
                 #10 PCout <= 1; IncPC <= 1; inPortIn <= 1; Mdatain <= 32'h10080090; // opcode for st 90 r1 
