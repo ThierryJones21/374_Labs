@@ -68,7 +68,15 @@ Each instruction used to demonstrate the circuitry requires a specific OP Code. 
             This instruction is similar to the load instruction. It is however, in a sense, reversed. While both instructions end by reading from the MDR register, the load instruction writes its contents to the specified register, while the store instruction writes to the RAM.
 
     \subsection{ALU Immediate Instructions}
-        The ALU immediate instruction functionality was simulating using the \emph{addi R2, R1, -5}, \emph{andi R2, R1, \$26} and \emph{ori R2, R1, \$26} instructions. The instruction sequences can be found in Appendix \ref{addi_sequence}, Appendix \ref{andi_sequence} and Appendix \ref{ori_sequence} respectively. The instructions sequences for these sections differ only in the control signal used for the ALU and the preloaded instruction in RAM. The specific opcodes for these instructions can be found in \ref{relevant_ram_init}. Otherwise, the sequences follow the guidelines given in the spec document exactly.
+        The ALU immediate instruction functionality was simulated using the \emph{addi R2, R1, -5}, \emph{andi R2, R1, \$26} and \emph{ori R2, R1, \$26} instructions. The instruction sequences can be found in Appendix \ref{addi_sequence}, Appendix \ref{andi_sequence} and Appendix \ref{ori_sequence} respectively. The instructions sequences for these sections differ only in the control signal used for the ALU and the preloaded instruction in RAM. The specific opcodes for these instructions can be found in \ref{relevant_ram_init}. Otherwise, the sequences follow the guidelines given in the spec document exactly.
+    
+    \subsection{Special Instructions}
+        The special instructions functionality was simulated using the \emph{mfhi R2} and \emph{mflo R2} commands. For the most part, they were identical to the template provided for the ALU immediate instructions. The difference lay in T3, where instead of \emph{Rout} being enabled, \emph{Rin} was and the \emph{highout} and \emph{lowout} signals were enabled for the \emph{mfhi R2} and \emph{mflo R2} commands respectively.
+        
+        \subsubsection{mfhi R2}
+            The HI register was preloaded to have a value of 100. As seen in T3, or when the signal Present_state is equal to 4, the value stored in R2 is set to the value in HI. It should be noted that 100_{10} is equivalent to 64_{16}.
+        \subsubsection{mflo R2}
+            The LO register was preloaded to have a value of 10. As seen in T3, or when the signal Present_state is equal to 4, the value stored in R2 is set to the value in LO. It should be noted that 10 is equivalent to a_{16}.
 
 \section{Components}
     The purpose of this lab was to design, simulate, implement and verify a simple RISC computer(Mini SRC), including the circuits associated with the logic behind: 
