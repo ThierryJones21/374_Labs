@@ -17,7 +17,7 @@ begin
             #15 PCout <= 0; MARin <= 0; IncPC <= 0; Zin<= 0;
         end
         T1: begin
-            #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h9111810; // opcode for brmi R2, 35 (10010 0010 1000 0000 0010 0011) 000//  
+            #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h91401180; // opcode for brmi R2, 35 (10010 0010 1000 0000 0010 0011 0000 000)//  
             #15 Zlowout<= 0; PCin <= 0; Read <= 0; MDRin <= 0;
         end
         T2: begin
