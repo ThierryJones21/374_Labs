@@ -48,7 +48,7 @@
     The memory subsystem was created using the Megafunction in Quartus to generate inputs and outputs for the RAM accordingly. In order to define the memory subsystem within our project, an instance of the RAM was created on our datapath, and was wired to the datapath using existing wires created in the previous lab. The RAM's memory is accessed through the corresponding hex file in the project, Which contains the opcodes for the instructions at the specififed memory slots. A detialed breakdown of the memory subsystem can be found at \ref{ram.v}.
 
     \subsection{CON FF}
-    
+    The conff logic is created to ensure that conidtional logic such as the branch insturction are able to be executed. The instructions assocaited with the conditional logic are stored in I-formatting, with the second register holding the branching condition. The components for the con ff logic can be found at Appendix \ref{con_ff.v}.
 
     \subsection{Input/Output Ports}
     The input and output ports in the datapath allow for the bus to receive values from an input unit, as well as output values from the bus onto the output unit. In a real implmentation of an I/O port instruction, the logic for these ports would be used to read from some input given to port, and give feedback to the system through some output such as updating the result of an arithmetic instruction, or the bit pattern after a bit shift or rotation was completed.
