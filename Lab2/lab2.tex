@@ -45,7 +45,7 @@
 
 
     \subsection{Memory Subsystem}
-    The memory subsystem was created using the Megafunction in Quartus to generate inputs and outputs for the RAM accordingly. In order to define the memory subsystem within our project, an instance of the RAM was created on our datapath, and was wired to the datapath using existing wires created in the previous lab. The RAM's memory is accessed through the corresponding hex file in the project, Which contains the opcodes for the instructions at the specififed memory slots. 
+    
 
     \subsection{CON FF}
     
@@ -106,7 +106,7 @@
     \small{*Note that these instructions were tested before the rest, thus, the .hex file hadn't be completed. Thus, Appendix \ref{ram_st_case_1} and Appendix \ref{ram_st_case_2} have empty values in RAM where the OP Codes are for later tests.}
 
     \subsection{Load Instructions}
-        Two load instructions were tested to ensure that the values are able to load from the RAM onto its appropriate register. The control sequences for \emph{ld R1,\$85}, \emph{ld R0, \$35(R1)}, \emph{ldi R1,\$85}, \emph{ldi R0, \$35(R1)} can be found in  Appendices **appendices go here*** respectively. The value $85_{16}$ was preloaded into the memory initialization file in slot 85 for these instructions. The specific opcodes for these instructions can be found in Figure \ref{relevant_ram_init}. 
+        Two load instructions were tested to ensure that the values are able to load from the RAM onto its appropriate register. The control sequences for \emph{ld R1,\$85}, \emph{ld R0, \$35(R1)}, \emph{ldi R1,\$85}, \emph{ldi R0, \$35(R1)} can be found in  Appendices \ref{ld_case_1_sequence}, \ref{ld_case_2_sequence}, \ref{ldi_case_3_sequence}, and \ref{ld_case_4_sequence}  respectively. The value $85_{16}$ was preloaded into the memory initialization file in slot 85 for these instructions. The specific opcodes for these instructions can be found in Figure \ref{relevant_ram_init}. 
        
         \begin{figure}[h!]
 
@@ -261,7 +261,7 @@
                 \end{figure}
 
     \subsection{In and Out Instructions}
-        The in and out instructions are used to write values from Register 1 to the input and output ports of the processor. These instructions use the J-format to store its    instructions, meaning that there is unused space where the C value would normally exist in other instructions. Thus, the opcodes for each of the instructions are  much smaller.
+                
         \begin{figure}[h!]
             \begin{center}
                 \includegraphics[width=15cm]{in_wave_top_half.png}
