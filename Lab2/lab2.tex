@@ -309,7 +309,12 @@
 
 
 \appendix
+\section{General Components}
+    \lstinputlisting{datapath.v} \label{datapath.v}
+    \lstinputlisting{Bus.v} \label{Bus.v}
+    \lstinputlisting{register_zero.v} \label{register_zero.v}
 \section{Select and Encode}
+    \lstinputlisting{select_and_encode.v} \label{select_and_encode.v}
     \lstinputlisting{ComponentTestbenches/TB_select_and_encode.v} \label{TB_select_and_encode.v}
 \section{Memory Subsystem}
     \lstinputlisting{ram.v} \label{ram.v}
@@ -321,7 +326,7 @@
 \section{Input/Output Ports}
     \lstinputlisting{inputPort.v} \label{inputPort.v}
     \lstinputlisting{outputPort.v} \label{outputPort.v}
-
+    
 \section{Control Sequences}
     \subsection{st \$90, R1} \label{st_case_1_sequence}
         \lstinputlisting{InstructionTestBenches/st_case_1_TB.v}
