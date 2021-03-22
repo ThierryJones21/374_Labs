@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{listings}
+
 \definecolor{vgreen}{RGB}{104,180,104}
 \definecolor{vblue}{RGB}{49,49,255}
 \lstset{
@@ -106,7 +107,7 @@
     \small{*Note that these instructions were tested before the rest, thus, the .hex file hadn't be completed. Thus, Appendix \ref{ram_st_case_1} and Appendix \ref{ram_st_case_2} have empty values in RAM where the OP Codes are for later tests.}
 
     \subsection{Load Instructions}
-        Two load instructions were tested to ensure that the values are able to load from the RAM onto its appropriate register. The control sequences for \emph{ld R1,\$85}, \emph{ld R0, \$35(R1)}, \emph{ldi R1,\$85}, \emph{ldi R0, \$35(R1)} can be found in  Appendices \ref{ld_case_1_sequence}, \ref{ld_case_2_sequence}, \ref{ldi_case_3_sequence}, and \ref{ld_case_4_sequence}  respectively. The value $85_{16}$ was preloaded into the memory initialization file in slot 85 for these instructions. The specific opcodes for these instructions can be found in Figure \ref{relevant_ram_init}. 
+        Two load instructions were tested to ensure that the values are able to load from the RAM onto its appropriate register. The control sequences for \emph{ld R1,\$85}, \emph{ld R0, \$35(R1)}, \emph{ldi R1,\$85}, \emph{ldi R0, \$35(R1)} can be found in  Appendices \ref{ld_case_1_sequence}, \ref{ld_case_2_sequence}, \ref{ldi_case_3_sequence}, and \ref{ldi_case_4_sequence}  respectively. The value $85_{16}$ was preloaded into the memory initialization file in slot 85 for these instructions. The specific opcodes for these instructions can be found in Figure \ref{relevant_ram_init}. 
        
         \begin{figure}[h!]
 
@@ -195,7 +196,7 @@
         The ALU immediate instruction functionality was simulating using the \emph{addi R2, R1, -5}, \emph{andi R2, R1, \$26} and \emph{ori R2, R1, \$26} instructions. The instruction sequences can be found in Appendix \ref{addi_sequence}, Appendix \ref{andi_sequence} and Appendix \ref{ori_sequence} respectively. The instructions sequences for these sections differ only in the control signal used for the ALU and the preloaded instruction in RAM. The specific opcodes for these instructions can be found in Figure \ref{relevant_ram_init}. Otherwise, the sequences follow the guidelines given in the spec document exactly.
 
     \subsection{Branch Instructions}
-        Four branch instructions were used to test the RAM and \emph{con_ff} module. The instruction sequences \emph{brzr R2, 35}, \emph{brnz R2, 35}, \emph{brpl R2, 35} and \emph{brmi R2, 35} can be found in Appendix \ref{brzr_sequence}, \ref{brnz_sequence}, \ref{brpl_sequence} and \ref{brmi_sequence} respectively. The specific opcodes for these instructions can be found in Figure \ref{relevant_ram_init}. The value of R2 will be preloaded with the decimal value 1 for each of the simulated waveforms. 
+        Four branch instructions were used to test the RAM and CON FF module. The instruction sequences \emph{brzr R2, 35}, \emph{brnz R2, 35}, \emph{brpl R2, 35} and \emph{brmi R2, 35} can be found in Appendix \ref{brzr_sequence}, \ref{brnz_sequence}, \ref{brpl_sequence} and \ref{brmi_sequence} respectively. The specific opcodes for these instructions can be found in Figure \ref{relevant_ram_init}. The value of R2 will be preloaded with the decimal value one for each of the simulated waveforms. 
 
         \subsubsection{brzr R2, 35}
             Since the value $1_{10}$ was preloaded into R2, and $1 \neq 0$ it is expected that the PC does not jump in T6, or when the Present\_State signal is equal to 7. This is reflected in the image below.
@@ -289,6 +290,8 @@
                 \caption{2nd screenshot of the simulated waveforms out, out R1}
             \end{center}
         \end{figure}
+    
+    \cleardoublepage
 
     \subsection{Jump Instructions}
     The jump instruction functionality was simulated using the \emph{jal R1} and \emph{jr R1} commands. Thier control sequence was altered only for jal where Register 15 was enabled in the 3rd cycle.
@@ -307,6 +310,7 @@
             \end{center}
         \end{figure}
 
+\cleardoublepage
 
 \appendix
 \section{General Components}
