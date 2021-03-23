@@ -1,27 +1,23 @@
-module ld_case_2_TB ();
-  
 always @(Present_state)// do the required job ineach state
-    begin
-        case (Present_state) //assert the required signals in each clock cycle
-            Default: begin //initialize the signals
-                PCout <= 0; Zlowout <= 0; Zhighout <= 0; MDRout<= 0;  //initialize the signals
-                MARin <= 0; Zlowin <= 0; Zhighin <= 0;
-                PCin <= 0; MDRin <= 0; IRin  <= 0; Yin <= 0;
-                IncPC <= 0; Read <= 0; CONTROL <= 0;
-                Clear <= 1; Yout <= 0; highin <= 0; lowin <= 0;
-                Cout <= 0; outPortIn <= 0; inPortOut <= 0; inPortIn<= 0; con_in <= 0;
-                Mdatain <= 32'h00000000; highout <= 0; lowout <= 0;
-                BAout <= 0; Rin <= 0; Rout <= 0; Gra <= 0; Grb <= 0; Grc <= 0; ram_enable <= 0;
-                R15_enable <= 0; PC_enable <= 0;
-            end
+begin
     case (Present_state) //assert the required signals in each clock cycle
-            
+        Default: begin //initialize the signals
+            PCout <= 0; Zlowout <= 0; Zhighout <= 0; MDRout<= 0;  //initialize the signals
+            MARin <= 0; Zlowin <= 0; Zhighin <= 0;
+            PCin <= 0; MDRin <= 0; IRin  <= 0; Yin <= 0;
+            IncPC <= 0; Read <= 0; CONTROL <= 0;
+            Clear <= 1; Yout <= 0; highin <= 0; lowin <= 0;
+            Cout <= 0; outPortIn <= 0; inPortOut <= 0; inPortIn<= 0; con_in <= 0;
+            Mdatain <= 32'h00000000; highout <= 0; lowout <= 0;
+            BAout <= 0; Rin <= 0; Rout <= 0; Gra <= 0; Grb <= 0; Grc <= 0; ram_enable <= 0;
+            R15_enable <= 0; PC_enable <= 0;
+        end
         T0: begin 
             #10 PCout <= 1; MARin <= 1; IncPC <= 1; Zlowin<= 1;  //initialize the signals         
             #15 PCout <= 0; MARin <= 0; IncPC <= 0; Zlowin<= 0;
         end
         T1: begin
-            #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; Mdatain <= 32'h00800023; //opcode for ld 90 r1 
+            #10 Zlowout<= 1; PCin <= 1; Read <= 1; MDRin <= 1; // Mdatain <= 32'h00800023; //opcode for ld 90 r1 
             #15 Zlowout<= 0; PCin <= 0; Read <= 0; MDRin <= 0;
         end
         T2: begin
@@ -41,7 +37,7 @@ always @(Present_state)// do the required job ineach state
             #15 Zlowout<= 0; MARin <= 0;
         end
         T6: begin
-            #10 Read <= 1; MDRin <= 1; Mdatain <= 32'h00800023;//Reading from RAM
+            #10 Read <= 1; MDRin <= 1;
             #15 Read <= 0; MDRin <= 0; 
         end
         T7: begin
@@ -50,5 +46,3 @@ always @(Present_state)// do the required job ineach state
         end
     endcase
 end
-
-endmodule 
