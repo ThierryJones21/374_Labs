@@ -16,11 +16,7 @@ module con_ff (con_in, IR, BusMuxOut, toControlUnit);
         
     // Note: Nor with same input is a not. Negated again, it is the original.
         if (con_in) begin
-            // $display("%b", triple_nor(BusMuxOut));
-            // $display("%b", !triple_nor(BusMuxOut));
-            // $display("%b", !BusMuxOut[31]);
-            // $display("%b", BusMuxOut[31]);
-            case (IR)
+            case (IR[3:2])
                 0: toControlUnit = triple_nor(BusMuxOut); // branch if zero
                 1: toControlUnit = !triple_nor(BusMuxOut); // branch if non zero
                 2: toControlUnit = !BusMuxOut[31]; // branch if greater than zero
