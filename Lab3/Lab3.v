@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 
-module Lab2;
+module Lab3;
 	
 	reg PCout, Zlowout, Zhighout, MDRout, Clock, Clear, Yout, Cout, outPortIn, inPortOut, inPortIn, highout, lowout, con_in;
     reg BAout, Rin, Rout, Gra, Grb, Grc;
