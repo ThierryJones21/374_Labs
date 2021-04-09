@@ -147,7 +147,11 @@ always@(Present_state)// do the job for each state
 															Rout<= 1;  
 															Yin <= 0; 
 													end
-			add4						:				
+			add4						:			begin 	Cout <= 1; Zlowin <= 1; CONTROL <= 2;
+													Cout <= 0; Zlowin <= 0;
+												end
+			add5						:			begin 	Zlowout<= 1; Gra <= 1; Rin <= 1;
+													Zlowout<= 0; Gra <= 0; Rin <= 0;
 				
 			
 		endcase end
