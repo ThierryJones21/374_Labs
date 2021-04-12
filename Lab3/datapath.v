@@ -83,7 +83,14 @@ highout , lowout ;
  outputPort OUT_PORT (Clock , Clear , outPortIn , Bus_Mux_Out , to_output_unit )
 
 
-	Bus bus (.R0_out(RXout[0]), .R1_out(RXout [1]), .R2_out(RXout [2]) , .R3_out(RXout [3]), .R4_out(RXout[4]), .R5_out(RXout [5]), .R6_out(RXout[6]), .R7_out(RXout[7]), .R8_out(RXout [8]), .R9_out(RXout[9]) , .R10_out(RXout[10]), .R11_out(RXout[11]), .R12_out(RXout [12]), .R13_out(RXout[13]), .R14_out ( RXout [14]) , .R15_out(RXout[15]), .HI_out(highout), .LO_out(lowout), .Z_high_out(Zhighout), . Z_low_out(Zlowout), .PC_out(PCOut), .MDR_out(MDRout), .In_Portout ( inPortOut ), . C_out(Cout), .BusMuxIn_R0(R0_out), .BusMuxIn_R1(BusMuxIn_R1), .BusMuxIn_R2(BusMuxIn_R2), .BusMuxIn_R3 (BusMuxIn_R3), .BusMuxIn_R4(BusMuxIn_R4), .BusMuxIn_R5(BusMuxIn_R5), .BusMuxIn_R6(BusMuxIn_R6), .BusMuxIn_R7(BusMuxIn_R7), .BusMuxIn_R8(BusMuxIn_R8), .BusMuxIn_R9(BusMuxIn_R9), .BusMuxIn_R10(BusMuxIn_R10), . BusMuxIn_R11(BusMuxIn_R11), .BusMuxIn_R12(BusMuxIn_R12), .BusMuxIn_R13(BusMuxIn_R13), .BusMuxIn_R14(BusMuxIn_R14), .BusMuxIn_R15(BusMuxIn_R15), .BusMuxIn_HI(BusMuxIn_HI), .BusMuxIn_LO(BusMuxIn_LO), .BusMuxIn_Z_HI(BusMuxIn_Z_HI), .BusMuxIn_Z_LO(BusMuxIn_Z_LO), .BusMuxIn_PC(BusMuxIn_PC), .BusMuxIn_MDR(BusMuxIn_MDR), .BusMuxIn_IN_PORT(BusMuxIn_IN_PORT), .C_Sign_Extended(CSignExtended ), .BusMuxOut(Bus_Mux_Out));
+	Bus bus (.R0_out(RXout[0]), .R1_out(RXout [1]), .R2_out(RXout [2]) , .R3_out(RXout [3]), .R4_out(RXout[4]), .R5_out(RXout [5]), .R6_out(RXout[6]), 
+	.R7_out(RXout[7]), .R8_out(RXout [8]), .R9_out(RXout[9]) , .R10_out(RXout[10]), .R11_out(RXout[11]), .R12_out(RXout [12]), .R13_out(RXout[13]), 
+	.R14_out ( RXout [14]) , .R15_out(RXout[15]), .HI_out(highout), .LO_out(lowout), .Z_high_out(Zhighout), . Z_low_out(Zlowout), .PC_out(PCOut), 
+	.MDR_out(MDRout), .In_Portout ( inPortOut ), .C_out(Cout), .BusMuxIn_R0(R0_out), .BusMuxIn_R1(BusMuxIn_R1), .BusMuxIn_R2(BusMuxIn_R2), .BusMuxIn_R3(BusMuxIn_R3), 
+	.BusMuxIn_R4(BusMuxIn_R4), .BusMuxIn_R5(BusMuxIn_R5), .BusMuxIn_R6(BusMuxIn_R6), .BusMuxIn_R7(BusMuxIn_R7), .BusMuxIn_R8(BusMuxIn_R8), .BusMuxIn_R9(BusMuxIn_R9), 
+	.BusMuxIn_R10(BusMuxIn_R10), . BusMuxIn_R11(BusMuxIn_R11), .BusMuxIn_R12(BusMuxIn_R12), .BusMuxIn_R13(BusMuxIn_R13), .BusMuxIn_R14(BusMuxIn_R14), .BusMuxIn_R15(BusMuxIn_R15), 
+	.BusMuxIn_HI(BusMuxIn_HI), .BusMuxIn_LO(BusMuxIn_LO), .BusMuxIn_Z_HI(BusMuxIn_Z_HI), .BusMuxIn_Z_LO(BusMuxIn_Z_LO), .BusMuxIn_PC(BusMuxIn_PC), .BusMuxIn_MDR(BusMuxIn_MDR), 
+	.BusMuxIn_IN_PORT(BusMuxIn_IN_PORT), .C_Sign_Extended(CSignExtended ), .BusMuxOut(Bus_Mux_Out));
 
 ALU alu (.A( Y_contents ), .B( Bus_Mux_Out ), . C_LO ( ZOut_LO ), . C_HI ( ZOut_HI ), .cntrl(CONTROL), .IncPC(IncPC));
 
