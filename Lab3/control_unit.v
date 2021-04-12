@@ -64,44 +64,44 @@ neg3 = 45 , neg4 = 46 ,
 
  integer Present_state = Reset_state ; 
 
- always@ ( posedge Clock , posedge Reset , posedge Stop )// finite state machine ; if clock or reset rising - edge
+ always@ ( posedge Clock , posedge Reset , posedge Stop )
  	begin
- 		if( Reset ) Present_state = #50 Initialize_Reset ; // if Reset input is 1 , sets to reset state
- 		if( Stop ) Present_state = halt3 ; // if Stop input is 1 , sets to halt state
+ 		if( Reset ) Present_state = #50 Initialize_Reset ;
+ 		if( Stop ) Present_state = halt3 ; 
  		else case ( Present_state )
 			Initialize_Reset : #40 Present_state = Reset_state ;
 			Reset_state : #50 Present_state = fetch0 ;
 			fetch0 : #50 Present_state = fetch1 ;
 			fetch1 : #50 Present_state = fetch2 ;
 			fetch2 : #50 begin
-				case (IR [31:27]) // instruction decoding based on the opcode to set	the next state
-				5 ’ b00000 : Present_state = ld3;				// ld
-				5 ’ b00001 : Present_state = ldi3; // ldi
-				5 ’ b00010 : Present_state = st3;				// st
-				5 ’ b00011 : Present_state = add3; // add
-				5 ’ b00100 : Present_state = sub3; // sub
-				5 ’ b00101 : Present_state = shr3; // shr
-				5 ’ b00110 : Present_state = shl3; // shl
-				5 ’ b00111 : Present_state = ror3; // ror
-				5 ’ b01000 : Present_state = rol3; // rol
-				5 ’ b01001 : Present_state = and3; // and
-				5 ’ b01010 : Present_state = or3; // or
-				5 ’ b01011 : Present_state = addi3 ; // addi
-				5 ’ b01100 : Present_state = andi3 ; // andi
-				5 ’ b01101 : Present_state = ori3; // ori
-				5 ’ b01110 : Present_state = mul3; // mul
-				5 ’ b01111 : Present_state = div3; // div
-				5 ’ b10000 : Present_state = neg3; // neg
-				5 ’ b10001 : Present_state = not3; // not
-				5 ’ b10010 : Present_state =branch3 ; // branch3 figure out
-				5 ’ b10011 : Present_state = jr3;				// jr
-				5 ’ b10100 : Present_state = jal3; // jal
+				case (IR [31:27]) 
+				5 ’ b00000 : Present_state = ld3;
+				5 ’ b00001 : Present_state = ldi3;
+				5 ’ b00010 : Present_state = st3;
+				5 ’ b00011 : Present_state = add3;
+				5 ’ b00100 : Present_state = sub3;
+				5 ’ b00101 : Present_state = shr3;
+				5 ’ b00110 : Present_state = shl3;
+				5 ’ b00111 : Present_state = ror3;
+				5 ’ b01000 : Present_state = rol3;
+				5 ’ b01001 : Present_state = and3;
+				5 ’ b01010 : Present_state = or3; 
+				5 ’ b01011 : Present_state = addi3 ;
+				5 ’ b01100 : Present_state = andi3 ;
+				5 ’ b01101 : Present_state = ori3; 
+				5 ’ b01110 : Present_state = mul3; 
+				5 ’ b01111 : Present_state = div3; 
+				5 ’ b10000 : Present_state = neg3; 
+				5 ’ b10001 : Present_state = not3; 
+				5 ’ b10010 : Present_state =branch3; 
+				5 ’ b10011 : Present_state = jr3;
+				5 ’ b10100 : Present_state = jal3; 
 				5 ’ b10101 : Present_state = in3;
-				5 ’ b10110 : Present_state = out3; // out
-				5 ’ b10111 : Present_state =mfhi3 ; // mfhi
-				5 ’ b11000 : Present_state =mflo3 ; // mflo
-				5 ’ b11001 : Present_state = nop3; // nop
-				5 ’ b11010 : Present_state = halt3 ; // halt
+				5 ’ b10110 : Present_state = out3; 
+				5 ’ b10111 : Present_state =mfhi3; 
+				5 ’ b11000 : Present_state =mflo3; 
+				5 ’ b11001 : Present_state = nop3; 
+				5 ’ b11010 : Present_state = halt3; 
 				default : begin end
  			endcase
  		end
@@ -179,9 +179,9 @@ neg3 = 45 , neg4 = 46 ,
 	endcase
 end
 
-always@ ( Present_state ) // do the job foreach state
+always@ ( Present_state ) 
 begin
-	 case ( Present_state ) // assert the required signals in
+	 case ( Present_state ) 
 	Initialize_Reset : Clear <= 0;
 	Reset_state : begin
 		#10 Clear <= 0;
@@ -201,9 +201,8 @@ begin
 		BAout <= 0; Rin <= 0; Rout <= 0; Gra <= 0;
 		Grb <= 0; Grc <= 0;
 		R15_enable <= 0; PC_enable <= 0;
-		Run <= 1; // so it runs
+		Run <= 1; 
 		end
-		// Instruction test sequence
 	fetch0 : begin
 		#10 PCout <= 1; MARin <= 1; IncPC <= 1;
 		Zlowin <= 1;
@@ -218,277 +217,277 @@ begin
 		#10 MDRout <= 1; IRin <= 1;
 		#15 MDRout <= 0; IRin <= 0;
 		end
-	add3 : begin // Put contents of RB into Register Y
+	add3 : begin 
 		#10 Grb <= 1; Rout <= 1; Yin <= 1;
 		#15 Grb <= 0; Rout <= 0; Yin <= 0;
 		end
-	add4 : begin // Read the contents of RC , add withcontents of Y (RB) and put into Z_LO
+	add4 : begin 
 		#10 Grc <= 1; Rout <= 1; Zlowin <= 1; ADD <=1;
 		#15 Grc <= 0; Rout <= 0; Zlowin <= 0; ADD <=0;
 		end
-	add5 : begin // Read from Z_LO , put into RA
+	add5 : begin 
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#15 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	sub3 : begin // Put contents of RB into Register Y
+	sub3 : begin 
 		#10 Grb <= 1; Rout <= 1; Yin <= 1;
 		#15 Grb <= 0; Rout <= 0; Yin <= 0;
 		end
-	sub4 : begin // Read the contents of RC , sub withcontents of Y (RB) and put into Z_LO
+	sub4 : begin 
 		#10 Grc <= 1; Rout <= 1; Zlowin <= 1; SUB <=1;
 		#15 Grc <= 0; Rout <= 0; Zlowin <= 0; SUB <=0;
 		end
-	sub5 : begin // Read from Z_LO , put into RA
+	sub5 : begin 
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#15 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	shr3 : begin // Put contents of RB into Register Y
+	shr3 : begin 
 		#10 Grb <= 1; Rout <= 1; Yin <= 1;
 		#15 Grb <= 0; Rout <= 0; Yin <= 0;
 		end
-	shr4 : begin // Read the contents of RC , shr with contents of Y (RB) and put into Z_LO
+	shr4 : begin 
 		#10 Grc <= 1; Rout <= 1; Zlowin <= 1; SHR <=1;
 		#15 Grc <= 0; Rout <= 0; Zlowin <= 0; SHR <=0;
 		end
-	shr5 : begin // Read from Z_LO , put into RA
+	shr5 : begin 
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#15 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	shl3 : begin // Put contents of RB into Register Y
+	shl3 : begin 
 		#10 Grb <= 1; Rout <= 1; Yin <= 1;
 		#15 Grb <= 0; Rout <= 0; Yin <= 0;
 		end
-	shl4 : begin // Read the contents of RC , shl with contents of Y (RB) and put into Z_LO
+	shl4 : begin 
 		#10 Grc <= 1; Rout <= 1; Zlowin <= 1; SHL <=1;
 		#15 Grc <= 0; Rout <= 0; Zlowin <= 0; SHL <=0;
 		end
-	shl5 : begin // Read from Z_LO , put into RA
+	shl5 : begin 
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#15 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	ror3 : begin // Put contents of RB into Register Y
+	ror3 : begin 
 		#10 Grb <= 1; Rout <= 1; Yin <= 1;
 		#15 Grb <= 0; Rout <= 0; Yin <= 0;
 		end
-	ror4 : begin // Read the contents of RC , ror withcontents of Y (RB) and put into Z_LO
+	ror4 : begin 
 		#10 Grc <= 1; Rout <= 1; ROR <= 1; Zlowin <=1;
 		#15 Grc <= 0; Rout <= 0; ROR <= 0; Zlowin <=0;
 		end
-	ror5 : begin // Read from Z_LO , put into RA
+	ror5 : begin 
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#15 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	rol3 : begin // Put contents of RB into Register Y
+	rol3 : begin 
 		#10 Grb <= 1; Rout <= 1; Yin <= 1;
 		#15 Grb <= 0; Rout <= 0; Yin <= 0;
 		end
-	rol4 : begin // Read the contents of RC , rol withcontents of Y (RB) and put into Z_LO
+	rol4 : begin 
 		#10 Grc <= 1; Rout <= 1; ROL <= 1; Zlowin <=1;
 		#15 Grc <= 0; Rout <= 0; ROL <= 0; Zlowin <=0;
 		end
-	rol5 : begin // Read from Z_LO , put into RA
+	rol5 : begin 
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#15 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	and3 : begin // Put contents of RB into Register Y
+	and3 : begin 
 		#10 Grb <= 1; Rout <= 1; Yin <= 1;
 		#15 Grb <= 0; Rout <= 0; Yin <= 0;
 		end
-	and4 : begin // Read the contents of RC , and withcontents of Y (RB) and put into Z_LO
+	and4 : begin 
 		#10 Grc <= 1; Rout <= 1; AND <= 1; Zlowin <=1;
 		#15 Grc <= 0; Rout <= 0; AND <= 0; Zlowin <=0;
 		end
-	and5 : begin // Read from Z_LO , put into RA
+	and5 : begin 
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#15 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	or3 : begin // Put contents of RB into Register Y
+	or3 : begin 
 		#10 Grb <= 1; Rout <= 1; Yin <= 1;
 		#15 Grb <= 0; Rout <= 0; Yin <= 0;
 		end
-	or4 : begin // Read the contents of RC , or withcontents of Y (RB) and put into Z_LO
+	or4 : begin 
 		#10 Grc <= 1; Rout <= 1; OR <= 1; Zlowin <=1;
 		#15 Grc <= 0; Rout <= 0; OR <= 0; Zlowin <=0;
 		end
-	or5 : begin // Read from Z_LO , put into RA
+	or5 : begin 
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#15 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	addi3 : begin // Put contents of RB into Register Y
+	addi3 : begin
 		#10 Grb <= 1; Rout <= 1; Yin <= 1;
 		#15 Grb <= 0; Rout <= 0; Yin <= 0;
 		end
-	addi4 : begin // Get the immediate value from theopcode , add with contents of Y (RB), put into Z_LO
+	addi4 : begin
 		#10 Cout <= 1; Zlowin <= 1; ADD <= 1;
 		#15 Cout <= 0; Zlowin <= 0; ADD <= 0;
 		end
-	addi5 : begin // Read from Z_LO , put into RA
+	addi5 : begin
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#20 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	andi3 : begin // Put contents of RB into Register Y
+	andi3 : begin
 		#10 Grb <= 1; Rout <= 1; Yin <= 1;
 		#15 Grb <= 0; Rout <= 0; Yin <= 0;
 		end
-	andi4 : begin // Get the immediate value from theopcode , and with contents of Y (RB), put into Z_LO
+	andi4 : begin
 		#10 Cout <= 1; Zlowin <= 1; AND <= 1;
 		#15 Cout <= 0; Zlowin <= 0; AND <= 0;
 		end
-	andi5 : begin // Read from Z_LO , put into RA
+	andi5 : begin 
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#20 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	ori3 : begin // Put contents of RB into Register Y
+	ori3 : begin 
 		#10 Grb <= 1; Rout <= 1; Yin <= 1;
 		#15 Grb <= 0; Rout <= 0; Yin <= 0;
 		end
-	ori4 : begin // Get the immediate value from theopcode , or with contents of Y (RB), put into Z_LO
+	ori4 : begin 
 		#10 Cout <= 1; Zlowin <= 1; OR <= 1;
 		#15 Cout <= 0; Zlowin <= 0; OR <= 0;
 		end
-	ori5 : begin // Read from Z_LO , put into RA
+	ori5 : begin 
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#20 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	mul3 : begin // Put contents of RB into Register Y
+	mul3 : begin 
 		#10 Grb <= 1; Rout <= 1; Yin <= 1;
 		#15 Grb <= 0; Rout <= 0; Yin <= 0;
 		end
-	mul4 : begin // Get contents or RA , multiply withcontents of Y (RB), put result in Z_HI and Z_LO
+	mul4 : begin 
 		#10 Gra <= 1; Rout <= 1; MUL <= 1; Zlowin <=1; Zhighin <= 1;
 		#35 Gra <= 0; Rout <= 0; MUL <= 0; Zlowin <=0; Zhighin <= 0;
 		end
-	mul5 : begin // Read from Z_LO , put into LO
+	mul5 : begin 
 		#10 Zlowout <= 1; lowin <= 1;
 		#15 Zlowout <= 0; lowin <= 0;
 		end
-	mul6 : begin // Read from Z_HI , put into HI
+	mul6 : begin 
 		#10 Zhighout <= 1; highin <= 1;
 		#15 Zhighout <= 0; highin <= 0;
 		end
-	div3 : begin // Put contents of RB into Register Y
+	div3 : begin 
 		#10 Gra <= 1; Rout <= 1; Yin <= 1;
 		#15 Gra <= 0; Rout <= 0; Yin <= 0;
 		end
-	div4 : begin // Get contents or RA , divide with contents of Y (RB), put result in Z_HI and Z_LO
+	div4 : begin 
 		#10 Grb <= 1; Rout <= 1; DIV <= 1; Zlowin <=1; Zhighin <= 1;
 		#35 Grb <= 0; Rout <= 0; DIV <= 0; Zlowin <=0; Zhighin <= 0;
 		end
-	div5 : begin // Read from Z_LO , put into LO
+	div5 : begin 
 		#10 Zlowout <= 1; lowin <= 1;
 		#15 Zlowout <= 0; lowin <= 0;
 		end
-	div6 : begin // Read from Z_HI , put into HI
+	div6 : begin 
 		#10 Zhighout <= 1; highin <= 1;
 		#15 Zhighout <= 0; highin <= 0;
 		end
-	neg3 : begin // get contents of RB , negate it , putinto Z_LO
+	neg3 : begin 
 		#10 Grb <= 1; Rout <= 1; Zlowin <= 1; NEG <=1;
 		#15 Grb <= 0; Rout <= 0; Zlowin <= 0; NEG <=0;
 		end
-	neg4 : begin // Read from Z_LO , put into RA
+	neg4 : begin 
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#20 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	not3 : begin // get contents of RB , negate it , putinto Z_LO
+	not3 : begin 
 		#10 Grb <= 1; Rout <= 1; Zlowin <= 1; NOT <=1;
 		#15 Grb <= 0; Rout <= 0; Zlowin <= 0; NOT <=0;
 		end
-	not4 : begin // Read from Z_LO , put into RA
+	not4 : begin
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#20 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	ld3 : begin // Read from RB , put into Y
+	ld3 : begin 
 		#10 Grb <= 1; BAout <= 1; Yin <= 1;
 		#15 Grb <= 0; BAout <= 0; Yin <= 0;
 		end
-	ld4 : begin // Add immediate value with Y, store inZ_LO
+	ld4 : begin 
 		#10 Cout <= 1; Zlowin <= 1; ADD <= 1;
 		#15 Cout <= 0; Zlowin <= 0; ADD <= 0;
 		end
-	ld5 : begin // Read from Z_LO , store in MAR
+	ld5 : begin 
 		#10 Zlowout <= 1; MARin <= 1;
 		#15 Zlowout <= 0; MARin <= 0;
 		end
-	ld6 : begin // Read from RAM into MDR
+	ld6 : begin 
 		#10 Read <= 1; MDRin <= 1;
 		#15 Read <= 0; MDRin <= 0;
 		end
-	ld7 : begin // Store value in MDR into RA
+	ld7 : begin 
 		#10 MDRout <= 1; Gra <= 1; Rin <= 1;
 		#15 MDRout <= 0; Gra <= 0; Rin <= 0;
 		end
-	ldi3 : begin // Read from RB , put into Y
+	ldi3 : begin
 		#10 Grb <= 1; BAout <= 1; Yin <= 1;
 		#15 Grb <= 0; BAout <= 0; Yin <= 0;
 		end
-	ldi4 : begin // Add immediate value with Y, store inZ_LO
+	ldi4 : begin
 		#10 Cout <= 1; Zlowin <= 1; ADD <= 1;
 		#15 Cout <= 0; Zlowin <= 0; ADD <= 0;
 		end
-	ldi5 : begin // Read from Z, store in RA
+	ldi5 : begin
 		#10 Zlowout <= 1; Gra <= 1; Rin <= 1;
 		#15 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
-	st3 : begin // read from RB , store in Y
+	st3 : begin 
 		#10 Grb <= 1; Rout <= 1; Yin <= 1; BAout <=1;
 		#15 Grb <= 0; Rout <= 0; Yin <= 0; BAout <=0;
 		end
-	st4 : begin // ADD C with RB and store into Z_LO
+	st4 : begin 
 		#10 Cout <= 1; Zlowin <= 1; ADD <= 1;
 		#15 Cout <= 0; Zlowin <= 0; ADD <= 0;
 		end
-	st5 : begin // Put Z_LO into MAR
+	st5 : begin 
 		#10 Zlowout <= 1; MARin <= 1;
 		#15 Zlowout <= 0; MARin <= 0;
 		end
-	st6 : begin // read from R2 , write to MDR
+	st6 : begin 
 		#10 Gra <= 1; Rout <= 1; MDRin <= 1;
 		#15 Gra <= 0; Rout <= 0; MDRin <= 0;
 		end
-	st7 : begin // output of MDR written to RAM
+	st7 : begin 
 		#10 MDRout <= 1; Write <= 1;
 		#15 MDRout <= 0; Write <= 0;
 		end
-	branch3 : begin // read from RA , enable con_ff logic
+	branch3 : begin 
 		#10 Gra <= 1; Rout <= 1; con_in <= 1;
 		#15 Gra <= 0; Rout <= 0; con_in <= 0;
 		end
-	branch4 : begin // put PC in Y register
+	branch4 : begin 
 		#10 PCout <= 1; Yin <= 1;
 		#10 PCout <= 0; Yin <= 0;
 		end
-	branch5 : begin // add PC with branch , store in Z_LO
+	branch5 : begin 
 		#10 Cout <= 1; Zlowin <= 1; ADD <= 1;
 		#15 Cout <= 0; Zlowin <= 0; ADD <= 0;
 		end
-	branch6 : begin // if branch allowed , enable the PC tochange address
+	branch6 : begin 
 		if ( Con_FF ) begin
-			#10 Zlowout <= 1; PC_enable <= 1; //	Writing to PC from PCin
+			#10 Zlowout <= 1; PC_enable <= 1; 
 			#15 Zlowout <= 0; PC_enable <= 0;
 			end
 		end
-	jr3 : begin // Read from RA , put into PC
+	jr3 : begin
 		#10 Gra <= 1; Rout <= 1; PCin <= 1;
 		#15 Gra <= 0; Rout <= 0; PCin <= 0;
 		end
-	jal3 : begin // store current address intor R15
+	jal3 : begin 
 		#10 R15_enable <= 1; PCout <= 1;
 		#15 R15_enable <= 0; PCout <= 0;
 		end
-	jal4 : begin // Read from RA , put into PC
+	jal4 : begin 
 		#10 Gra <= 1; Rout <= 1; PCin <= 1;
 		#15 Gra <= 0; Rout <= 0; PCin <= 0;
 		end
-	in3 : begin // Read from input , write to RA
+	in3 : begin 
 		#10 Gra <= 1; Rin <= 1; inPortOut <= 1;
 		#15 Gra <= 0; Rin <= 0; inPortOut <= 0;
 		end
-	out3 : begin // Read from RA , put into output
+	out3 : begin 
 		#10 Gra <= 1; Rout <= 1; outPortIn <= 1;
 		#15 Gra <= 0; Rout <= 0; outPortIn <= 0;
 		end
-	mfhi3 : begin // enable write to register by readingfrom HI
+	mfhi3 : begin 
 		#10 Gra <= 1; Rin <= 1; highout <= 1;
 		#15 Gra <= 0; Rin <= 0; highout <= 0;
 		end
@@ -496,8 +495,8 @@ begin
 		#10 Gra <= 1; Rin <= 1; lowout <= 1;
 		#15 Gra <= 0; Rin <= 0; lowout <= 0;
 		end
-	nop3 : begin end // do nothing
-	halt3 : Run <= 0; // Run is unset
+	nop3 : begin end // nothing
+	halt3 : Run <= 0; // no Run 
  			default : begin end
  		endcase
 	end
