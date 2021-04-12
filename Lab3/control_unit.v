@@ -122,10 +122,25 @@ always@(posedge Clock, posedge Reset)// finite state machine; if clock or reset 
 			jal4					:				Present_state = jal5;
 			jal5					: 				Present_state = fetch0;
 			
-			rol3					:				Present_state = rol4;
-			rol4					:				Present_state = rol5;
-			rol5					: 				Present_state = fetch0;
-		endcase
+			in3					:				Present_state = in4;
+			in4					:				Present_state = in5;
+			in5					: 				Present_state = fetch0;
+			
+			out3					:				Present_state = out4;
+			out4					:				Present_state = out5;
+			out5					: 				Present_state = fetch0;
+			
+			mfhi3					:				Present_state = mfhi4;
+			mfhi4					:				Present_state = mfhi5;
+			mfhi5					: 				Present_state = fetch0;
+			
+			mflo3					:				Present_state = mflo4;
+			mflo4					:				Present_state = mflo5;
+			mflo5					: 				Present_state = fetch0;
+			
+			mfhi3					:				Present_state = mfhi4;
+			mfhi4					:				Present_state = mfhi5;
+			mfhi5					: 				Present_state = fetch0;endcase
 	end
 	
 always@(Present_state)// do the job for each state
