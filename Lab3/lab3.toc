@@ -1,0 +1,22 @@
+\contentsline {section}{\numberline {1}Components}{3}{}%
+\contentsline {subsection}{\numberline {1.1}Datapath}{3}{}%
+\contentsline {subsection}{\numberline {1.2}Control Unit}{3}{}%
+\contentsline {subsection}{\numberline {1.3}ALU}{3}{}%
+\contentsline {section}{\numberline {2}Circuitry Demonstration}{3}{}%
+\contentsline {section}{\numberline {A}General Components}{5}{}%
+\contentsline {subsection}{\numberline {A.1}Control Unit}{5}{}%
+\contentsline {subsection}{\numberline {A.2}Datapath}{13}{}%
+\contentsline {subsection}{\numberline {A.3}Bus}{16}{}%
+\contentsline {subsection}{\numberline {A.4}Register Zero}{17}{}%
+\contentsline {subsection}{\numberline {A.5}Arithmetic Logic Unit}{17}{}%
+\contentsline {section}{\numberline {B}Select and Encode}{18}{}%
+\contentsline {section}{\numberline {C}Memory Subsystem}{19}{}%
+\contentsline {subsection}{\numberline {C.1}RAM}{19}{}%
+\contentsline {subsection}{\numberline {C.2}Memory Address Register}{22}{}%
+\contentsline {subsection}{\numberline {C.3}Memory Data Register}{22}{}%
+\contentsline {section}{\numberline {D}CON FF}{22}{}%
+\contentsline {section}{\numberline {E}Input/Output Ports}{23}{}%
+\contentsline {subsection}{\numberline {E.1}Input Port}{23}{}%
+\contentsline {subsection}{\numberline {E.2}Output Port}{23}{}%
+\contentsline {section}{\numberline {F}Ram Contents}{23}{}%
+\contentsline {subsection}{\numberline {F.1}Ram Inital Contents}{23}{}%
