@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.3)  12 APR 2021 16:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.3)  12 APR 2021 20:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -195,423 +195,60 @@ No file lab3.toc.
 
 ]
 
-LaTeX Warning: Reference `ram.v' on page 3 undefined on input line 49.
+LaTeX Warning: Reference `control_unit.v' on page 3 undefined on input line 50.
 
 
-LaTeX Warning: Reference `con_ff.v' on page 3 undefined on input line 52.
+LaTeX Warning: Reference `con_ff.v' on page 3 undefined on input line 54.
 
 
-LaTeX Warning: Reference `inputPort.v' on page 3 undefined on input line 55.
-
-
-LaTeX Warning: Reference `outputPort.v' on page 3 undefined on input line 55.
-
-
-LaTeX Warning: Reference `ram_init' on page 3 undefined on input line 58.
+LaTeX Warning: Reference `ram_init' on page 3 undefined on input line 61.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 61.
+(Font)              <7> on input line 64.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 61.
+(Font)              <5> on input line 64.
 
-LaTeX Warning: Reference `ram_st_case_1' on page 3 undefined on input line 104.
+Underfull \hbox (badness 10000) in paragraph at lines 58--165
 
-
-LaTeX Warning: Reference `ram_st_case_2' on page 3 undefined on input line 104.
+ []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `ld_case_1_sequence' on page 3 undefined on input line 107.
-
-
-LaTeX Warning: Reference `ld_case_2_sequence' on page 3 undefined on input line 107.
-
-
-LaTeX Warning: Reference `ldi_case_1_sequence' on page 3 undefined on input line 107.
-
-
-LaTeX Warning: Reference `ldi_case_2_sequence' on page 3 undefined on input line 107.
-
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 107.
-
-LaTeX Warning: Reference `relevant_ram_init' on page 3 undefined on input line 107.
 
 [3
 
 ]
 
-LaTeX Warning: File `ld_case_1_wave.png' not found on input line 113.
+LaTeX Warning: Text page 4 contains only floats.
 
+[4] (c:/Users/jones/Documents/374_Labs/Lab3/control_unit.v [5
 
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:113: Package pdftex.def Error: File `ld_case_1_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.113 ...egraphics[width=15cm]{ld_case_1_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: File `ld_case_2_wave.png' not found on input line 122.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:122: Package pdftex.def Error: File `ld_case_2_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 ...egraphics[width=15cm]{ld_case_2_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: File `ldi_case_1_wave.png' not found on input line 131.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:131: Package pdftex.def Error: File `ldi_case_1_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.131 ...graphics[width=15cm]{ldi_case_1_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: File `ldi_case_2_wave.png' not found on input line 140.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:140: Package pdftex.def Error: File `ldi_case_2_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.140 ...graphics[width=15cm]{ldi_case_2_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `st_case_1_sequence' on page 4 undefined on input line 146.
-
-
-LaTeX Warning: Reference `st_case_2_sequence' on page 4 undefined on input line 146.
-
-
-LaTeX Warning: Reference `relevant_ram_init' on page 4 undefined on input line 146.
-
-
-LaTeX Warning: Reference `ram_st_case_1' on page 4 undefined on input line 149.
-
-[4]
-
-LaTeX Warning: File `st_case_1_wave.png' not found on input line 153.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:153: Package pdftex.def Error: File `st_case_1_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.153 ...egraphics[width=15cm]{st_case_1_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `ram_st_case_2' on page 5 undefined on input line 159.
-
-
-LaTeX Warning: File `st_case_1_wave.png' not found on input line 163.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:163: Package pdftex.def Error: File `st_case_1_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.163 ...egraphics[width=15cm]{st_case_1_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `addi_sequence' on page 5 undefined on input line 170.
-
-
-LaTeX Warning: Reference `andi_sequence' on page 5 undefined on input line 170.
-
-
-LaTeX Warning: Reference `ori_sequence' on page 5 undefined on input line 170.
-
-
-LaTeX Warning: Reference `relevant_ram_init' on page 5 undefined on input line 170.
-
-[5]
-
-LaTeX Warning: Reference `brzr_sequence' on page 6 undefined on input line 173.
-
-
-LaTeX Warning: Reference `brnz_sequence' on page 6 undefined on input line 173.
-
-
-LaTeX Warning: Reference `brpl_sequence' on page 6 undefined on input line 173.
-
-
-LaTeX Warning: Reference `brmi_sequence' on page 6 undefined on input line 173.
-
-
-LaTeX Warning: Reference `relevant_ram_init' on page 6 undefined on input line 173.
-
-
-LaTeX Warning: File `brzr_wave.png' not found on input line 180.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:180: Package pdftex.def Error: File `brzr_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.180 ...ncludegraphics[width=15cm]{brzr_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[6]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: File `brnz_wave.png' not found on input line 190.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:190: Package pdftex.def Error: File `brnz_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.190 ...ncludegraphics[width=15cm]{brnz_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: File `brpl_wave.png' not found on input line 200.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:200: Package pdftex.def Error: File `brpl_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.200 ...ncludegraphics[width=15cm]{brpl_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: File `brmi_wave.png' not found on input line 210.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:210: Package pdftex.def Error: File `brmi_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.210 ...ncludegraphics[width=15cm]{brmi_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[7]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `mfhi_sequence' on page 8 undefined on input line 219.
-
-
-LaTeX Warning: File `mfhi_wave.png' not found on input line 223.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:223: Package pdftex.def Error: File `mfhi_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.223 ...ncludegraphics[width=15cm]{mfhi_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[8]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `mflo_sequence' on page 9 undefined on input line 229.
-
-
-LaTeX Warning: File `mflo_wave.png' not found on input line 233.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:233: Package pdftex.def Error: File `mflo_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.233 ...ncludegraphics[width=15cm]{mflo_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: File `in_wave.png' not found on input line 244.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:244: Package pdftex.def Error: File `in_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.244 ...\includegraphics[width=15cm]{in_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: File `out_wave.png' not found on input line 253.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:253: Package pdftex.def Error: File `out_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.253 ...includegraphics[width=15cm]{out_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[9]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[10] [11] [12] [13] [14] [15] [16] [17] [18]
-
-LaTeX Warning: File `jal_wave.png' not found on input line 265.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:265: Package pdftex.def Error: File `jal_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.265 ...includegraphics[width=15cm]{jal_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `jr_wave.png' not found on input line 272.
-
-
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:272: Package pdftex.def Error: File `jr_wave.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.272 ...\includegraphics[width=15cm]{jr_wave.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[19
-
-] [20] (c:/Users/jones/Documents/374_Labs/Lab3/datapath.v [21
-
-] [22]) (c:/Users/jones/Documents/374_Labs/Lab3/Bus.v [23]) (c:/Users/jones/Documents/374_Labs/Lab3/register_zero.v) (c:/Users/jones/Documents/374_Labs/Lab3/ALU.v [24]) (c:/Users/jones/Documents/374_Labs/Lab3/select_and_encode.v
+] [6] [7] [8] [9] [10] [11] [12]) (c:/Users/jones/Documents/374_Labs/Lab3/datapath.v [13] [14] [15]) (c:/Users/jones/Documents/374_Labs/Lab3/Bus.v [16]) (c:/Users/jones/Documents/374_Labs/Lab3/register_zero.v) (c:/Users/jones/Documents/374_Labs/Lab3/ALU.v [17]) (c:/Users/jones/Documents/374_Labs/Lab3/select_and_encode.v
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 30.
  (c:/texlive/2020/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)) (c:/Users/jones/Documents/374_Labs/Lab3/ram.v [25] [26] [27]) (c:/Users/jones/Documents/374_Labs/Lab3/MAR.v [28]) (c:/Users/jones/Documents/374_Labs/Lab3/MDR.v) (c:/Users/jones/Documents/374_Labs/Lab3/con_ff.v) [29] (c:/Users/jones/Documents/374_Labs/Lab3/inputPort.v) (c:/Users/jones/Documents/374_Labs/Lab3/outputPort.v) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/st_case_1_TB.v [30]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/st_case_2_TB.v [31] [32]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/ld_case_1_TB.v [33]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/ld_case_2_TB.v [34]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/ldi_case_3_TB.v) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/ldi_case_4_TB.v [35]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/brzr_TB.v [36]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/brnz_TB.v [37]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/brpl_TB.v [38]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/brmi_TB.v [39]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/jal_TB.v [40]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/jr_TB.v [41]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/in_TB.v) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/out_TB.v [42]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/addi_TB.v [43]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/andi_TB.v [44]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/ori_TB.v [45]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/mfhi_TB.v) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/mflo_TB.v [46])
+)) [18] (c:/Users/jones/Documents/374_Labs/Lab3/ram.v [19] [20] [21]) (c:/Users/jones/Documents/374_Labs/Lab3/MAR.v) (c:/Users/jones/Documents/374_Labs/Lab3/MDR.v) (c:/Users/jones/Documents/374_Labs/Lab3/con_ff.v [22]) (c:/Users/jones/Documents/374_Labs/Lab3/inputPort.v) (c:/Users/jones/Documents/374_Labs/Lab3/outputPort.v)
 
-! Package Listings Error: File `memory_data/ram_init(.txt)' not found.
+! Package Listings Error: File `ram_init(.txt)' not found.
 
 Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: txt)
 
 Enter file name: 
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:348: Emergency stop.
+c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:199: Emergency stop.
 <read *> 
          
-l.348 ...lstinputlisting{memory_data/ram_init.txt}
-                                                  ^^M
+l.199         \lstinputlisting{ram_init.txt}
+                                            ^^M
 *** (cannot \read from terminal in nonstop modes)
 
  
 Here is how much of TeX's memory you used:
- 4702 strings out of 479023
- 68529 string characters out of 5863351
- 1045521 words of memory out of 5000000
- 22031 multiletter control sequences out of 15000+600000
- 411997 words of font info for 55 fonts, out of 8000000 for 9000
+ 4444 strings out of 479023
+ 61167 string characters out of 5863351
+ 1061521 words of memory out of 5000000
+ 21869 multiletter control sequences out of 15000+600000
+ 408783 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,9n,74p,1297b,1805s stack positions out of 5000i,500n,10000p,200000b,80000s
-c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:348:  ==> Fatal error occurred, no output PDF file produced!
+ 68i,9n,74p,670b,1808s stack positions out of 5000i,500n,10000p,200000b,80000s
+c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:199:  ==> Fatal error occurred, no output PDF file produced!
