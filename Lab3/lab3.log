@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.3)  12 APR 2021 20:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.3)  12 APR 2021 20:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -199,19 +199,19 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ]
 
-LaTeX Warning: Reference `ram_init' on page 3 undefined on input line 58.
+LaTeX Warning: Reference `ram_init' on page 3 undefined on input line 61.
 
 
-LaTeX Warning: Reference `ram_st_case_1' on page 3 undefined on input line 162.
+LaTeX Warning: Reference `ram_st_case_1' on page 3 undefined on input line 165.
 
 
-LaTeX Warning: Reference `ram_st_case_2' on page 3 undefined on input line 162.
+LaTeX Warning: Reference `ram_st_case_2' on page 3 undefined on input line 165.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 165.
+(Font)              <9> on input line 168.
 [3
 
 ] [4] (c:/Users/jones/Documents/374_Labs/Lab3/control_unit.v [5
@@ -232,9 +232,9 @@ Here is how much of TeX's memory you used:
  21938 multiletter control sequences out of 15000+600000
  410766 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,9n,74p,910b,1803s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,9n,74p,820b,1803s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on c:/Users/jones/Documents/374_Labs/Lab3/lab3.pdf (40 pages, 244499 bytes).
+Output written on c:/Users/jones/Documents/374_Labs/Lab3/lab3.pdf (40 pages, 244338 bytes).
 PDF statistics:
  192 PDF objects out of 1000 (max. 8388607)
  134 compressed objects within 2 object streams
