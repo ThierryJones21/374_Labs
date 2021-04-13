@@ -162,12 +162,6 @@
         \end{center}
     \end{figure}
     \\
-    \small{*Note that these instructions were tested before the rest, thus, the .hex file hadn't be completed. Thus, Appendix \ref{ram_st_case_1} and Appendix \ref{ram_st_case_2} have empty values in RAM where the OP Codes are for later tests.}
-
-    \subsection{Load Instructions}
-        Two load instructions were tested to ensure that the values are able to load from the RAM onto its appropriate register. The control sequences for \emph{ld R1,\$85}, \emph{ld R0, \$35(R1)}, \emph{ldi R1,\$85}, \emph{ldi R0, \$35(R1)} can be found in Appendices \ref{ld_case_1_sequence}, \ref{ld_case_2_sequence}, \ref{ldi_case_1_sequence}, and \ref{ldi_case_2_sequence} respectively. The value $85_{16}$ and $35_{16}$ was preloaded into the memory initialization file in slots $85_{16}$ and $35_{16}$ for these instructions respectively. The specific opcodes for these instructions can be found in Figure \ref{relevant_ram_init}, and the relevant address was loaded into the PC register. The value of $0_{16}$ was preloaded into register 1.
-       
-       
 
 \cleardoublepage
 
@@ -200,47 +194,8 @@
     \subsection{Output Port} \label{outputPort.v}
         \lstinputlisting{outputPort.v}
     
-\section{Control Sequences}
-    \subsection{st \$90, R1} \label{st_case_1_sequence}
-        \lstinputlisting{InstructionTestBenches/st_case_1_TB.v}
-    \subsection{st \$90(R1), R1} \label{st_case_2_sequence}
-        \lstinputlisting{InstructionTestBenches/st_case_2_TB.v}
-    \subsection{ld R1, \$85), R1} \label{ld_case_1_sequence}
-        \lstinputlisting{InstructionTestBenches/ld_case_1_TB.v}
-    \subsection{ld R0, \$35(R1)} \label{ld_case_2_sequence}
-        \lstinputlisting{InstructionTestBenches/ld_case_2_TB.v}
-    \subsection{ldi R1, \$85} \label{ldi_case_1_sequence}
-        \lstinputlisting{InstructionTestBenches/ldi_case_3_TB.v}
-    \subsection{ldi R0, \$35(R1)} \label{ldi_case_2_sequence}
-        \lstinputlisting{InstructionTestBenches/ldi_case_4_TB.v}
-    \subsection{brzr R2, 35} \label{brzr_sequence}
-        \lstinputlisting{InstructionTestBenches/brzr_TB.v}
-    \subsection{brnz R2, 35} \label{brnz_sequence}
-        \lstinputlisting{InstructionTestBenches/brnz_TB.v}
-    \subsection{brpl R2, 35} \label{brpl_sequence}
-        \lstinputlisting{InstructionTestBenches/brpl_TB.v}
-    \subsection{brmi R2, 35} \label{brmi_sequence}
-        \lstinputlisting{InstructionTestBenches/brmi_TB.v}
-    \subsection{jal R1} \label{jal_sequence}
-        \lstinputlisting{InstructionTestBenches/jal_TB.v}
-    \subsection{jr R1} \label{jr_sequence}
-        \lstinputlisting{InstructionTestBenches/jr_TB.v}
-    \subsection{in R1} \label{in_sequence}
-        \lstinputlisting{InstructionTestBenches/in_TB.v}
-    \subsection{out R1} \label{out_sequence}
-        \lstinputlisting{InstructionTestBenches/out_TB.v}
-    \subsection{addi R2, R1, -5} \label{addi_sequence}
-        \lstinputlisting{InstructionTestBenches/addi_TB.v}
-    \subsection{andi R2, R1 \$26} \label{andi_sequence}
-        \lstinputlisting{InstructionTestBenches/andi_TB.v}
-    \subsection{ori R2, R1 \$26} \label{ori_sequence}
-        \lstinputlisting{InstructionTestBenches/ori_TB.v}
-    \subsection{mfhi R2} \label{mfhi_sequence}
-        \lstinputlisting{InstructionTestBenches/mfhi_TB.v}
-    \subsection{mflo R2} \label{mflo_sequence}
-        \lstinputlisting{InstructionTestBenches/mflo_TB.v}
-
-    
-
+\section{Ram Contents}
+    \subsection{Ram Inital Contents} \label{ram_init}
+        \lstinputlisting{ram_init.txt}
 
 \end{document}

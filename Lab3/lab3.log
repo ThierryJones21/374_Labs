@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.3)  12 APR 2021 20:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.3)  12 APR 2021 20:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -186,58 +186,69 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 34.
  [1
 
-{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (c:/Users/jones/Documents/374_Labs/Lab3/lab3.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 2.
-)
+{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+No file lab3.toc.
 \tf@toc=\write3
 \openout3 = `lab3.toc'.
 
- [2
+[2
 
 ]
 
+LaTeX Warning: Reference `control_unit.v' on page 3 undefined on input line 50.
+
+
+LaTeX Warning: Reference `con_ff.v' on page 3 undefined on input line 54.
+
+
 LaTeX Warning: Reference `ram_init' on page 3 undefined on input line 61.
 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 64.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 64.
 
-LaTeX Warning: Reference `ram_st_case_1' on page 3 undefined on input line 165.
+Underfull \hbox (badness 10000) in paragraph at lines 58--165
 
-
-LaTeX Warning: Reference `ram_st_case_2' on page 3 undefined on input line 165.
+ []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 168.
 [3
 
-] [4] (c:/Users/jones/Documents/374_Labs/Lab3/control_unit.v [5
+]
+
+LaTeX Warning: Text page 4 contains only floats.
+
+[4] (c:/Users/jones/Documents/374_Labs/Lab3/control_unit.v [5
 
 ] [6] [7] [8] [9] [10] [11] [12]) (c:/Users/jones/Documents/374_Labs/Lab3/datapath.v [13] [14] [15]) (c:/Users/jones/Documents/374_Labs/Lab3/Bus.v [16]) (c:/Users/jones/Documents/374_Labs/Lab3/register_zero.v) (c:/Users/jones/Documents/374_Labs/Lab3/ALU.v [17]) (c:/Users/jones/Documents/374_Labs/Lab3/select_and_encode.v
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 30.
  (c:/texlive/2020/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)) [18] (c:/Users/jones/Documents/374_Labs/Lab3/ram.v [19] [20] [21]) (c:/Users/jones/Documents/374_Labs/Lab3/MAR.v) (c:/Users/jones/Documents/374_Labs/Lab3/MDR.v) (c:/Users/jones/Documents/374_Labs/Lab3/con_ff.v [22]) (c:/Users/jones/Documents/374_Labs/Lab3/inputPort.v) (c:/Users/jones/Documents/374_Labs/Lab3/outputPort.v) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/st_case_1_TB.v [23]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/st_case_2_TB.v [24] [25]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/ld_case_1_TB.v [26]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/ld_case_2_TB.v [27]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/ldi_case_3_TB.v [28]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/ldi_case_4_TB.v) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/brzr_TB.v [29]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/brnz_TB.v [30]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/brpl_TB.v [31]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/brmi_TB.v [32]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/jal_TB.v [33]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/jr_TB.v [34]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/in_TB.v [35]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/out_TB.v) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/addi_TB.v [36]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/andi_TB.v [37]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/ori_TB.v [38]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/mfhi_TB.v [39]) (c:/Users/jones/Documents/374_Labs/Lab3/InstructionTestBenches/mflo_TB.v) [40] (c:/Users/jones/Documents/374_Labs/Lab3/lab3.aux)
+)) [18] (c:/Users/jones/Documents/374_Labs/Lab3/ram.v [19] [20] [21]) (c:/Users/jones/Documents/374_Labs/Lab3/MAR.v) (c:/Users/jones/Documents/374_Labs/Lab3/MDR.v) (c:/Users/jones/Documents/374_Labs/Lab3/con_ff.v [22]) (c:/Users/jones/Documents/374_Labs/Lab3/inputPort.v) (c:/Users/jones/Documents/374_Labs/Lab3/outputPort.v)
 
-LaTeX Warning: There were undefined references.
+! Package Listings Error: File `ram_init(.txt)' not found.
 
- ) 
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: txt)
+
+Enter file name: 
+c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:199: Emergency stop.
+<read *> 
+         
+l.199         \lstinputlisting{ram_init.txt}
+                                            ^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
 Here is how much of TeX's memory you used:
- 4581 strings out of 479023
- 65671 string characters out of 5863351
+ 4444 strings out of 479023
+ 61167 string characters out of 5863351
  1061521 words of memory out of 5000000
- 21938 multiletter control sequences out of 15000+600000
- 410766 words of font info for 51 fonts, out of 8000000 for 9000
+ 21869 multiletter control sequences out of 15000+600000
+ 408783 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,9n,74p,820b,1803s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on c:/Users/jones/Documents/374_Labs/Lab3/lab3.pdf (40 pages, 244338 bytes).
-PDF statistics:
- 192 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 68i,9n,74p,670b,1808s stack positions out of 5000i,500n,10000p,200000b,80000s
+c:/Users/jones/Documents/374_Labs/Lab3/lab3.tex:199:  ==> Fatal error occurred, no output PDF file produced!
